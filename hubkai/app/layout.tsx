@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kai Shouri hub",
-  description: "Kai Shouri hub",
+  title: "Kai Shouri",
+  description: "Kai Shouri",
 };
 
 export default function RootLayout({

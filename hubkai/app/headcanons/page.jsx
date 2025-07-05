@@ -1,4 +1,4 @@
-import Accordition from "@/components/accordition/Accordition";
+import FileProcessor from "@/components/accordition/FileProcessor";
 
 function HeadcanonsPage() {
       return (
@@ -11,7 +11,7 @@ function HeadcanonsPage() {
           ...czyli Kai wytycza ciężką artylerię. Podjęłam się karkołomnego przedsięwzięcia, czyli wyciągnięcia moich headcanonów z mojej chaotycznej głowy i równie chaotycznych fików z ostatniego dziesięciolecia i zebrania ich w jednym miejscu. Nie pytajcie, jak się to udało.
         </p>
         <div className="items-center justify-center space-y-4 p-8 sm:flex sm:flex-wrap sm:space-x-4 rtl:space-x-reverse">
-         <Accordition />
+         <FileProcessor />
         </div>
       </div>
     </>

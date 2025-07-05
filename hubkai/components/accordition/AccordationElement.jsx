@@ -8,7 +8,7 @@ import {
 
 function AccordationElement({ topic, content }) {
   return (
-    <Disclosure className="p-2">
+    <Disclosure className="p-2 box-border">
       {({ open }) => (
         <div>
           <DisclosureButton
@@ -18,15 +18,16 @@ function AccordationElement({ topic, content }) {
             <span>{topic}</span>
           </DisclosureButton>
           <Transition
-            enter="transition duration-100 ease-out"
+            enter="transition duration-300 ease-out"
             enterFrom="transform scale-95 opacity-0"
             enterTo="transform scale-100 opacity-100"
-            leave="transition duration-100 ease-out"
+            leave="transition duration-300 ease-out"
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <DisclosurePanel className="px-4 pb-2 pt-4 text-sm text-gray-500 rounded-b-lg bg-nice-light-purple text-justify prose-sm">
-              <div dangerouslySetInnerHTML={{ __html: content }} />
+            <DisclosurePanel className="flex w-full max-w-none px-4 pb-2 pt-4 text-sm rounded-b-lg bg-nice-light-purple text-justify prose prose-sm prose-stone prose-p:text-purple-950
+            prose-headings:text-purple-950 prose-li:text-purple-950">
+              <div className="" dangerouslySetInnerHTML={{ __html: content }} />
             </DisclosurePanel>
           </Transition>
         </div>
