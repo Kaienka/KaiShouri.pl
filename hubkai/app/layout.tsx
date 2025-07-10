@@ -13,37 +13,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],});
-
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Kai Shouri",
-  description: "Kai Shouri",
+  description:
+    "Kai Shouri - strona domowa. Piję kawę i piszę fiki. Czasami w odwrotnej kolejności",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <div className="grid grid-cols-[250px_1fr] h-full w-full">
-          <div className="h-full w-full">
-            <Navigation />
-          </div>
-          <main className="h-full w-full overflow-auto bg-linen-cloud">
+        <div className="flex min-h-screen w-full">
+          <Navigation />
+          <main className="flex-1 overflow-auto bg-linen-cloud mt-16 sm:mt-0">
             {children}
           </main>
         </div>
       </body>
     </html>
-  );
+  )
 }
+

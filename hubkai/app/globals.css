@@ -17,11 +17,11 @@
   --color-nice-light-purple: #f1ecf9;
   --color-second-plum: #744070;
   --color-second-light: #f9f4ec;
-  --color-third-plum:#795295;
-  --color-fourth-plum: #C2ACD1;
+  --color-third-plum: #795295;
+  --color-fourth-plum: #c2acd1;
 }
 
- /* ładny brąz: #5e4054 */
+/* ładny brąz: #5e4054 */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -31,7 +31,7 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--color-linen-cloud);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
