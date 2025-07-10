@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BottomNavbar from "@/components/navigation/BottomNavbar";
 import MainNavbar from "@/components/navigation/MainNavbar";
 import Header from "@/components/navigation/Header";
@@ -8,6 +8,14 @@ import HamburgerBtn from "@/components/navigation/HamburgerBtn";
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) return null;
 
   return (
     <>
@@ -21,7 +29,7 @@ function Navigation() {
       <div
         className={`
     fixed top-0 left-0 w-[250px] bg-plume-wine shadow-xl flex flex-col justify-between
-    transform transition-transform duration-300 ease-in-out
+    transform transition-transform duration-300 ease-in-out 
     sm:relative sm:translate-x-0 sm:w-[250px]
     ${isOpen ? "translate-x-0" : "-translate-x-full"}
     z-40
