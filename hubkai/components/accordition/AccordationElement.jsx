@@ -8,15 +8,17 @@ import {
 
 function AccordationElement({ topic, content }) {
   return (
-    <Disclosure className="p-2 box-border">
+    <Disclosure as="div" className="w-12/12 sm:w-8/12 md:w-11/12 lg:w-8/12">
       {({ open }) => (
-        <div>
+        <>
           <DisclosureButton
-            className={`flex w-full justify-between bg-plume-wine px-4 py-2 text-left text-sm font-medium text-linen-cloud 
-           ${open ? "rounded-t-lg" : "rounded-lg"}`}
+            className={`w-full justify-between  border-2 border-plume-wine px-4 py-2 text-left text-sm font-medium  flex transition-all duration-300
+              ${open ? "rounded-t-lg" : "rounded-lg"}
+              ${open ? "bg-plume-wine text-linen-cloud" : "text-plume-wine"}`}
           >
             <span>{topic}</span>
           </DisclosureButton>
+
           <Transition
             enter="transition duration-300 ease-out"
             enterFrom="transform scale-95 opacity-0"
@@ -25,12 +27,14 @@ function AccordationElement({ topic, content }) {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <DisclosurePanel className="flex w-full max-w-none px-4 pb-2 pt-4 text-sm rounded-b-lg bg-nice-light-purple text-justify prose prose-sm prose-stone prose-p:text-purple-950
-            prose-headings:text-purple-950 prose-li:text-purple-950">
-              <div className="" dangerouslySetInnerHTML={{ __html: content }} />
+            <DisclosurePanel
+              className="w-full px-4 pb-2 pt-4 max-w-none text-sm rounded-b-lg text-justify prose prose-sm prose-p:text-purple-950
+                prose-headings:text-purple-950 prose-li:text-purple-950 prose-p:font-inter prose-headings:font-inter prose-li:font-inter"
+            >
+              <div dangerouslySetInnerHTML={{ __html: content }} />
             </DisclosurePanel>
           </Transition>
-        </div>
+        </>
       )}
     </Disclosure>
   );
