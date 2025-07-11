@@ -1,3 +1,5 @@
+// import Image from "next/image";
+
 export default function Home() {
   return (
     <div
@@ -5,7 +7,12 @@ export default function Home() {
      min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] "
     >
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-vw text-center text-xl overflow-clip">
-          <p>img</p>
+          <div>
+            {/* <Image
+            
+            /> */}
+
+          </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
           volutpat eros sed posuere dapibus. Vestibulum venenatis et mi sit amet
