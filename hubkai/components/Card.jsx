@@ -21,6 +21,8 @@ function Card({ title, description, finished, svg }) {
     document.body.removeChild(link);
   }
 
+  const link = '/read/' + title.replace(' ', '')
+
   return (
     <div className=" shadow-plume-wine shadow-sm flex flex-col justify-between bg-third-plum border border-transparent rounded-lg  min-w-[200px] max-w-[350px]">
       <h1 className="bg-plume-wine text-linen-cloud pb-2 pt-2 border-transparent rounded-t-lg">
@@ -41,7 +43,7 @@ function Card({ title, description, finished, svg }) {
           type="button"
           className="cursor-pointer bg-plume-wine transition-colors duration-300 hover:bg-yellow-400 text-linen-cloud hover:text-plume-wine p-2 m-2 text-xs border-transparent rounded shadow"
         >
-          <Link href={`/${title}`}>czytaj online</Link>
+          <Link href={link}>czytaj online</Link>
         </motion.button>
         {finished && (
           <motion.button

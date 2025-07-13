@@ -1,68 +1,134 @@
-// import Image from "next/image";
+import Image from "next/image";
+import avatar from "@/public/kai.jpg";
+import Link from "next/link";
+import * as motion from "motion/react-client";
+const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
+const whileHoverAuthor = {
+  rotate: "-2deg",
+  scale: 1.1,
+  transition: { duration: 0.2 },
+};
 
 export default function Home() {
   return (
     <div
       className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center
-     min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] "
+     min-h-screen p-8 pb-20 gap-16  font-[family-name:var(--font-geist-sans)] "
     >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-vw text-center text-xl overflow-clip">
-          <div>
-            {/* <Image
-            
-            /> */}
-
+      <main
+        className="flex flex-col gap-[1rem] row-start-2 justify-center items-center w-vw text-center text-xl overflow-clip
+      w-12/12 sm:w-8/12 md:w-11/12 lg:w-9/12"
+      >
+        <h1 className="text-plume-wine font-inter text-2xl font-bold">
+          Na początku byli Lech, Czech i Rus... oraz ich przyrodni brat, Deutschland.
+        </h1>
+        <section className="flex flex-col w-full sm:text-base p-4 border rounded text-plume-wine font-mono">
+          <blockquote>
+            &quot;Czy można wiedzieć, o czym będzie pisana powieść? Czy taka
+            uprzednia wiedza nie kwestionuje samej powieści? Wiedzieć, co się
+            chce powiedzieć - to czyni powieść zbędną, redukuje ją do roli
+            narzędzia do opowiedzenia tego, co już wcześniej znane i
+            przemyślane. Dowiadywać się za pomocą pisania powieści, co chce się
+            powiedzieć, wędrować powieścią jak po drodze, to dopiero wyzwanie.
+          </blockquote>
+          <p className="text-right p-2">
+            Witt Szostak &ndash; &bdquo;Poniewczasie&rdquo;
+          </p>
+        </section>
+        <section className="bg-third-plum p-6 m-2 text-linen-cloud rounded font-mono w-full">
+          <div className="flex justify-center">
+            <motion.h1
+              whileHover={whileHoverAuthor}
+              className="font-mono text-linen-cloud font-bold 
+          uppercase text-xl bg-plume-wine p-2 rounded w-3/6 md:w-2/6 mb-2"
+            >
+              Kai Shouri
+            </motion.h1>
           </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-          volutpat eros sed posuere dapibus. Vestibulum venenatis et mi sit amet
-          faucibus. Pellentesque aliquet dapibus dui, quis porttitor urna
-          imperdiet id. Class aptent taciti sociosqu ad litora torquent per
-          conubia nostra, per inceptos himenaeos. Nam sed ligula luctus,
-          vulputate lacus ut, congue tellus. Ut velit massa, vestibulum in urna
-          non, molestie hendrerit tortor. Aenean eget commodo libero. Proin
-          tincidunt, nisi nec feugiat semper, metus neque mollis urna, at cursus
-          erat est vel sem. Nulla id eros egestas, auctor magna eget, lacinia
-          ex. Suspendisse sit amet tempus augue. Pellentesque sagittis mi
-          elementum lectus blandit, a congue arcu cursus. Aliquam porttitor
-          nulla in fringilla posuere. In posuere cursus dictum. Vestibulum eu
-          nibh et nunc vehicula imperdiet id nec lacus. Sed sed urna metus.
-          Maecenas venenatis, augue at fringilla cursus, sem ipsum pretium leo,
-          vel efficitur magna felis sit amet quam. Sed pulvinar scelerisque
-          orci, non rutrum turpis tristique eleifend. Fusce ultricies eleifend
-          neque luctus elementum. Duis vel lectus et metus tristique aliquet.
-          Nam aliquet ipsum et aliquet iaculis. Aenean eu sagittis quam, nec
-          scelerisque libero. Quisque posuere tristique vulputate. Vivamus neque
-          arcu, bibendum a lacinia in, venenatis eget ipsum. In vulputate mi
-          sapien, a malesuada nulla cursus vel. Suspendisse potenti. Aenean sit
-          amet erat dapibus, sodales odio in, dapibus ipsum. Morbi vulputate
-          lobortis pretium. Sed tincidunt in purus quis tempor. Donec tempus,
-          neque et fermentum consectetur, felis enim laoreet diam, nec varius
-          felis dolor ac ligula. Ut volutpat ligula id tortor tincidunt, quis
-          ullamcorper tortor tempor. Aenean in condimentum justo. Etiam
-          vestibulum ex eget magna tempus venenatis. Proin ultrices vehicula
-          pellentesque. Ut dapibus metus eu ipsum bibendum ultricies. Sed quis
-          luctus tellus, euismod dignissim erat. Morbi ultrices leo vel
-          tristique viverra. In hac habitasse platea dictumst. In mattis nulla
-          sit amet enim lobortis, dignissim sollicitudin massa rhoncus. Cras id
-          ullamcorper sapien. Phasellus tristique sagittis turpis et rutrum.
-          Cras pellentesque suscipit elit et pharetra. Sed nec cursus enim.
-          Curabitur vel sagittis tortor. Pellentesque non ex nibh. Vivamus
-          semper quam sapien, vel feugiat sem congue sed. Sed imperdiet
-          tristique scelerisque. Pellentesque nibh eros, euismod vitae ipsum
-          vel, interdum facilisis purus. In a quam id tellus elementum eleifend.
-          Nunc laoreet sollicitudin mauris aliquet aliquet. Nullam dapibus orci
-          imperdiet nulla dictum tincidunt. Proin convallis scelerisque
-          sagittis. Integer feugiat tincidunt enim eget placerat. Morbi sed
-          tortor ut elit porttitor ultrices. Duis erat sapien, volutpat eget
-          venenatis volutpat, euismod id turpis. Ut nec ornare tortor. Nam
-          faucibus molestie nunc, in pharetra diam blandit vel. Donec bibendum
-          consequat elit nec pulvinar. Nulla a lectus et sem ullamcorper
-          vulputate in ut felis. Aliquam condimentum lorem ut urna ornare, vel
-          auctor mauris vulputate.
-        </p>
-        </main>
-        
+          <div className="flex lg:flex-row flex-col items-center justify-center">
+            <Image
+              src={avatar}
+              alt="Kai Shouri - avatar"
+              className="rounded-md"
+              style={{ objectFit: "contain" }}
+            />
+            <p className="text-base font-mono whitespace-pre-line">
+              Piszę fanfiki, nałogowo. Kawę też piję nałogowo. Non-stop obracam
+              w głowie bandę krajów z Hetalii, mam więcej pomysłów na AU niż
+              moje palce są w stanie napisać, a w fandomie stać będę aż do
+              upadku cywilizacji, bo Feliks, Taurys, Gilbert i reszta
+              zamieszkali mi w głowie na pobyt stały (rent free, pomijając
+              angsty) i nie zamierzam ich stamtąd wypuścić. Pantserka, entuzjastka pisania bez planu i szaleńczego łączenia wątków, introwertyczka, chodzący chaos kontrolowany przez perfekcjonizm.
+            </p>
+          </div>
+        </section>
+        <section className="text-plume-wine flex flex-col lg:flex-row w-full justify-between">
+          <div className="bg-violet-200 p-6 lg:mr-2 rounded flex-1 mb-4">
+            <div className="flex justify-center items-center mb-4">
+              <svg
+                width="30px"
+                height="30px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2.25 6C2.25 5.58579 2.58579 5.25 3 5.25H21C21.4142 5.25 21.75 5.58579 21.75 6C21.75 6.41421 21.4142 6.75 21 6.75H3C2.58579 6.75 2.25 6.41421 2.25 6ZM2.25 10C2.25 9.58579 2.58579 9.25 3 9.25H21C21.4142 9.25 21.75 9.58579 21.75 10C21.75 10.4142 21.4142 10.75 21 10.75H3C2.58579 10.75 2.25 10.4142 2.25 10ZM20.095 12.3927C21.1303 12.766 21.75 13.7847 21.75 15.0361C21.75 15.9337 21.2258 16.7455 20.6944 17.3575C20.142 17.9937 19.4624 18.5488 18.9242 18.9449C18.8995 18.963 18.8746 18.9815 18.8495 19.0001C18.4897 19.267 18.0811 19.5701 17.5 19.5701C16.9189 19.5701 16.5103 19.267 16.1505 19.0001C16.1254 18.9815 16.1005 18.963 16.0758 18.9449C15.5376 18.5488 14.858 17.9937 14.3056 17.3575C13.7742 16.7455 13.25 15.9337 13.25 15.0361C13.25 13.7847 13.8697 12.766 14.905 12.3927C15.7404 12.0915 16.6754 12.2721 17.5 12.8537C18.3246 12.2721 19.2596 12.0915 20.095 12.3927ZM19.5862 13.8038C19.2492 13.6823 18.6667 13.7332 18.0263 14.364C17.7343 14.6515 17.2657 14.6515 16.9737 14.364C16.3333 13.7332 15.7508 13.6823 15.4138 13.8038C15.0929 13.9195 14.75 14.2796 14.75 15.0361C14.75 15.3733 14.9683 15.8329 15.4382 16.374C15.8871 16.891 16.4677 17.3709 16.9649 17.7367C17.1982 17.9084 17.3121 17.99 17.4032 18.0387C17.4621 18.0702 17.4787 18.0701 17.4984 18.0701L17.5 18.0701L17.5016 18.0701C17.5213 18.0701 17.5379 18.0702 17.5968 18.0387C17.688 17.99 17.8019 17.9084 18.0351 17.7367C18.5323 17.3709 19.1129 16.891 19.5618 16.374C20.0317 15.8329 20.25 15.3733 20.25 15.0361C20.25 14.2796 19.9071 13.9195 19.5862 13.8038ZM2.25 14C2.25 13.5858 2.58579 13.25 3 13.25H10C10.4142 13.25 10.75 13.5858 10.75 14C10.75 14.4142 10.4142 14.75 10 14.75H3C2.58579 14.75 2.25 14.4142 2.25 14ZM2.25 18C2.25 17.5858 2.58579 17.25 3 17.25H10C10.4142 17.25 10.75 17.5858 10.75 18C10.75 18.4142 10.4142 18.75 10 18.75H3C2.58579 18.75 2.25 18.4142 2.25 18Z"
+                    fill="#5e4074"
+                  ></path>
+                </g>
+              </svg>
+              <h2 className="lg:ml-2 font-mono text-base font-bold">
+                co tutaj znajdziecie?
+              </h2>
+            </div>
+            <p>
+              <ul className="text-sm font-mono list-none">
+                <li className="mb-2">
+                  <Link href="/read">
+                    <motion.p whileHover={whileHover}>
+                      moje fanfiki - do przeczytania i ściągnięcia
+                    </motion.p>
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/headcanons">
+                    <motion.p whileHover={whileHover}>
+                      {" "}
+                      headcanony o postaciach
+                    </motion.p>
+                  </Link>
+                </li>
+
+                <li className="mb-2">
+                  <Link href="/music">
+                    <motion.p whileHover={whileHover}>
+                      playlisty do moich fanfików
+                    </motion.p>
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <motion.p whileHover={whileHover}>
+                    dodatki - na przykład mapy
+                  </motion.p>
+                </li>
+              </ul>
+            </p>
+          </div>
+          <div className="bg-fourth-plum p-6 lg:ml-2 rounded flex-1 mb-4">
+            o mnie?
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

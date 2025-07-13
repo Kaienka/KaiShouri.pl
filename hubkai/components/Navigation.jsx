@@ -4,6 +4,7 @@ import BottomNavbar from "@/components/navigation/BottomNavbar";
 import MainNavbar from "@/components/navigation/MainNavbar";
 import Header from "@/components/navigation/Header";
 import HamburgerBtn from "@/components/navigation/HamburgerBtn";
+import Link from "next/link";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,9 @@ function Navigation() {
       {!isOpen && (
         <header className="sm:hidden fixed top-0 left-0 w-full z-50 bg-plume-wine shadow-md flex items-center px-4">
           <HamburgerBtn onClick={toggleMenu} isOpen={isOpen} />
+          <Link href="/">
           <p className="font-mono font-bold text-linen-cloud">Kai Shouri</p>
+          </Link>
         </header>
       )}
 

@@ -28,7 +28,6 @@ const filesData = fileNames.map((fileName) => {
 export default function Accordition() {
   return (
     <div className="w-full">
-      {/* <div className="mx-auto w-full rounded-2xl p-2"> */}
       <div className="mx-auto w-full rounded-2xl p-2 flex flex-col items-center gap-2">
         {filesData.map(({ title, content }) => (
           <AccordationElement key={title} topic={title} content={content} />
