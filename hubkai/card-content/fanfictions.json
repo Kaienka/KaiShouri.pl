@@ -2,6 +2,7 @@
   "fanfictions": [
     {
       "title": "Paragraf 175",
+      "titleEscaped": "paragraf175",
       "description": "Przegrywali, a jego brat leżał ciężko chory. Schwytali Łukasiewicza, ale drań był zbyt uparty, by się ugiąć tak, by można było chełpić się złapaniem. Gdy Ludwig odwiedził Feliksa w celi i dowiedział się, że Gilbert jest zagrożony przez Paragraf 175, podjął najtrudniejszą decyzję życia. Nie żałował. Kochając tylko brata, był gotów zrobić wszystko. Nawet zdradzić Rzeszę.",
       "cover": "/paragraf.jpg",
       "finished": true,
@@ -10,6 +11,7 @@
     },
     {
       "title": "Polowanie na łabędzia",
+      "titleEscaped": "polowanienalabedzia",
       "description": "Historia alternatywna, rok 2019. Rzesza wygrała. Personifikacje podbitych narodów wyczekują już śmierci, rozsiane po imperium pracują, by wypełnić jakoś swoje dni i mieć na chleb. Litwa pracuje jako nauczyciel muzyki, nosi żałobę i zastanawia się, kiedy nadejdzie koniec. Tymczasem w ogólnoniemieckiej sieci, Netzwerku, znikąd pojawia się niejaki Schwäne i zaczyna wysyłać wiadomości, a Litwa nabiera podejrzeń co do jego prawdziwej tożsamości...",
       "cover": "/polowanie.jpg",
       "finished": false,
@@ -18,6 +20,7 @@
     },
     {
       "title": "Latawiec",
+      "titleEscaped": "latawiec",
       "description": "Z każdą kolejną porażką Feliks utwierdza się w przekonaniu, że matczyne życzenie pomyślności, zaklęte w jego imieniu, działa całkiem na odwrót. Gdy wszystko idzie źle, mężczyzna powraca do rodzinnego miasteczka, chcąc odzyskać spokój ducha. Zamiast niego znajduje wystraszonego chłopca kochającego latawce, jego starszego brata o dość trudnym charakterze i niepokojące plakaty na niedawno odbudowanych kamienicach... Human AU.",
       "cover": "/latawiec.jpg",
       "finished": false,
@@ -26,6 +29,7 @@
     },
     {
       "title": "Bóle fandomowe",
+      "titleEscaped": "bolefandomowe",
       "description": "Garść hetaliowych drabbli, okruszków, miniatur i niepoprawnych pomysłów, just for your entertainment. Komedia, oklepane motywy, absurd bez większego sensu, pisane z doskoku one-shoty. Zbiorek wszystkiego, co jest zbyt małe na własną opowieść i miejsce na ewentualne eksperymenty z formą. Branie czegokolwiek tutaj na poważnie - niezalecane. Shipy przeróżne, głównie LietPol i PrusPol, ale są też bezparingowce.",
       "cover": "/bóle.jpg",
       "finished": false,
@@ -34,6 +38,7 @@
     },
     {
       "title": "Pogoń za tobą",
+      "titleEscaped": "pogonzatoba",
       "description": "Jedźmy, nikt nie woła. Zbiór krótkich one-shotów o tematyce lietpolowej. Mnogość gatunków: fluff, angst, komedia, erotyki... wszystko z tym shipem w moim słodko-gorzkim wydaniu.",
       "cover": "/pogoń.jpg",
       "finished": false,
@@ -43,6 +48,7 @@
     },
     {
       "title": "Siódemka",
+      "titleEscaped": "siodemka",
       "description": "One-shoty pruspolowe: PrusPol Week 2020, PolPru Week 2023 i PolPru Week 2024 oraz inne! Feliks i Gilbert są... po prostu sobą. Mnogość gatunków, mnogość settingów, po prostu zbiorek.",
       "cover": "/siódemka.jpg",
       "finished": false,

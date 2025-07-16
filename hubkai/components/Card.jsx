@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
 
-function Card({ title, description, finished, svg }) {
+function Card({ title, description, finished, svg, titleEscaped }) {
   function getFontSize(description) {
     console.log("description length:", description.length);
     if (description.length < 200) return "text-lg";
@@ -14,14 +14,14 @@ function Card({ title, description, finished, svg }) {
 
   function downloadPdf() {
     const link = document.createElement("a");
-    link.href = `/pdfs/${title}.pdf`;
+    link.href = `/pdfs/${titleEscaped}.pdf`;
     link.download = title;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   }
 
-  const link = '/read/' + title.replace(' ', '')
+  const link = '/read/' + titleEscaped
 
   return (
     <div className=" shadow-plume-wine shadow-sm flex flex-col justify-between bg-third-plum border border-transparent rounded-lg  min-w-[200px] max-w-[350px]">
@@ -43,7 +43,7 @@ function Card({ title, description, finished, svg }) {
           type="button"
           className="cursor-pointer bg-plume-wine transition-colors duration-300 hover:bg-yellow-400 text-linen-cloud hover:text-plume-wine p-2 m-2 text-xs border-transparent rounded shadow"
         >
-          <Link href={link}>czytaj online</Link>
+          <Link href={link}>więcej</Link>
         </motion.button>
         {finished && (
           <motion.button

@@ -15,9 +15,8 @@ function NavigationLink({ title, desc, href, children }) {
         tabIndex="0"
         className={`bg-plume-wine flex items-center w-full p-3 rounded-lg text-start
   leading-tight transition-all duration-200 hover:bg-violet-200 hover:text-plume-wine
-  focus:text-plume-wine ${
-    pathName === href ? "outline-none text-plume-wine bg-violet-200" : ""
-  }
+  focus:text-plume-wine ${pathName === href ? "outline-none text-plume-wine bg-violet-200" : ""
+          }
 `}
       >
         <div className="grid place-items-center mr-4">{children}</div>

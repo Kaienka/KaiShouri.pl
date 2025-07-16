@@ -1,13 +1,23 @@
 import SpotifyFrame from "@/components/SpotifyFrame";
-import Announcement from "@/components/Announcement"
+import Announcement from "@/components/Announcement";
+import MusicSvg from "@/components/svg/MusicSvg";
 
 function MusicPage() {
   return (
     <>
       <div className="w-full h-full p-4 font-mono text-center bg-linen-cloud  rounded-lg sm:p-8 flex flex-col">
-        <h5 className="mb-2 text-3xl font-bold text-plume-wine dark:text-white">
-          🎵 Posłuchaj ze mną 🎵
-        </h5>
+        <header className="flex flex-row justify-center mb-2 items-center">
+          <div className="mr-2">
+            <MusicSvg/>
+          </div>
+          <h5 className=" text-3xl font-bold text-plume-wine">
+            Posłuchaj ze mną
+          </h5>
+          <div className="ml-2">
+            <MusicSvg/>
+          </div>
+        </header>
+
         <p className="mb-5  text-base text-plume-wine sm:text-lg ">
           Moje playlisty stworzone dla fanfików, shipów i postaci.
         </p>

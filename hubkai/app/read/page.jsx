@@ -10,14 +10,10 @@ function ReadPage() {
   const data = JSON.parse(content);
 
   const list = data.fanfictions;
-
+  console.log("List of fanfictions:", list);
   return (
     <>
       <div className="w-full h-full p-4 font-mono text-center bg-linen-cloud  rounded-lg sm:p-8">
-        <h5 className="mb-2 text-3xl font-bold text-plume-wine dark:text-white">
-          Moje fiki
-        </h5>
-        <p className="mb-5 text-base text-gray-800 sm:text-lg ">lorem ipsum</p>
         <div className="gap-4 flex flex-wrap justify-center p-8 sm:flex items-stretch">
           {list.map((item) => (
             <Card
@@ -25,6 +21,7 @@ function ReadPage() {
               title={item.title}
               description={item.description}
               finished={item.finished}
+              titleEscaped={item.titleEscaped}
               svg={item.svg}
             />
           ))}

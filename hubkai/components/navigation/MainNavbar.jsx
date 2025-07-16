@@ -105,6 +105,7 @@ function MainNavbar() {
         href="https://kaishouri.github.io/"
         title="Mapa imperium"
         desc='Interaktywna mapa kraju z "Polowania na łabędzia"'
+        target="_blank"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
