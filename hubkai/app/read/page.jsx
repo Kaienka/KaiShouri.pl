@@ -10,7 +10,6 @@ function ReadPage() {
   const data = JSON.parse(content);
 
   const list = data.fanfictions;
-  console.log("List of fanfictions:", list);
   return (
     <>
       <div className="w-full h-full p-4 font-mono text-center bg-linen-cloud  rounded-lg sm:p-8">

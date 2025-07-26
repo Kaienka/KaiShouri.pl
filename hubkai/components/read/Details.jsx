@@ -2,13 +2,16 @@ import Ao3Svg from "@/components/svg/Ao3Svg";
 import WattpadSvg from "@/components/svg/WattpadSvg";
 import FFSvg from "@/components/svg/FFSvg";
 import * as motion from "motion/react-client";
+import Link from "next/link";
+
 const whileHover = { rotate: 3, transition: { duration: 0.2 } };
 
-function Details({ fic }) {
+async function Details({ fic }) {
   return (
     <>
       <div className=" flex flex-col items-center w-4/6 text-plume-wine">
-        <h5 className="text-3xl font-bold mb-4">{fic.title}</h5>
+        <h5 className="text-3xl font-bold">{fic.title}</h5>
+        <h6 className="mt-1 text-sm">{fic.date}</h6>
         <section className="flex flex-row m-2">
           {fic.links?.ao3 && (
             <a href={fic.links.ao3} target="_blank" className="w-fit">
@@ -19,7 +22,7 @@ function Details({ fic }) {
                 className="flex items-center p-3 rounded-lg text-start leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine"
               >
                 <div className="grid place-items-center">
-                  <Ao3Svg/>
+                  <Ao3Svg />
                 </div>
               </motion.div>
             </a>
@@ -53,8 +56,17 @@ function Details({ fic }) {
             </a>
           )}
         </section>
-        <p className="mb-5  text-base  sm:text-lg ">{fic.description}</p>
-        <p>{fic.ship}</p>
+        <p className="mb-5 text-base  sm:text-lg ">{fic.description}</p>
+        <p className="p-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm">{fic.ship}</p>
+        <section className="mt-5 p-4 flex flex-col">
+          {fic.chapters.map((chapter, index) =>
+            <Link
+             href={`/read/${fic.titleEscaped}/${index + 1}`} 
+             key={chapter}
+             className="p-2"
+             >{chapter}</Link>)
+          }
+        </section>
       </div>
     </>
   );

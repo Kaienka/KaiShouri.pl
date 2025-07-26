@@ -6,7 +6,6 @@ const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
 
 function Card({ title, description, finished, svg, titleEscaped }) {
   function getFontSize(description) {
-    console.log("description length:", description.length);
     if (description.length < 200) return "text-lg";
     if (description.length < 300) return "text-base";
     return "text-sm";
@@ -43,7 +42,7 @@ function Card({ title, description, finished, svg, titleEscaped }) {
           type="button"
           className="cursor-pointer bg-plume-wine transition-colors duration-300 hover:bg-yellow-400 text-linen-cloud hover:text-plume-wine p-2 m-2 text-xs border-transparent rounded shadow"
         >
-          <Link href={link}>więcej</Link>
+          <Link href={link}>czytaj</Link>
         </motion.button>
         {finished && (
           <motion.button
