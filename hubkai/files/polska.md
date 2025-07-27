@@ -21,6 +21,3 @@ A jesli chodzi o Gilberta... jego omówimy w osobnej sekcji. ;)
 
 #### Litwa
 Po długiej rozłące w czasie zaborów, gdy widywali się jedynie przelotem, pełnym konfliktów dwudziestoleciu i ponurych czasów komunizmu, od lat 90-tych XX wieku odbudowują przyjacielską relację. 
-
-#### Prusy
-Polska zrozumiał już, że się Prusaka nie pozbędzie i zaakceptował jego obecność. Gilbert kursuje regularnie na trasie Berlin-Malbork, ma stałe miejsce obok kierowcy Polskiego Busa, 

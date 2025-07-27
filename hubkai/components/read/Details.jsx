@@ -56,15 +56,18 @@ async function Details({ fic }) {
             </a>
           )}
         </section>
-        <p className="mb-5 text-base  sm:text-lg ">{fic.description}</p>
-        <p className="p-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm">{fic.ship}</p>
+        <section className="flex flex-row mb-5">
+          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm ">{fic.status}</p>
+          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm">{fic.ship}</p>
+        </section>
+        <p className="mb-5 text-base sm:text-lg ">{fic.description}</p>
         <section className="mt-5 p-4 flex flex-col">
           {fic.chapters.map((chapter, index) =>
             <Link
-             href={`/read/${fic.titleEscaped}/${index + 1}`} 
-             key={chapter}
-             className="p-2"
-             >{chapter}</Link>)
+              href={`/read/${fic.titleEscaped}/${index + 1}`}
+              key={chapter}
+              className="p-2"
+            >{chapter}</Link>)
           }
         </section>
       </div>
