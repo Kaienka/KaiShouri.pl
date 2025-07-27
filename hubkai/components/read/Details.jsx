@@ -62,7 +62,7 @@ async function Details({ fic }) {
         </section>
         <p className="mb-5 text-base sm:text-lg ">{fic.description}</p>
         <section className="mt-5 p-4 flex flex-col">
-          {fic.chapters.map((chapter, index) =>
+          {fic.chapters && fic.chapters.map((chapter, index) =>
             <Link
               href={`/read/${fic.titleEscaped}/${index + 1}`}
               key={chapter}
