@@ -35,14 +35,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <div className="flex h-screen w-full">
-          <Navigation />
-          <main className="flex-1 overflow-auto bg-linen-cloud mt-16 sm:mt-0">
-            {children}
-          </main>
-        </div>
+          <div className="flex h-screen w-full">
+            <Navigation />
+            <main className="flex-1 overflow-auto bg-linen-cloud mt-16 sm:mt-0">
+              {children}
+            </main>
+          </div>
       </body>
     </html>
-  )
+  );
 }
-

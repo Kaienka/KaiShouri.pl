@@ -2,8 +2,10 @@
 import dynamic from 'next/dynamic';
 
 const ChapterContent = dynamic(() => import('@/components/read/ChapterContent'), {
-  ssr: false, // wyłącza server-side rendering oraz prerender
+  ssr: false,
 });
+
+
 type Props = {
     fileContent: string,
     index: number,

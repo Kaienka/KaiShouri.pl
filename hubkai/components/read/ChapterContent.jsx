@@ -5,7 +5,24 @@ import ThemeChanger from "@/components/read/ThemeChanger"
 
 import { useState, useEffect } from "react";
 
-function ChapterContent({ fileContent, index, fic, chapterAmount }) {
+
+function getCookie(name) {
+    if (typeof window === 'undefined') return null
+    const matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ))
+    return matches ? decodeURIComponent(matches[1]) : null
+}
+
+function setCookie(name, value, days = 365) {
+    if (typeof window === 'undefined') return
+    const expires = new Date()
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000)
+    document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/`
+}
+
+
+function ChapterContent({ fileContent, index, fic, chapterAmount, initialTheme = 'light', initialFontSize = 1 }) {
     const styledContent = `
   <style>
     p { margin:0; padding:0.5rem 0;}
@@ -14,13 +31,14 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
 ` + fileContent;
 
     const [fontSize, setFontSize] = useState(() => {
-            const fontSize = localStorage.getItem('fontSize')
-            return fontSize ? JSON.parse(fontSize) : 1
-        })
+        const cookieFontSize = getCookie('fontSize')
+        return cookieFontSize ? parseFloat(cookieFontSize) : 1
+    })
+
     const [theme, setTheme] = useState(() => {
-            const theme = localStorage.getItem('theme')
-            return theme ? JSON.parse(theme) : 'light'
-        })
+        const cookieTheme = getCookie('theme')
+        return cookieTheme === 'light' || cookieTheme === 'dark' ? cookieTheme : 'light'
+    })
 
     const fontSizeStyle = {
         fontSize: fontSize + 'rem',
@@ -41,18 +59,26 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
     }
 
     useEffect(() => {
-        localStorage.setItem("theme", JSON.stringify(theme))
-    }, [theme])
+        setCookie('fontSize', fontSize.toString())
+    }, [fontSize])
 
     useEffect(() => {
-        localStorage.setItem("fontSize", JSON.stringify(fontSize))
-    }, [fontSize])
+        setCookie('theme', theme)
+    }, [theme])
 
     let themeStyles = theme === 'light' ? 'text-dark-plume' : 'bg-dark-plume text-linen-cloud'
 
     return <main className={`flex flex-col items-center ${themeStyles}`}>
-        <ThemeChanger onSwitch={switchTheme} theme={theme} />
-        <FontSizeChanger onDecrease={decreaseSize} onIncrease={increaseSize} theme={theme} />
+        <section className="flex flex-row w-full">
+            <section className="flex flex-row w-[50%] justify-start">
+                <FontSizeChanger  onDecrease={decreaseSize} onIncrease={increaseSize} theme={theme} />
+
+            </section>
+            <section className="flex flex-row w-[50%] justify-end">
+                <ThemeChanger onSwitch={switchTheme} theme={theme} />
+            </section>
+
+        </section>
         <div className="m-4 p-4 w-8/12 font-inter flex flex-col items-center"
             style={fontSizeStyle}
             dangerouslySetInnerHTML={{ __html: styledContent }} />
