@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import { ThemeProvider } from "next-themes";
+import ThemeChanger from "@/components/read/ThemeChanger";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,19 +31,25 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pl" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
+        <ThemeProvider
+        >
           <div className="flex h-screen w-full">
             <Navigation />
-            <main className="flex-1 overflow-auto bg-linen-cloud mt-16 sm:mt-0">
+            <main className="flex-1 overflow-auto mt-16 sm:mt-0">
+              <section className="flex flex-row justify-end">
+              <ThemeChanger  />
+              </section>
               {children}
             </main>
           </div>
+        </ThemeProvider>
       </body>
     </html>
   );

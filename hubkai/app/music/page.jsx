@@ -5,20 +5,20 @@ import MusicSvg from "@/components/svg/MusicSvg";
 function MusicPage() {
   return (
     <>
-      <div className="w-full h-full p-4 font-mono text-center bg-linen-cloud  rounded-lg sm:p-8 flex flex-col">
+      <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8 flex flex-col">
         <header className="flex flex-row justify-center mb-2 items-center">
-          <div className="mr-2">
+          <div className="mr-2 text-plume-wine dark:text-linen-cloud">
             <MusicSvg/>
           </div>
-          <h5 className=" text-3xl font-bold text-plume-wine">
+          <h5 className=" text-3xl font-bold text-plume-wine dark:text-linen-cloud">
             Posłuchaj ze mną
           </h5>
-          <div className="ml-2">
+          <div className="ml-2 text-plume-wine dark:text-linen-cloud">
             <MusicSvg/>
           </div>
         </header>
 
-        <p className="mb-5  text-base text-plume-wine sm:text-lg ">
+        <p className="mb-5  text-base text-plume-wine sm:text-lg dark:text-linen-cloud">
           Moje playlisty stworzone dla fanfików, shipów i postaci.
         </p>
         <Announcement>
@@ -27,7 +27,7 @@ function MusicPage() {
           niedługim czasie uda mi się znaleźć jakąś darmową alternatywę, by
           udostepnić Wam playlisty bez konieczności posiadania tam konta ;)
         </Announcement>
-        <h1 className="text-2xl uppercase text-plume-wine mt-4  p-4 text-bold text-inter">
+        <h1 className="text-2xl uppercase text-plume-wine mt-4  p-4 text-bold text-inter dark:text-linen-cloud">
           Hetalia
         </h1>
 
@@ -38,7 +38,7 @@ function MusicPage() {
           <SpotifyFrame src="https://open.spotify.com/embed/playlist/5FczYxKPdUWZbgS0aLL0Ss?utm_source=generator" />
           <SpotifyFrame src="https://open.spotify.com/embed/playlist/3jRX6qugXwMlQ2FrdoGkvO?utm_source=generator" />
         </div>
-        <h1 className="text-2xl uppercase text-plume-wine mt-4  p-4 text-bold text-inter ">
+        <h1 className="text-2xl uppercase text-plume-wine mt-4  p-4 text-bold text-inter dark:text-linen-cloud">
           Inne
         </h1>
         <div className="items-center justify-center space-y-4 p-8 sm:flex sm:flex-wrap sm:space-x-4 rtl:space-x-reverse">

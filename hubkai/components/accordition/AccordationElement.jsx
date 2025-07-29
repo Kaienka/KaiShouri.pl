@@ -14,7 +14,7 @@ function AccordationElement({ topic, content }) {
           <DisclosureButton
             className={`w-full justify-between  border-2 border-plume-wine px-4 py-2 text-left text-sm font-medium  flex transition-all duration-300
               ${open ? "rounded-t-lg" : "rounded-lg"}
-              ${open ? "bg-plume-wine text-linen-cloud" : "text-plume-wine"}`}
+              ${open ? "bg-plume-wine dark:bg-linen-cloud text-linen-cloud dark:text-plume-wine" : "text-plume-wine dark dark:text-linen-cloud"}`}
           >
             <span>{topic}</span>
           </DisclosureButton>
@@ -28,8 +28,14 @@ function AccordationElement({ topic, content }) {
             leaveTo="transform scale-95 opacity-0"
           >
             <DisclosurePanel
-              className="w-full px-4 pb-2 pt-4 max-w-none text-sm rounded-b-lg text-justify prose prose-sm prose-p:text-purple-950
-                prose-headings:text-purple-950 prose-li:text-purple-950 prose-p:font-inter prose-headings:font-inter prose-li:font-inter"
+              className="w-full px-4 pb-2 pt-4 max-w-none text-sm rounded-b-lg text-justify prose prose-sm
+               prose-p:text-purple-950
+                prose-headings:text-purple-950
+                 prose-li:text-purple-950
+                 dark:prose-p:text-linen-cloud
+                 dark:prose-headings:text-linen-cloud
+                 dark:prose-li:text-linen-cloud
+                  prose-p:font-inter prose-headings:font-inter prose-li:font-inter"
             >
               <div dangerouslySetInnerHTML={{ __html: content }} />
             </DisclosurePanel>

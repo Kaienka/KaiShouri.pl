@@ -12,7 +12,7 @@ function ReadPage() {
   const list = data.fanfictions;
   return (
     <>
-      <div className="w-full h-full p-4 font-mono text-center bg-linen-cloud  rounded-lg sm:p-8">
+      <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8">
         <div className="gap-4 flex flex-wrap justify-center p-8 sm:flex items-stretch">
           {list.map((item) => (
             <Card

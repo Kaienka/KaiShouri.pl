@@ -1,7 +1,8 @@
 'use client'
 import ReadNavigation from "@/components/read/ReadNavigation"
 import FontSizeChanger from "@/components/read/FontSizeChanger"
-import ThemeChanger from "@/components/read/ThemeChanger"
+import { useTheme } from "next-themes";
+
 
 import { useState, useEffect } from "react";
 
@@ -22,7 +23,7 @@ function setCookie(name, value, days = 365) {
 }
 
 
-function ChapterContent({ fileContent, index, fic, chapterAmount, initialTheme = 'light', initialFontSize = 1 }) {
+function ChapterContent({ fileContent, index, fic, chapterAmount }) {
     const styledContent = `
   <style>
     p { margin:0; padding:0.5rem 0;}
@@ -35,10 +36,10 @@ function ChapterContent({ fileContent, index, fic, chapterAmount, initialTheme =
         return cookieFontSize ? parseFloat(cookieFontSize) : 1
     })
 
-    const [theme, setTheme] = useState(() => {
-        const cookieTheme = getCookie('theme')
-        return cookieTheme === 'light' || cookieTheme === 'dark' ? cookieTheme : 'light'
-    })
+
+
+    const { theme } = useTheme();
+
 
     const fontSizeStyle = {
         fontSize: fontSize + 'rem',
@@ -52,34 +53,23 @@ function ChapterContent({ fileContent, index, fic, chapterAmount, initialTheme =
         setFontSize((prev) => prev -= 0.25)
     }
 
-    function switchTheme() {
-        setTheme((prev) => {
-            return prev === 'light' ? 'dark' : 'light'
-        })
-    }
+
 
     useEffect(() => {
         setCookie('fontSize', fontSize.toString())
     }, [fontSize])
 
-    useEffect(() => {
-        setCookie('theme', theme)
-    }, [theme])
 
-    let themeStyles = theme === 'light' ? 'text-dark-plume' : 'bg-dark-plume text-linen-cloud'
 
-    return <main className={`flex flex-col items-center ${themeStyles}`}>
+    return <main className={`
+     
+    flex flex-col items-center`}>
         <section className="flex flex-row w-full">
-            <section className="flex flex-row w-[50%] justify-start">
-                <FontSizeChanger  onDecrease={decreaseSize} onIncrease={increaseSize} theme={theme} />
-
+            <section className="flex flex-row justify-center w-full">
+                <FontSizeChanger onDecrease={decreaseSize} onIncrease={increaseSize} theme={theme} />
             </section>
-            <section className="flex flex-row w-[50%] justify-end">
-                <ThemeChanger onSwitch={switchTheme} theme={theme} />
-            </section>
-
         </section>
-        <div className="m-4 p-4 w-8/12 font-inter flex flex-col items-center"
+        <div className="m-4 p-4 w-8/12 font-inter flex flex-col items-center text-dark-plume dark:text-linen-cloud"
             style={fontSizeStyle}
             dangerouslySetInnerHTML={{ __html: styledContent }} />
         <ReadNavigation currentChapterIndex={index} escapedTtitle={fic}

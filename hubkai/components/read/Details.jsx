@@ -9,7 +9,7 @@ const whileHover = { rotate: 3, transition: { duration: 0.2 } };
 async function Details({ fic }) {
   return (
     <>
-      <div className=" flex flex-col items-center w-4/6 text-plume-wine">
+      <div className=" flex flex-col items-center w-4/6 text-plume-wine dark:text-linen-cloud">
         <h5 className="text-3xl font-bold">{fic.title}</h5>
         <h6 className="mt-1 text-sm">{fic.date}</h6>
         <section className="flex flex-row m-2">

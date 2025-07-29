@@ -9,7 +9,8 @@ function IdeaSvg() {
               viewBox="0 0 40 40"
               enableBackground="new 0 0 40 40"
               xmlSpace="preserve"
-              fill="#5e4074"
+              fill="currentColor"
+
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g

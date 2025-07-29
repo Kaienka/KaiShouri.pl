@@ -20,11 +20,11 @@ export default function Home() {
         className="flex flex-col gap-[1rem] row-start-2 justify-center items-center w-vw text-center text-xl overflow-clip
       w-12/12 sm:w-8/12 md:w-11/12 lg:w-9/12"
       >
-        <h1 className="text-plume-wine font-inter text-2xl font-bold">
+        <h1 className="text-plume-wine dark:text-linen-cloud font-inter text-2xl font-bold">
           Na początku byli Lech, Czech i Rus... oraz ich przyrodni brat,
           Deutschland.
         </h1>
-        <section className="flex flex-col w-full sm:text-base p-4 border rounded text-plume-wine font-mono">
+        <section className="flex flex-col w-full sm:text-base p-4 border rounded text-plume-wine dark:text-linen-cloud font-mono">
           <blockquote>
             &quot;Czy można wiedzieć, o czym będzie pisana powieść? Czy taka
             uprzednia wiedza nie kwestionuje samej powieści? Wiedzieć, co się
