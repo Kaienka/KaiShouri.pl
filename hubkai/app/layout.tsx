@@ -38,7 +38,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <ThemeProvider
+        <ThemeProvider enableSystem={false}
         >
           <div className="flex h-screen w-full">
             <Navigation />
