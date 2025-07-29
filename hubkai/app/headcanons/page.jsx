@@ -4,7 +4,7 @@ import IdeaSvg from "@/components/svg/IdeaSvg";
 function HeadcanonsPage() {
   return (
     <>
-      <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8 ">
+      <div className="w-full h-[90%] p-4 font-mono text-center  rounded-lg sm:p-8 ">
         <header className="flex flex-row justify-center mb-2 items-center">
           <div className="mr-2">
             <IdeaSvg />

@@ -14,7 +14,7 @@ async function ReadFic({ params }) {
   }
   return (
     <>
-    <main className="w-full h-full p-4 font-mono text-center  sm:p-8 flex justify-center">
+    <main className="w-full h-[90%] p-4 font-mono text-center  sm:p-8 flex justify-center">
       <Details fic={fileContent} />
     </main>
     </>
