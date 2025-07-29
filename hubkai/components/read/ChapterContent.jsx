@@ -54,11 +54,8 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
     function decreaseSize() {
         if (fontSize >= 0.75) {
             setFontSize((prev) => prev -= 0.25)
-
         }
     }
-
-
 
     useEffect(() => {
         setCookie('fontSize', fontSize.toString())
@@ -69,7 +66,9 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
     return <main className={`
      
     flex flex-col items-center`}>
-        <section className="flex flex-row w-full">
+        <section className="flex flex-row w-full items-center mt-2">
+            <ReadNavigation currentChapterIndex={index} escapedTtitle={fic}
+                lastChapterIndex={chapterAmount} theme={theme} />
             <section className="flex flex-row justify-center w-full">
                 <FontSizeChanger onDecrease={decreaseSize} onIncrease={increaseSize} theme={theme} />
             </section>
