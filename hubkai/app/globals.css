@@ -36,12 +36,12 @@
 
 /* ładny brąz: #5e4054 */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #30213b;
     --foreground: #ededed;
   }
-}
+} */
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
