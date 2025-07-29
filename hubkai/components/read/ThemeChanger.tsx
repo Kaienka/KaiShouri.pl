@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 
 
-function ThemeChanger() {
+function ThemeChanger({mobile = false}) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   console.log(theme);
@@ -29,7 +29,7 @@ function ThemeChanger() {
         }`}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        {theme == "light" && <DarkModeSvg color="#5e4074" />}
+        {theme == "light" && <DarkModeSvg color={mobile ? '#f7f9ec' : '#5e4074'} />}
         {theme == "dark" && <LightModeSvg color="#f7f9ec" />}
       </button>
     </div>

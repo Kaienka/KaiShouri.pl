@@ -43,7 +43,7 @@ export default function RootLayout({
           <div className="flex h-screen w-full">
             <Navigation />
             <main className="flex-1 overflow-auto mt-16 sm:mt-0">
-              <section className="flex flex-row justify-end">
+              <section className="sm:flex flex-row justify-end hidden">
               <ThemeChanger  />
               </section>
               {children}
