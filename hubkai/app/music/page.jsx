@@ -5,7 +5,7 @@ import MusicSvg from "@/components/svg/MusicSvg";
 function MusicPage() {
   return (
     <>
-      <div className="w-full h-[90%] p-4 font-mono text-center  rounded-lg sm:p-8 flex flex-col">
+      <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8 flex flex-col">
         <header className="flex flex-row justify-center mb-2 items-center">
           <div className="mr-2 text-plume-wine dark:text-linen-cloud">
             <MusicSvg/>
