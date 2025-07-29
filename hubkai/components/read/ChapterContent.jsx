@@ -46,11 +46,16 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
     }
 
     function increaseSize() {
-        setFontSize((prev) => prev += 0.25)
+        if (fontSize <= 5.5) {
+            setFontSize((prev) => prev += 0.25)
+        }
     }
 
     function decreaseSize() {
-        setFontSize((prev) => prev -= 0.25)
+        if (fontSize >= 0.75) {
+            setFontSize((prev) => prev -= 0.25)
+
+        }
     }
 
 
@@ -69,7 +74,7 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
                 <FontSizeChanger onDecrease={decreaseSize} onIncrease={increaseSize} theme={theme} />
             </section>
         </section>
-        <div className="m-4 p-4 w-10/12 sm:w-8/12 font-inter flex flex-col items-center text-dark-plume dark:text-linen-cloud"
+        <div className=" m-4 p-4 w-10/12 sm:w-8/12 font-inter flex flex-col items-center text-dark-plume dark:text-linen-cloud wrap-normal"
             style={fontSizeStyle}
             dangerouslySetInnerHTML={{ __html: styledContent }} />
         <ReadNavigation currentChapterIndex={index} escapedTtitle={fic}
