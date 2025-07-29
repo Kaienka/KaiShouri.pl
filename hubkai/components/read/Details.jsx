@@ -57,8 +57,8 @@ async function Details({ fic }) {
           )}
         </section>
         <section className="flex flex-row mb-5">
-          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm ">{fic.status}</p>
-          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm">{fic.ship}</p>
+          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm flex items-center ">{fic.status}</p>
+          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm flex items-center">{fic.ship}</p>
         </section>
         <p className="mb-5 text-base sm:text-lg ">{fic.description}</p>
         <section className="mt-5 p-4 flex flex-col">
