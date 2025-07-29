@@ -13,7 +13,8 @@ Ciągle dostaje najniższą krajową. Taki już los personifikacji, nikt cię ni
 #### Konie
 Uwielbia konie. W czasach pierwszej Rzeczyspolitej był częstym gościem królewskich stajni, posiadał też kilka koni na własny użytek. Po pierwszej wojnie światowej urządził sobie pod Warszawą prywatną stadninę. Publicznie pokazywał się na Niemenie, synu Kasztanki Piłsudzkiego, wypożyczając go od prawowitych właścicieli. Po wybuchu wojny konie z jego stadniny rozkradziono, ku jego ogromnemu ubolewaniu. Obecnie trzyma kilka koni w pensjonatach i jeździ na nich, gdy tylko ma wolną sobotę.
 
-A jesli chodzi o Gilberta... jego omówimy w osobnej sekcji. ;)
+### Psy
+Boi się psów ze względu na pewne wydarzenia z czasów WWII, chociaż stara się ten strach przezwyciężyć. Za czasów pierwszej Rzeczypospolitej bardzo lubił charty i wyżły używane do polowań. 
 
 ### Przedmioty osobiste
 
