@@ -44,7 +44,7 @@ export default function RootLayout({
             <Navigation />
             <main className="flex-1 overflow-auto mt-16 sm:mt-0">
               <section className="sm:flex flex-row justify-end hidden">
-              <ThemeChanger  />
+              <ThemeChanger additionalClass="fixed" mobile={false} />
               </section>
               {children}
             </main>

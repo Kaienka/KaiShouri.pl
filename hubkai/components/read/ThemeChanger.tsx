@@ -5,12 +5,15 @@ import { useTheme } from "next-themes";
 
 import { useEffect, useState } from "react";
 
+type Props = {
+  mobile: boolean,
+  additionalClass: string
+}
 
 
-function ThemeChanger({mobile = false}) {
+function ThemeChanger({mobile = false, additionalClass}:Props) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  console.log(theme);
 
     useEffect(() => {
     setMounted(true)
@@ -21,7 +24,7 @@ function ThemeChanger({mobile = false}) {
   }
 
   return (
-    <div className="p-4 flex flex-row  font-mono ">
+    <div className={`p-4 flex flex-row  font-mono ${additionalClass}`}>
       <button
        
         className={`border-bg-second-plum p-2 rounded-md  text-base mr-2 ${
