@@ -2,7 +2,7 @@ import Image from "next/image";
 import avatar from "@/public/kai.jpg";
 import Link from "next/link";
 import * as motion from "motion/react-client";
-import  ContentSvg  from "@/components/svg/ContentSvg";
+import ContentSvg from "@/components/svg/ContentSvg";
 const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
 const whileHoverAuthor = {
   rotate: "-2deg",
@@ -12,9 +12,7 @@ const whileHoverAuthor = {
 
 export default function Home() {
   return (
-    <div
-        className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16  font-[family-name:var(--font-geist-sans)] "
-    >
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16  font-[family-name:var(--font-geist-sans)] ">
       <main
         className="flex flex-col gap-[1rem] row-start-2 justify-center items-center w-vw text-center text-xl overflow-clip
       w-12/12 sm:w-8/12 md:w-11/12 lg:w-9/12"
@@ -68,7 +66,7 @@ export default function Home() {
         <section className="text-plume-wine flex flex-col lg:flex-row w-full justify-between">
           <div className="bg-violet-200 p-6 lg:mr-2 rounded flex-1 mb-4">
             <div className="flex justify-center items-center mb-4">
-             <ContentSvg />
+              <ContentSvg />
               <h2 className="lg:ml-2 font-mono text-base font-bold">
                 co tutaj znajdziecie?
               </h2>
@@ -107,7 +105,14 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-fourth-plum p-6 lg:ml-2 rounded flex-1 mb-4">
-            o mnie?
+            <h2 className="lg:ml-2 font-mono text-base font-bold">O stronie</h2>
+            <p className="text-base font-mono whitespace-pre-line">
+              Strona wykorzystuje pliki cookie i pamięć lokalną do zapamiętania
+              wybranego motywu i rozmiaru fontu przy czytaniu. W całości
+              napisana przeze mnie, zawiera moją twórczość. Wszystkie prawa
+              zastrzeżone, zarówno co do treści, jak i konstrukcji strony.
+            </p>
+            <p className="text-base font-mono whitespace-pre-line">Od strony technologicznej: React, Next.js</p>
           </div>
         </section>
       </main>
