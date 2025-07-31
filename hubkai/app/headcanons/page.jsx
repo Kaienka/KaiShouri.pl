@@ -1,4 +1,4 @@
-import FileProcessor from "@/components/accordition/FileProcessor";
+import HeadcanonProcessor from "@/components/accordition/HeadcanonProcessor";
 import IdeaSvg from "@/components/svg/IdeaSvg";
 
 function HeadcanonsPage() {
@@ -27,7 +27,7 @@ function HeadcanonsPage() {
           </p>
         </div>
         <div className="items-center justify-center space-y-4 p-8 sm:flex sm:flex-wrap sm:space-x-4 rtl:space-x-reverse">
-          <FileProcessor />
+          <HeadcanonProcessor />
         </div>
       </div>
     </>
