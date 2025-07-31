@@ -63,9 +63,7 @@ function ChapterContent({ fileContent, index, fic, chapterAmount }) {
 
 
 
-    return <main className={`
-     
-    flex flex-col items-center`}>
+    return <main className="flex flex-col items-center">
         <section className="flex flex-row w-full items-center mt-2">
             <ReadNavigation currentChapterIndex={index} escapedTtitle={fic}
                 lastChapterIndex={chapterAmount} theme={theme} />

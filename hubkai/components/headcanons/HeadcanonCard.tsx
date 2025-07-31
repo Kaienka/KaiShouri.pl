@@ -11,7 +11,7 @@ function Card({ character, content, category, nsfw }: Props) {
   return (
     <div
       className="bg-plume-wine shadow-plume-wine shadow-sm flex flex-col justify-between
-      rounded-lg  min-w-[200px] max-w-[350px] m-2"
+      rounded-lg  min-w-[300px] max-w-[350px] m-2"
     >
       <div className="flex flex-row items-center">
         {nsfw && <div className="bg-plume-wine text-red-300 ml-2">

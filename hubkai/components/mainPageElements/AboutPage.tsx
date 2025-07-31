@@ -14,7 +14,7 @@ function AboutPage() {
         zarówno co do treści, jak i konstrukcji strony.
       </p>
       <p className="text-base font-mono whitespace-pre-line">
-        Od strony technologicznej: React, Next.js
+        Od strony technologicznej: React, Next.js, Tailwind, Vercel.
       </p>
     </div>
   );
