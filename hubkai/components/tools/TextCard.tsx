@@ -1,17 +1,20 @@
 
 type Props = {
     title: string,
-    children: React.ReactNode
+    children: React.ReactNode,
+    link: string
 }
 
-function TextCard({title, children}: Props) {
+function TextCard({title, children, link}: Props) {
   return (
     <>
-     {title && (<h1 className="font-mono font-bold uppercase bg-fourth-plum p-2 rounded mt-6">
-        {title}
-      </h1>)} 
-      <section className="bg-third-plum p-6 m-2 text-linen-cloud rounded font-mono w-full shadow">
+      <section className="bg-third-plum m-2 text-linen-cloud rounded font-mono w-full shadow">
+        <div className="bg-plume-wine p-2 rounded-t">
+        <a href={link} target="_blank" className="font-bold text-lg underline ">{title}</a>
+          </div>
+          <section className="p-2">
         {children}
+            </section>
       </section>
     </>
   );

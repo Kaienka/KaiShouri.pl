@@ -36,13 +36,13 @@ function MainNavbar() {
         <CoffeeSvg />
       </NavigationLink>
 
-      <NavigationLink
+{/*       <NavigationLink
         href="https://barwinek.vercel.app/"
         title="Barwinek"
         desc="narzędzie do sprawdzania statystyk na Wattpadzie"
       >
         <StatsSvg />
-      </NavigationLink>
+      </NavigationLink> */}
 
       <NavigationLink
         href="https://kaishouri.github.io/"
