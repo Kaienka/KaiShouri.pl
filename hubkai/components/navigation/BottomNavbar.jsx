@@ -14,7 +14,7 @@ function BottomNavbar() {
       <NavDivider title="jestem tutaj" />
 
       <nav className="flex flex-row gap-1 p-2 font-mono text-base font-normal text-linen-cloud justify-center">
-        <Link href="https://www.instagram.com/kai_shouri/" className="w-fit">
+        <a href="https://www.instagram.com/kai_shouri/" className="w-fit" target="_blank">
           <motion.div
             whileHover={whileHover}
             role="button"
@@ -25,8 +25,8 @@ function BottomNavbar() {
               <InstaSvg />
             </div>
           </motion.div>
-        </Link>
-        <Link href="https://www.wattpad.com/user/KaiShouri" className="w-fit">
+        </a>
+        <a href="https://www.wattpad.com/user/KaiShouri" className="w-fit" target="_blank">
           <motion.div
             whileHover={whileHover}
             role="button"
@@ -39,10 +39,11 @@ function BottomNavbar() {
               <WattpadSvg />
             </div>
           </motion.div>
-        </Link>
-        <Link
+        </a>
+        <a
           href="https://archiveofourown.org/users/KaiShouri"
           className="w-fit"
+          target="_blank"
         >
           <motion.div
             whileHover={whileHover}
@@ -56,8 +57,8 @@ function BottomNavbar() {
               <Ao3Svg />
             </div>
           </motion.div>
-        </Link>
-        <Link href="https://www.fanfiction.net/u/3120196/" className="w-fit">
+        </a>
+        <a href="https://www.fanfiction.net/u/3120196/" className="w-fit" target="_blank">
           <motion.div
             whileHover={whileHover}
             role="button"
@@ -70,7 +71,7 @@ function BottomNavbar() {
               <FFSvg />
             </div>
           </motion.div>
-        </Link>
+        </a>
       </nav>
     </div>
   );

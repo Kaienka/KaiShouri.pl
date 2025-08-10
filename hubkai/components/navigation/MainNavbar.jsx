@@ -1,11 +1,11 @@
 import NavDivider from "@/components/navigation/NavDivider";
 import NavigationLink from "@/components/navigation/NavigationLink";
+import NavigationA from "@/components/navigation/NavigationA";
 import ReadSvg from "@/components/svg/ReadSvg";
 import ToolSvg from "@/components/svg/ToolSvg";
 import PlaySvg from "@/components/svg/PlaySvg";
 import IdeaFilledSvg from "@/components/svg/IdeaFilledSvg";
 import CoffeeSvg from "@/components/svg/CoffeeSvg";
-import StatsSvg from "@/components/svg/StatsSvg";
 import MapSvg from "@/components/svg/MapSvg";
 
 function MainNavbar() {
@@ -28,15 +28,15 @@ function MainNavbar() {
 
       <NavDivider title="poza stroną" />
 
-      <NavigationLink
+      <NavigationA
         href="https://ko-fi.com/kaishouri"
         title="Ko-Fi"
         desc="Tipy kawowe zawsze mile widziane :)"
       >
         <CoffeeSvg />
-      </NavigationLink>
+      </NavigationA>
 
-{/*       <NavigationLink
+      {/*       <NavigationLink
         href="https://barwinek.vercel.app/"
         title="Barwinek"
         desc="narzędzie do sprawdzania statystyk na Wattpadzie"
@@ -44,14 +44,14 @@ function MainNavbar() {
         <StatsSvg />
       </NavigationLink> */}
 
-      <NavigationLink
+      <NavigationA
         href="https://kaishouri.github.io/"
         title="Mapa imperium"
         desc='Interaktywna mapa kraju z "Polowania na łabędzia"'
         target="_blank"
       >
         <MapSvg />
-      </NavigationLink>
+      </NavigationA>
     </nav>
   );
 }
