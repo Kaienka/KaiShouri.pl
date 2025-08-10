@@ -42,7 +42,7 @@ function FanficCard({ title, description, finished, svg, titleEscaped, fandom, w
           {fandom &&
             <p >fandom {fandom}</p>}
           <p>{wordCount} słów</p>
-          <p>{chapters} rozdziałów</p>
+          <p>{chapters} {chapters == 1 ? "rozdział" : chapters < 5 ? 'rozdziały' : "rozdziałów"}</p>
         </div>
       </div>
       <div className="bg-third-plum flex-1">
