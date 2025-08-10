@@ -63,7 +63,7 @@ function FanficCard({ title, description, finished, svg, titleEscaped, fandom, w
         >
           <Link href={link}>czytaj</Link>
         </motion.button>
-        {finished && (
+{/*         {finished && (
           <motion.button
             whileHover={{ scale: 1.1 }}
             type="button"
@@ -72,7 +72,7 @@ function FanficCard({ title, description, finished, svg, titleEscaped, fandom, w
           >
             pobierz pdf
           </motion.button>
-        )}
+        )} */}
       </section>
 
     </div>
