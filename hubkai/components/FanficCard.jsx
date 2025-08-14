@@ -29,11 +29,11 @@ function FanficCard({ title, description, finished, svg, titleEscaped, fandom, w
       <div>
         <div>
 
-          <h1 className="bg-plume-wine text-linen-cloud pt-2 pb-2 border-transparent rounded-t-lg flex flex-row justify-center items-center">
+          <h1 className="bg-plume-wine px-2 text-linen-cloud pt-2 pb-2 border-transparent rounded-t-lg flex flex-row justify-center items-center">
 
             {nsfw && <span className="mr-2 text-xs text-red-200">
               <NsfwSvg />
-            </span>} {title} {finished && <span className="ml-2 text-xs text-green-300">
+            </span>} <span className="wrap">{title}</span> {finished && <span className="ml-2 text-xs text-green-300">
               <DoneSvg />
             </span>}
           </h1>
