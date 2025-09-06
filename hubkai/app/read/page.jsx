@@ -2,19 +2,43 @@ import FanficCard from "@/components/FanficCard";
 import fs from "fs";
 import path from "path";
 
+
+const getSubfolders = (source) => {
+  return fs.readdirSync(source, { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => dirent.name)
+}
+
 function ReadPage() {
-  const filesDir = path.join(process.cwd(), "fanfictions");
 
-  const filePath = path.join(filesDir, "fanfictions.json");
-  const content = fs.readFileSync(filePath, "utf-8");
-  const data = JSON.parse(content);
+  const mainFicFolder = path.join(process.cwd(), "fanfictions")
+  const fanfics = getSubfolders(mainFicFolder)
 
-  const list = data.fanfictions;
+  const fanficInfo = []
+
+  fanfics.forEach(fic => {
+    const patchToFanfic = path.join(process.cwd(), "fanfictions", fic, "info.json")
+    const infoContent = JSON.parse(fs.readFileSync(patchToFanfic, "utf-8"))
+    const fanfic = {
+      title: infoContent.title,
+      description: infoContent.description,
+      finished: infoContent.finished,
+      titleEscaped: infoContent.titleEscaped,
+      svg: infoContent.svg,
+      fandom: infoContent.fandom,
+      chapters: infoContent.chapters.length,
+      wordCount: infoContent.wordCount,
+      nsfw: infoContent.nsfw
+    }
+    fanficInfo.push(fanfic)
+  });
+
+
   return (
     <>
       <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8">
         <div className="gap-6 flex flex-wrap justify-center p-8 sm:flex items-stretch">
-          {list.map((item) => (
+          {fanficInfo.length != 0 && fanficInfo.map((item) => (
             <FanficCard
               key={item.title}
               title={item.title}

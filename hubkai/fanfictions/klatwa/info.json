@@ -4,13 +4,16 @@
   "description": "Krzyżacki sygnet znaleziony w zapomnianych piwnicach Wilna okazuje się przeklęty; szukając sposobu, by ulżyć Litwie w cierpieniu, Polska i Prusy łączą siły. Dotyk Gilberta niespodziewanie niweluje ból; ale zanim w pełni zdejmą klątwę, czekają ich tygodnie bycia nierozłącznymi. Z każdym tego aspektem - bo największym wrogiem bohatera literackiego jest jego fizjologia. PruLiet.",
   "ship": "zakończone",
   "status": "Litwa x Prusy",
+  "wordCount": "8k+",
+  "finished": true,
+  "svg": "<svg fill=\"#f7f9ec\" width=\"50px\" height=\"50px\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"><path d=\"M3.5,13.5A8.5,8.5,0,1,0,14.354,5.339L15.5,3.556,14.625,2H9.375L8.5,3.556,9.646,5.339A8.509,8.509,0,0,0,3.5,13.5ZM12,7a6.5,6.5,0,1,1-6.5,6.5A6.508,6.508,0,0,1,12,7Z\"></path></g></svg>",
+  "fandom": "APH",
+  "nsfw": false,
   "links": {
     "ao3": "https://archiveofourown.org/works/62579197",
     "ffnet": "https://www.fanfiction.net/s/14476490/1/Kl%C4%85twa",
     "wattpad": "https://www.wattpad.com/story/388940135-aph-kl%C4%85twa"
   },
   "date": "2025",
-  "chapters": [
-    "Klątwa"
-  ]
+  "chapters": ["Klątwa"]
 }
