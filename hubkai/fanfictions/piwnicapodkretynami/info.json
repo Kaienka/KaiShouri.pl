@@ -3,7 +3,6 @@
   "titleEscaped": "piwnicapodkretynami",
   "description": "Ciężko było nie kochać tej roboty; program działał sprawnie, kod pisał się łatwo i przyjemnie, katastrofalne bugi zdarzały się rzadko, a hajs się zgadzał. Programiści, testerzy, support i ich menadżer żyli w swoistej koegzystencji, w sieci wzajemnych relacji znacząco wykraczających poza suche stosunki biznesowe i nikt nie widział w tym nic złego... Przynajmniej do momentu, gdy szef Kiku Honda postanowił odwiedzić ich oddział osobiście, a na Piwnicę padł blady strach. Podśmiechujki z nazwisk klientów? Nieprofesjonalne, ale do wybaczenia. Drukowanie prywatnych dokumentów na firmowej drukarce? Nic takiego. Traktowanie procedur jak luźnych sugestii? Jeszcze ujdzie. Związek menadżera i jego podwładnego? Ups.",
   "ship": "Polska x Prusy",
-  "status": "zakończone",
   "links": {
     "ao3": "https://archiveofourown.org/works/53703160",
     "ffnet": "https://www.fanfiction.net/s/14498655/1/Piwnica-pod-kretynami",
@@ -14,6 +13,5 @@
   "finished": true,
   "wordCount": "6k+",
   "svg": "<svg width=\"50px\" height=\"50px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M9 7H5C3.89543 7 3 7.89543 3 9V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7H15M9 7V5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7M9 7H15\" stroke=\"#f7f9ec\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g></svg>",
-  "fandom": "APH",
-  "chapters": ["Piwnica pod kretynami"]
+  "fandom": "APH"
 }
