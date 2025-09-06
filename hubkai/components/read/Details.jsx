@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const whileHover = { rotate: 3, transition: { duration: 0.2 } };
 
-async function Details({ fic }) {
+async function Details({ fic, chapterTitles }) {
   return (
     <>
       <div className=" flex flex-col items-center w-4/6 text-plume-wine dark:text-linen-cloud">
@@ -62,13 +62,17 @@ async function Details({ fic }) {
         </section>
         <p className="mb-5 text-base sm:text-lg ">{fic.description}</p>
         <section className="mt-5 mb-20 p-4 flex flex-col">
-          {fic.chapters && fic.chapters.map((chapter, index) =>
+
+          {chapterTitles && chapterTitles.map((chapter, index) => (
             <Link
               href={`/read/${fic.titleEscaped}/${index + 1}`}
               key={chapter}
               className="p-2"
-            >{chapter}</Link>)
-          }
+            >
+              {chapter}
+            </Link>
+          ))}
+
         </section>
       </div>
     </>

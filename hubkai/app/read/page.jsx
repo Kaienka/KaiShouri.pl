@@ -9,6 +9,12 @@ const getSubfolders = (source) => {
     .map(dirent => dirent.name)
 }
 
+const countFiles = (source) => {
+  return fs.readdirSync(source, { withFileTypes: true })
+    .filter(dirent => dirent.isFile())
+    .length
+}
+
 function ReadPage() {
 
   const mainFicFolder = path.join(process.cwd(), "fanfictions")
@@ -19,6 +25,7 @@ function ReadPage() {
   fanfics.forEach(fic => {
     const patchToFanfic = path.join(process.cwd(), "fanfictions", fic, "info.json")
     const infoContent = JSON.parse(fs.readFileSync(patchToFanfic, "utf-8"))
+    const chaptersAmount = countFiles(path.join(process.cwd(), "fanfictions", fic, "chapters"))
     const fanfic = {
       title: infoContent.title,
       description: infoContent.description,
@@ -26,7 +33,7 @@ function ReadPage() {
       titleEscaped: infoContent.titleEscaped,
       svg: infoContent.svg,
       fandom: infoContent.fandom,
-      chapters: infoContent.chapters.length,
+      chapters: chaptersAmount,
       wordCount: infoContent.wordCount,
       nsfw: infoContent.nsfw
     }
