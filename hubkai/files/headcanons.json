@@ -47,6 +47,12 @@
       "category": "blizny",
       "content": "Nauczył się pływać po przybyciu na pruskie ziemie. Dokładniej rzecz biorąc, z zaskoczenia zrzucono go z łodzi pośrodku jeziora Śniardwy; wypłynął o własnych siłach (obserwujący to Litwa był nieco zawiedziony), ale dorobił się traumy, do której Prusy za nic się nie przyzna.",
       "nsfw": true
+    },
+    {
+      "character": "Prusy",
+      "category" : "różności",
+      "content": "Próbował rozwiązać problem mostów królewieckich, obchodząc Ziemię dookoła. Nim zdążył to zrobić i udowodnić, że się da, Iwan dokonał modernizacji i zburzył niektóre z siedmiu oryginalnych mostów...",
+      "nsfw": false
     }
   ]
 }
