@@ -1,6 +1,6 @@
-import FanficCard from "@/components/FanficCard";
 import fs from "fs";
 import path from "path";
+import ReadWrapper from "@/components/read/ReadWrapper"
 
 
 const getSubfolders = (source) => {
@@ -35,33 +35,16 @@ function ReadPage() {
       fandom: infoContent.fandom,
       chapters: chaptersAmount,
       wordCount: infoContent.wordCount,
-      nsfw: infoContent.nsfw
+      nsfw: infoContent.nsfw,
+      ship: infoContent.ship,
+      date: infoContent.date
     }
     fanficInfo.push(fanfic)
   });
 
 
   return (
-    <>
-      <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8">
-        <div className="gap-6 flex flex-wrap justify-center p-8 sm:flex items-stretch">
-          {fanficInfo.length != 0 && fanficInfo.map((item) => (
-            <FanficCard
-              key={item.title}
-              title={item.title}
-              description={item.description}
-              finished={item.finished}
-              titleEscaped={item.titleEscaped}
-              svg={item.svg}
-              fandom={item.fandom}
-              chapters={item.chapters}
-              wordCount={item.wordCount}
-              nsfw={item.nsfw}
-            />
-          ))}
-        </div>
-      </div>
-    </>
+    <ReadWrapper fanficInfo={fanficInfo} />
   );
 }
 

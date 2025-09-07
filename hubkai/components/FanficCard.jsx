@@ -25,7 +25,7 @@ function FanficCard({ title, description, finished, svg, titleEscaped, fandom, w
   const link = '/read/' + titleEscaped
 
   return (
-    <div className=" shadow-plume-wine shadow-sm flex flex-col justify-between bg-plume-wine border border-transparent rounded-lg  min-w-[200px] max-w-[350px]">
+    <div className="overflow-hidden shadow-plume-wine shadow-sm flex flex-col justify-between bg-plume-wine border border-transparent rounded-lg  min-w-[200px] max-w-[350px]">
       <div>
         <div>
 
@@ -63,7 +63,7 @@ function FanficCard({ title, description, finished, svg, titleEscaped, fandom, w
         >
           <Link href={link}>czytaj</Link>
         </motion.button>
-{/*         {finished && (
+        {/*         {finished && (
           <motion.button
             whileHover={{ scale: 1.1 }}
             type="button"
