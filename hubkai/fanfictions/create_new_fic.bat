@@ -1,6 +1,6 @@
 @echo off
 
-echo Podaj tytul fika i opcjonalnie liczbe rozdzialow po spacji:
+echo Podaj tytul fika (escaped) i opcjonalnie liczbe rozdzialow po spacji:
 set /p input=
 
 for /f "tokens=1,2" %%a in ("%input%") do (
