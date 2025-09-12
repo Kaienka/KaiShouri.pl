@@ -21,6 +21,7 @@ function ContentWrapper({ fileContent, index, fic, chapterAmount } : Props) {
         </main>
 
         <section className='mt-4'>
+          <p>Sekcja tymczasowo niedziałająca! Poprawiam!</p>
           <CommentSection ficTitle={fic} chapterNo={index} />
         </section>
     </>
