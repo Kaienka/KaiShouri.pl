@@ -1,5 +1,6 @@
 import { Comment } from "./types"
 import { saveComments } from "./comments.server"
+import { sendEmail } from "./email.server"
 
 export function newComment(
   commentText: string,
@@ -46,6 +47,7 @@ export async function addComment(
     ]
   }
 
+  sendEmail({commentText, currentUser, ficTitle, chapterNo: chapterNo.toString()})
   setAllComments(updated)
   await saveComments(ficTitle, chapterNo, updated)
 }

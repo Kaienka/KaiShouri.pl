@@ -8,6 +8,13 @@ interface Comment {
   chapterNo: number;
 }
 
+interface CommentInfo {
+  commentText: string;
+  currentUser: string;
+  ficTitle: string;
+  chapterNo: string;
+}
+
 interface CommentBlockProps {
   allComments: Comment[];
   comment: Comment;
@@ -36,4 +43,5 @@ export type {
   CommentBlockProps,
   CommentThreadProps,
   CommentEntryBlockProps,
+  CommentInfo
 };
