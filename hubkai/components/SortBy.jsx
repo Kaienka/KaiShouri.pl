@@ -1,7 +1,5 @@
 import Dropdown from "@/components/Dropdown"
-
-
-const sortValues = ['Najnowsze', 'Najstarsze', 'Najdłuższe', 'Najkrótsze']
+import sort from "@/dicts/sort"
 
 function SortBy({ onSort }) {
 
@@ -9,7 +7,7 @@ function SortBy({ onSort }) {
     >
         <div className="flex-col">
             <section className="text-left flex flex-row gap-5 justify-center">
-                <Dropdown option="Sortuj" values={sortValues} onSelect={onSort} />
+                <Dropdown option="Sortuj" values={sort} onSelect={onSort} />
             </section>
         </div>
     </section>;

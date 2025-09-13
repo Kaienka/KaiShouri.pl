@@ -64,6 +64,10 @@ function ReadWrapper({ fanficInfo }) {
                     case 'Tsubasa Reservoir Chronicle':
                         ok = ok && f.fandom === 'TRC'
                         break
+                    case "Twisted Wonderland":
+                        console.log(f.fandom)
+                        ok = ok && f.fandom === 'TW'
+                        break
                     case 'światy oryginalne':
                         ok = ok && f.fandom === ''
                         break
