@@ -6,7 +6,7 @@ const nsfwValues = ['wszystko', 'nie', 'tak']
 const typeValues = ['wszystko', 'one-shot', 'wielorozdziałowiec']
 const shipValues = ['wszystko', 'brak shipu', 'Polska x Litwa', 'Polska x Prusy', 'Polska x Litwa x Prusy',
     'Wriothesley x Neuvillette', 'różności', 'Polska x Francja', 'Zhongli x Childe', 'Litwa x Prusy',
-    'Polska x Ukraina', 'Polska x Saksonia', 'Litwa x Białoruś']
+    'Polska x Ukraina', 'Polska x Saksonia', 'Litwa x Białoruś', 'Kaeya x Dainsleif']
 const finishedValues = ['wszystko', 'zakończone', 'trwające']
 
 function Filters({ onFilter }) {
