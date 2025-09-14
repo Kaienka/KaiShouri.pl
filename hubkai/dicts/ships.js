@@ -15,7 +15,8 @@ const ships = [
   "Kaeya x Dainsleif",
   "Kazuha x OC",
   'Kurogane x Fay',
-  'Cater x Vil'
+  'Cater x Vil',
+  'Adam x Shiro'
 ];
 
 export default ships
