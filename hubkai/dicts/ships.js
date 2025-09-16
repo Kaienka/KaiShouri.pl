@@ -7,6 +7,7 @@ const ships = [
   "Wriothesley x Neuvillette",
   "różności",
   "Polska x Francja",
+  "Polska x Austria",
   "Zhongli x Childe",
   "Litwa x Prusy",
   "Polska x Ukraina",
