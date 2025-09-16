@@ -25,3 +25,5 @@ if exist "%INPUT%" (
 )
 
 echo Nie znaleziono pliku ani folderu: %INPUT%
+
+prepare_svg.bat
