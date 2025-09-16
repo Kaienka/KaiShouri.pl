@@ -1,5 +1,6 @@
 'use client'
 import Dropdown from "@/components/Dropdown"
+import SearchBar from "@/components/SearchBar"
 import ships from "@/dicts/ships"
 import fandoms from "@/dicts/fandoms"
 import nsfw from "@/dicts/nsfw"
@@ -15,6 +16,7 @@ function Filters({ onFilter }) {
     return <section className="p-4 font-mono text-center text-linen-cloud rounded-xl"
     >
         <section className="text-center md:text-left flex flex-col md:flex-row gap-5 justify-center items-center flex-wrap">
+            <SearchBar option="Tytuł" onSelect={(e) => onSelect(e, 'title')} />
             <Dropdown option="Fandom" values={fandoms} onSelect={(e) => onSelect(e, 'fandom')} />
             <Dropdown option="Nsfw" values={nsfw} onSelect={(e) => onSelect(e, 'nsfw')} />
             <Dropdown option="Typ" values={types} onSelect={(e) => onSelect(e, 'type')} />

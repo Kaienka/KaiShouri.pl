@@ -32,7 +32,8 @@ function ReadWrapper({ fanficInfo }) {
         nsfw: 'wszystko',
         type: 'wszystko',
         ship: 'wszystko',
-        finished: 'wszystko'
+        finished: 'wszystko',
+        title: ''
     })
 
     const [sort, setSort] = useState('Najnowsze')
@@ -101,6 +102,10 @@ function ReadWrapper({ fanficInfo }) {
                 } else {
                     ok = ok && f.finished == true
                 }
+            }
+
+            if (filters.title) {
+                ok = ok && f.title.toLowerCase().includes(filters.title.toLowerCase())
             }
 
             return ok
