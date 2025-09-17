@@ -6,10 +6,10 @@ echo.
 
 powershell -Command ^
 "$svg = [Console]::In.ReadToEnd(); ^
-$svg = $svg -replace 'width="64px"','width="50px"'; ^
-$svg = $svg -replace 'height="64px"','height="50px"'; ^
 $svg = $svg -replace '#000000','#f7f9ec';^
 $svg = $svg -replace '\"','\\\"'; ^
+$svg = $svg -replace 'width=\"64px\"','width=\"50px\"'; ^
+$svg = $svg -replace 'height=\"64px\"','height=\"50px\"'; ^
 $svg | clip"
 
 pause
