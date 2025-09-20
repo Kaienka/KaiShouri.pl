@@ -20,7 +20,8 @@ const ships = [
   'Adam x Shiro',
   'Kamui x Fuuma',
   'Niemcy x Włochy',
-  'Niemcy x Prusy'
+  'Niemcy x Prusy',
+  'Anglia x Francja'
 ];
 
 export default ships
