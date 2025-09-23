@@ -9,14 +9,14 @@ const getFirstH2FromHtmlFiles = (folderPath) => {
     .filter(dirent => dirent.isFile() && dirent.name.endsWith('.html'))
     .map(dirent => {
       const fullPath = path.join(folderPath, dirent.name)
-      const stats = fs.statSync(fullPath)
+      const num = parseInt(dirent.name.replace('.html', ''), 10)
       return { 
         name: dirent.name, 
-        fullPath, 
-        created: stats.birthtime 
+        fullPath,
+        num
       }
     })
-    .sort((a, b) => a.created - b.created)
+    .sort((a, b) => a.num - b.num)
 
   const result = []
 
