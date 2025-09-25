@@ -19,6 +19,7 @@ function BottomNavbar() {
             whileHover={whileHover}
             role="button"
             tabIndex="0"
+                      aria-label="Link do Instagrama"
             className="flex items-center p-3 rounded-lg text-start leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine"
           >
             <div className="grid place-items-center">
@@ -31,6 +32,7 @@ function BottomNavbar() {
             whileHover={whileHover}
             role="button"
             tabIndex="0"
+            aria-label="Link do Wattpada"
             className="flex items-center p-3 rounded-lg text-start
   leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine
   "
@@ -44,6 +46,7 @@ function BottomNavbar() {
           href="https://archiveofourown.org/users/KaiShouri"
           className="w-fit"
           target="_blank"
+          aria-label="Link do Ao3"
         >
           <motion.div
             whileHover={whileHover}
@@ -63,6 +66,7 @@ function BottomNavbar() {
             whileHover={whileHover}
             role="button"
             tabIndex="0"
+            aria-label="Link do fanfiction.net"
             className="flex items-center p-3 rounded-lg text-start
   leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine
   "

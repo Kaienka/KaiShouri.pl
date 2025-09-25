@@ -26,7 +26,7 @@ function ThemeChanger({mobile = false, additionalClass}:Props) {
   return (
     <div className={`p-4 flex flex-row  font-mono ${additionalClass}`}>
       <button
-       
+        aria-label="Zmień motyw"
         className={`border-bg-second-plum p-2 rounded-md  text-base mr-2 ${
           theme === "light" ? "text-plume-wine" : "text-linen-cloud"
         }`}
