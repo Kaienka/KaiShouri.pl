@@ -47,7 +47,7 @@ function MainNavbar() {
       <NavigationA
         href="https://kaishouri.github.io/"
         title="Mapa imperium"
-        desc='Interaktywna mapa kraju z "Polowania na łabędzia"'
+        desc='Interaktywna mapa kraju z "Polowania na łabędzia - tymczasowo niedostępna"'
         target="_blank"
       >
         <MapSvg />

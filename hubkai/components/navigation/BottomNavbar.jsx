@@ -53,6 +53,7 @@ function BottomNavbar() {
             whileHover={whileHover}
             role="button"
             tabIndex="0"
+            aria-label="Link do fanfiction.net"
             className="flex items-center p-3 rounded-lg text-start
   leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine
   "
