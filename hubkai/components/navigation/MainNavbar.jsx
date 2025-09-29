@@ -45,9 +45,9 @@ function MainNavbar() {
       </NavigationLink> */}
 
       <NavigationA
-        href="https://kaishouri.github.io/"
+        href="https://polowanie-na-labedzia.vercel.app/"
         title="Mapa imperium"
-        desc='Interaktywna mapa kraju z "Polowania na łabędzia - tymczasowo niedostępna"'
+        desc='Interaktywna mapa kraju z "Polowania na łabędzia"'
         target="_blank"
       >
         <MapSvg />
