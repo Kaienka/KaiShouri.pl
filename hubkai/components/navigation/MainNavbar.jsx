@@ -36,16 +36,8 @@ function MainNavbar() {
         <CoffeeSvg />
       </NavigationA>
 
-      {/*       <NavigationLink
-        href="https://barwinek.vercel.app/"
-        title="Barwinek"
-        desc="narzędzie do sprawdzania statystyk na Wattpadzie"
-      >
-        <StatsSvg />
-      </NavigationLink> */}
-
       <NavigationA
-        href="https://polowanie-na-labedzia.vercel.app/"
+        href="https://www.polowanienalabedzia.pl/"
         title="Mapa imperium"
         desc='Interaktywna mapa kraju z "Polowania na łabędzia"'
         target="_blank"
