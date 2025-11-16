@@ -1,5 +1,7 @@
-import fs from 'fs'
-import path from 'path'
+/* eslint-disable @typescript-eslint/no-require-imports */
+const fs = require('fs')
+const path = require('path')
+
 
 const root = process.cwd()
 const ficRoot = path.join(root, 'fanfictions')
