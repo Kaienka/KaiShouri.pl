@@ -45,7 +45,7 @@ dirs.forEach(dir => {
     chapter: last,
     updatedAt: stats.mtime.toISOString(),
     finished: finished,
-    chapterNo: files.length - 1
+    chapterNo: files.length
   }
 })
 
