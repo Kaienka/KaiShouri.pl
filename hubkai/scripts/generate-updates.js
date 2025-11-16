@@ -26,7 +26,20 @@ dirs.forEach(dir => {
   const fullPath = path.join(chaptersPath, last)
   const stats = fs.statSync(fullPath)
 
+  let fanficTitle = ''
+  const infoPath = path.join(ficRoot, dir, 'info.json')
+  if (fs.existsSync(infoPath)) {
+    try {
+      const infoContent = fs.readFileSync(infoPath, 'utf-8')
+      const infoJson = JSON.parse(infoContent)
+      fanficTitle = infoJson.title || ''
+    } catch {
+      fanficTitle = ''
+    }
+  }
+
   updates[dir] = {
+    fanficName: fanficTitle,
     chapter: last,
     updatedAt: stats.mtime.toISOString()
   }
