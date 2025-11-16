@@ -43,7 +43,7 @@ dirs.forEach(dir => {
   updates[dir] = {
     fanficName: fanficTitle,
     chapter: last,
-    updatedAt: stats.mtime.toISOString(),
+    updatedAt: stats.birthtime.toISOString(),
     finished: finished,
     chapterNo: files.length
   }
