@@ -3,7 +3,6 @@ const fs = require('fs')
 const path = require('path')
 
 
-const root = process.cwd()
 const ficRoot = path.join(process.cwd(), '..', 'fanfictions')
 const dirs = fs.readdirSync(ficRoot)
 
