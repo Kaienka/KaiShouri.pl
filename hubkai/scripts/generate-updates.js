@@ -33,7 +33,7 @@ dirs.forEach(dir => {
   }
 })
 
-const out = path.join(root, 'public', 'fanfictions-updates.json')
+const out = path.join(process.cwd(), '..', 'public', 'fanfictions-updates.json')
 fs.writeFileSync(out, JSON.stringify(updates, null, 2), 'utf-8')
 
 console.log('Generated fanfictions-updates.json')
