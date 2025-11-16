@@ -12,11 +12,11 @@ const updates = {}
 
 const repoRoot = path.resolve(process.cwd(), '../..') // repo-root
 
-function getLastCommitDate(filePath) {
+function getFirstCommitDate(filePath) {
   try {
     const relativePath = path.relative(repoRoot, filePath)
     console.log('Getting git log for:', relativePath)
-    const stdout = execSync(`git log -1 --format=%cI -- "${relativePath}"`, {
+    const stdout = execSync(`git log --diff-filter=A --format=%cI -1 -- "${relativePath}"`, {
       encoding: 'utf-8',
       cwd: repoRoot
     })
@@ -65,7 +65,7 @@ dirs.forEach(dir => {
   updates[dir] = {
     fanficName: fanficTitle,
     chapter: last,
-    updatedAt: getLastCommitDate(fullPath)?.toISOString() || null,
+    updatedAt: getFirstCommitDate(fullPath)?.toISOString() || null,
     finished: finished,
     chapterNo: files.length
   }
