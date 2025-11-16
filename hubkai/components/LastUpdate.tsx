@@ -33,7 +33,7 @@ export default function UpdatesList() {
         {items.map(({ fic, fanficName, chapter, updatedAt, finished, chapterNo }) => (
           <li key={fic}>
             <strong>{fanficName} — </strong> 
-            {finished && chapterNo == 1 ? 'oneshot' :  `rozdział ${chapter}`}
+            {finished && chapterNo == 1 ? 'oneshot' :  `rozdział ${chapterNo}`}
             — {updatedAt.toLocaleDateString('pl-PL')}
           </li>
         ))}
