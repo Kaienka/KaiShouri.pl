@@ -10,17 +10,19 @@ const dirs = fs.readdirSync(ficRoot)
 const updates = {}
 
 
-const repoRoot = path.resolve(process.cwd(), '..')
+const repoRoot = path.resolve(process.cwd(), '../..') // repo-root
 
 function getLastCommitDate(filePath) {
   try {
     const relativePath = path.relative(repoRoot, filePath)
+    console.log('Getting git log for:', relativePath)
     const stdout = execSync(`git log -1 --format=%cI -- "${relativePath}"`, {
       encoding: 'utf-8',
       cwd: repoRoot
     })
     return new Date(stdout.trim())
-  } catch {
+  } catch (e) {
+    console.error('git log error:', e)
     return null
   }
 }
