@@ -1,12 +1,25 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs')
 const path = require('path')
+const { execSync } = require('child_process')
 
 
 const ficRoot = path.join(process.cwd(), '..', 'fanfictions')
 const dirs = fs.readdirSync(ficRoot)
 
 const updates = {}
+
+
+function getLastCommitDate(filePath) {
+  try {
+    const stdout = execSync(`git log -1 --format=%cI -- "${filePath}"`, { encoding: 'utf-8' })
+    return new Date(stdout.trim())
+  } catch {
+    return null
+  }
+}
+
+
 
 dirs.forEach(dir => {
   const chaptersPath = path.join(ficRoot, dir, 'chapters')
@@ -24,7 +37,6 @@ dirs.forEach(dir => {
 
   const last = files[files.length - 1]
   const fullPath = path.join(chaptersPath, last)
-  const stats = fs.statSync(fullPath)
 
   let fanficTitle = ''
   let finished = false
@@ -43,7 +55,7 @@ dirs.forEach(dir => {
   updates[dir] = {
     fanficName: fanficTitle,
     chapter: last,
-    updatedAt: stats.birthtime.toISOString(),
+    updatedAt: getLastCommitDate(fullPath)?.toISOString() || null,
     finished: finished,
     chapterNo: files.length
   }

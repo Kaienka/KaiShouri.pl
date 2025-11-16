@@ -2,7 +2,7 @@ import AboutPage from "@/components/mainPageElements/AboutPage";
 import AboutContent from "@/components/mainPageElements/AboutContent";
 import AboutMe from "@/components/mainPageElements/AboutMe";
 import Quote from "@/components/mainPageElements/Quote";
-import LastUpdate from "@/components/LastUpdate";
+import LastUpdate from "@/components/mainPageElements/LastUpdate";
 
 export default function Home() {
   return (
