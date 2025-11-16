@@ -4,8 +4,7 @@ const path = require('path')
 
 
 const root = process.cwd()
-const ficRoot = path.join(root, 'fanfictions')
-
+const ficRoot = path.join(process.cwd(), '..', 'fanfictions')
 const dirs = fs.readdirSync(ficRoot)
 
 const updates = {}
