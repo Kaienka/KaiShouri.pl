@@ -20,7 +20,7 @@ jobs:
 
       - name: Run update script
         working-directory: hubkai/scripts
-        run: node generateUpdates.js
+        run: node generate-updates.js
 
       - name: Commit and push updated JSON
         working-directory: hubkai
