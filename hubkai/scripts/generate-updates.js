@@ -27,12 +27,14 @@ dirs.forEach(dir => {
   const stats = fs.statSync(fullPath)
 
   let fanficTitle = ''
+  let finished = false
   const infoPath = path.join(ficRoot, dir, 'info.json')
   if (fs.existsSync(infoPath)) {
     try {
       const infoContent = fs.readFileSync(infoPath, 'utf-8')
       const infoJson = JSON.parse(infoContent)
       fanficTitle = infoJson.title || ''
+      finished = infoJson.finished
     } catch {
       fanficTitle = ''
     }
@@ -41,7 +43,9 @@ dirs.forEach(dir => {
   updates[dir] = {
     fanficName: fanficTitle,
     chapter: last,
-    updatedAt: stats.mtime.toISOString()
+    updatedAt: stats.mtime.toISOString(),
+    finished: finished,
+    chapterNo: last
   }
 })
 

@@ -28,11 +28,13 @@ export default function UpdatesList() {
   }
   return (
     <main className='p-4'>
-      <h1 className='text-l mb-4'>Ostatnie aktualizacje</h1>
+      <h1 className='text-l mb-4'>Ostatnie aktualizacje - testy na produkcji :))</h1>
       <ul className='space-y-2'>
-        {items.map(({ fic, fanficName, chapter, updatedAt }) => (
+        {items.map(({ fic, fanficName, chapter, updatedAt, finished, chapterNo }) => (
           <li key={fic}>
-            <strong>{fanficName || fic}</strong> — {chapter} — {updatedAt.toLocaleString('pl-PL')}
+            <strong>{fanficName} — </strong> 
+            {finished && chapterNo == 1 ? 'oneshot' :  `rozdział ${chapter}`}
+            — {updatedAt.toLocaleDateString('pl-PL')}
           </li>
         ))}
       </ul>
