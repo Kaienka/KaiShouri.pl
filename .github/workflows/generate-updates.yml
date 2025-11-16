@@ -1,31 +1,32 @@
-name: Generate fanfiction updates
+name: Generate fanfictions updates
 
 on:
   push:
     paths:
-      - "fanfictions/**"
+      - 'hubkai/fanfictions/**'
 
 jobs:
-  generate_updates:
+  generate-updates:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+      - name: Run update script
+        working-directory: hubkai/scripts
+        run: node generateUpdates.js
 
-      - name: Generate updates JSON
-        run: node scripts/generate-updates.js
-
-      - name: Commit updates
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Auto-update fanfiction updates JSON"
-          file_pattern: "public/fanfictions-updates.json"
+      - name: Commit and push updated JSON
+        working-directory: hubkai
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add public/fanfictions-updates.json
+          git commit -m "Update fanfictions-updates.json [skip ci]" || echo "No changes to commit"
+          git push
