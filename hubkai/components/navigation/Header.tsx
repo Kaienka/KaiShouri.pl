@@ -1,13 +1,12 @@
 import Link from "next/link";
 import * as motion from "motion/react-client";
 import HeaderIconSvg from "@/components/svg/HeaderIconSvg";
-
-const whileHover = { rotate: 3, transition: { duration: 0.2 } };
+import { whileHoverLinks } from "@/app/utils/motion";
 
 function Header() {
   return (
     <>
-      <motion.div className="mb-2 p-4" whileHover={whileHover}>
+      <motion.div className="mb-2 p-4" whileHover={whileHoverLinks}>
         <Link href="/">
           <motion.div className="flex items-center">
             <HeaderIconSvg />

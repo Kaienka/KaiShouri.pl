@@ -34,3 +34,15 @@ export type FanficUpdate = {
   chapterNo: number
   finished: boolean
 }
+
+export type LinkElement = {
+    title: string;
+    desc?: string;
+    href: string;
+    children: React.ReactNode;
+    target?:string;
+}
+
+export type DividerTitle = {
+    title: string;
+}

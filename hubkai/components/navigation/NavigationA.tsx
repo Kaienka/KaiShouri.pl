@@ -1,20 +1,13 @@
 "use client";
+import { whileHoverLinks } from "@/app/utils/motion";
+import { LinkElement } from "@/types/types.api";
 import * as motion from "motion/react-client";
 
-const whileHover = { rotate: 3, transition: { duration: 0.2 } };
-
-type Props = {
-    title: string;
-    desc?: string;
-    href: string;
-    children: React.ReactNode;
-}
-
-function NavigationA({ title, desc, href, children }: Props) {
+function NavigationA({ title, desc, href, children }: LinkElement) {
   return (
     <a href={href} target="_blank">
       <motion.div
-        whileHover={whileHover}
+        whileHover={whileHoverLinks}
         role="button"
         className={`bg-plume-wine flex items-center w-full p-3 rounded-lg text-start
   leading-tight transition-all duration-200 hover:bg-violet-200 hover:text-plume-wine

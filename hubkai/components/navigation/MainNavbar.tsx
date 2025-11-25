@@ -32,6 +32,7 @@ function MainNavbar() {
         href="https://ko-fi.com/kaishouri"
         title="Ko-Fi"
         desc="Tipy kawowe zawsze mile widziane :)"
+        target="_blank"
       >
         <CoffeeSvg />
       </NavigationA>

@@ -5,3 +5,5 @@ export const whileHoverAuthor = {
   scale: 1.1,
   transition: { duration: 0.2 },
 };
+
+export const whileHoverLinks = { rotate: 3, transition: { duration: 0.2 } };

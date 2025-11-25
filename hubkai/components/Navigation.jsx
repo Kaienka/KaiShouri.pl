@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import BottomNavbar from "@/components/navigation/BottomNavbar";
+import SocialLinks from "@/components/navigation/SocialLinks";
 import MainNavbar from "@/components/navigation/MainNavbar";
 import Header from "@/components/navigation/Header";
 import HamburgerBtn from "@/components/navigation/HamburgerBtn";
@@ -48,7 +48,7 @@ function Navigation() {
           <Header isOpen={isOpen} onClick={toggleMenu} />
           <MainNavbar />
         </div>
-        <BottomNavbar />
+        <SocialLinks />
       </div>
 
       {isOpen && (
