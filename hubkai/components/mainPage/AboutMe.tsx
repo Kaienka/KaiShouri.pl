@@ -1,12 +1,8 @@
 import * as motion from "motion/react-client";
 import Image from "next/image";
 import avatar from "@/public/kai.jpg";
+import { whileHoverAuthor } from "@/app/utils/motion";
 
-const whileHoverAuthor = {
-  rotate: "-2deg",
-  scale: 1.1,
-  transition: { duration: 0.2 },
-};
 
 function AboutMe() {
   return (

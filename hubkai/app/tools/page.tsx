@@ -38,7 +38,7 @@ function ToolsPage() {
           Program pozwala na sprawdzenie statystyk, ustawianie celów, planu i powiązań dla danego rozdziału.
           Pozwala również na wyeksportowanie rozdziałów do docx, epub, html, pojedynczo lub do jednego pliku,
           a miłym i klimatycznym dodatkiem są dźwięki maszyny do pisania, które można włączyć w opcjach.
-          Program jest tworzony przez jednego programistę, Gary'ego Bentleya, jako projekt po godzinach. Nie jest wolny od bugów (autor podkreśla w licencji, by mieć zawsze kopię zapasową swoich plików, do czego i ja zachęcam)
+          Program jest tworzony przez jednego programistę, Gary&apos;ego Bentleya, jako projekt po godzinach. Nie jest wolny od bugów (autor podkreśla w licencji, by mieć zawsze kopię zapasową swoich plików, do czego i ja zachęcam)
           i nieczęsto ma aktualizacje, ale używam go od kilku lat i nigdy nie sprawił mi dużych problemów. To oprogramowanie open source,
           kod źrodłowy znajduje się na <a className="font-bold" href="https://github.com/garybentley/quollwriter" target="_blank">GitHubie.</a> </p>
         <p className="p-4"> <a href="https://quollwriter.com/pl/" target="_blank" className="font-bold">Quoll Writer</a> pozostaje moim głównym programem, w którym trzymam wszystkie pisane obecnie fanfiki, oraz fragmenty, ścinki czy odrzucone pomysły, które leżą w specjalnym projekcie o nazwie „Cmentarzysko”. Dzięki niemu łatwiej mi organizować dłuższe teksty,
@@ -82,7 +82,7 @@ function ToolsPage() {
 
       <TextCard title="Google Keep" link="https://keep.google.com">
         <p className="p-4">
-          Darmowa aplikacja od Google'a, oparta na idei samoprzylepnych karteczek, które można przypiąć, oznaczyć kolorem albo otagować. Można dołączać zdjęcia oraz pola wyboru do odhaczenia. Dostępne zarówno w wersji przeglądarkowej, jak i mobilnej (Android, iOS) służy mi do zapisywania szybkich notatek lub scenek, jeśli przyjdą mi do głowy poza domem.            </p>
+          Darmowa aplikacja od Google&apos;a, oparta na idei samoprzylepnych karteczek, które można przypiąć, oznaczyć kolorem albo otagować. Można dołączać zdjęcia oraz pola wyboru do odhaczenia. Dostępne zarówno w wersji przeglądarkowej, jak i mobilnej (Android, iOS) służy mi do zapisywania szybkich notatek lub scenek, jeśli przyjdą mi do głowy poza domem.            </p>
         <p className="p-4">
           Podobne: Notion, Evernote, Microsoft One Note</p>
       </TextCard>

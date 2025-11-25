@@ -1,8 +1,8 @@
+import { whileHover } from "@/app/utils/motion";
 import ContentSvg from "@/components/svg/ContentSvg";
 import * as motion from "motion/react-client";
 import Link from "next/link";
 
-const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
 
 function AboutContent() {
   return (

@@ -1,8 +1,8 @@
-import AboutPage from "@/components/mainPageElements/AboutPage";
-import AboutContent from "@/components/mainPageElements/AboutContent";
-import AboutMe from "@/components/mainPageElements/AboutMe";
-import Quote from "@/components/mainPageElements/Quote";
-import LastUpdate from "@/components/mainPageElements/LastUpdate";
+import AboutPage from "@/components/mainPage/AboutPage";
+import AboutContent from "@/components/mainPage/AboutContent";
+import AboutMe from "@/components/mainPage/AboutMe";
+import Quote from "@/components/mainPage/Quote";
+import LastUpdate from "@/components/mainPage/LastUpdate";
 
 export default function Home() {
   return (
