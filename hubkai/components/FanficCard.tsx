@@ -5,15 +5,15 @@ import DoneSvg from "./svg/DoneSvg";
 import NsfwSvg from "./svg/NsfwSvg";
 import axios from "axios"
 import { useState } from 'react'
+import { whileHover } from "@/app/utils/motion";
+import { Fanfic } from "@/types/types.api";
 
-const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
-
-function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }) {
+function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }:Fanfic) {
 
   const [isDownloading, setIsDownloading] = useState(false)
 
 
-  function getFontSize(description) {
+  function getFontSize(description:string) {
     if (description.length < 200) return "text-lg";
     if (description.length < 300) return "text-base";
     return "text-sm";

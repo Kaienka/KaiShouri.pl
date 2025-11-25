@@ -1,7 +1,11 @@
 import Dropdown from "@/components/Dropdown"
 import sort from "@/dicts/sort"
 
-function SortBy({ onSort }) {
+type Props = {
+    onSort: (value:string) => void
+}
+
+function SortBy({ onSort }:Props) {
 
     return <section className="p-4 font-mono text-center text-linen-cloud rounded-xl"
     >

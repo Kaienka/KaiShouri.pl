@@ -3,10 +3,14 @@ import * as motion from "motion/react-client";
 import HeaderIconSvg from "@/components/svg/HeaderIconSvg";
 import { whileHoverLinks } from "@/app/utils/motion";
 
-function Header() {
+type Props = {
+  onClick: () => void
+}
+
+function Header({onClick}:Props) {
   return (
     <>
-      <motion.div className="mb-2 p-4" whileHover={whileHoverLinks}>
+      <motion.div className="mb-2 p-4" whileHover={whileHoverLinks} onClick={onClick}>
         <Link href="/">
           <motion.div className="flex items-center">
             <HeaderIconSvg />

@@ -30,7 +30,8 @@ function Navigation() {
           <p className="font-mono font-bold text-linen-cloud">Kai Shouri</p>
           </Link>
           </div>
-          <ThemeChanger className="text-linen-cloud" mobile />
+          <ThemeChanger
+            mobile />
         </header>
       )}
 
@@ -45,7 +46,8 @@ function Navigation() {
   `}
       >
         <div>
-          <Header isOpen={isOpen} onClick={toggleMenu} />
+          <Header
+           onClick={toggleMenu} />
           <MainNavbar />
         </div>
         <SocialLinks />

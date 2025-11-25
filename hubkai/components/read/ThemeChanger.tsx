@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 type Props = {
   mobile: boolean,
-  additionalClass: string
+  additionalClass?: string
 }
 
 

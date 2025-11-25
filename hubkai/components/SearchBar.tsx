@@ -1,8 +1,13 @@
 'use client'
-import { Field, Label, Select, Input } from '@headlessui/react'
+import { Field, Label, Input } from '@headlessui/react'
 import clsx from 'clsx'
 
-function SearchBar({ option, onSelect }) {
+type Props = {
+    option: string;
+    onSelect: (value:string) => void;
+}
+
+function SearchBar({ option, onSelect }:Props) {
     return <Field className="flex-column justify-center items-center  bg-plume-wine shadow rounded-2xl p-4">
         <Label className="font-mono text-xs font-bold">{option}: </Label>
         <Input type="text" onChange={(e) => onSelect(e.target.value)} 

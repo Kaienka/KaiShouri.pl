@@ -2,7 +2,13 @@
 import { Field, Label, Select } from '@headlessui/react'
 import clsx from 'clsx'
 
-function Dropdown({ option, values, onSelect }) {
+type Props = {
+    option: string;
+    values: string[];
+    onSelect: (value:string) => void
+}
+
+function Dropdown({ option, values, onSelect }:Props) {
     return <Field className="flex-column justify-center items-center  bg-plume-wine shadow rounded-2xl p-4">
         <Label className="font-mono text-xs font-bold">{option}: </Label>
         <Select name={option} aria-label={option}
