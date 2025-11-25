@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react"
 
-function SpotifyFrame({ src }) {
+type Props = {
+    src: string;
+}
+
+function SpotifyFrame({ src } : Props) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -20,7 +24,6 @@ function SpotifyFrame({ src }) {
         className={`rounded-xl w-full h-[22rem] transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        frameBorder="0"
         allowFullScreen={false}
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
         loading="lazy"

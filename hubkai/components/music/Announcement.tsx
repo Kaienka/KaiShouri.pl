@@ -1,5 +1,5 @@
 type Props = {
-    children: React.ReactElement
+    children: React.ReactElement | string;
 }
 
 function Announcement({children}: Props) {
