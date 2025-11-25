@@ -46,3 +46,42 @@ export type LinkElement = {
 export type DividerTitle = {
     title: string;
 }
+
+export type Fanfic = {
+    title: string;
+    description: string;
+    finished: boolean;
+    titleEscaped: string,
+    fandom: string,
+    chapters: number,
+    wordCount: string,
+    nsfw: boolean,
+    ship: string;
+    date: string;
+    links?: Links;
+}
+
+export type Chapter = {
+    fileContent: string;
+    index: number;
+    fic: string;
+    chapterAmount: number;
+}
+
+export type FanficDetails = {
+  fic: Fanfic;
+  chapterTitles: string[];
+}
+
+export type Links = {
+    ao3: string;
+    ffnet: string;
+    wattpad: string;
+}
+
+export type Content = {
+    fileContent: string,
+    index: number,
+    fic: string,
+    chapterAmount: number
+}

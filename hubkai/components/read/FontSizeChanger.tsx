@@ -3,7 +3,7 @@
 type Props = {
   onDecrease: () => void;
   onIncrease: () => void;
-  theme: string
+  theme: string | undefined;
 };
 
 function FontSizeChanger({ onDecrease, onIncrease, theme }: Props) {

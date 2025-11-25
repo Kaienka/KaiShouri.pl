@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 const whileHover = { scale: 1.1, transition: { duration: 0.2 } };
 
-function FanficCard({ title, description, finished, svg, titleEscaped, fandom, wordCount, chapters, nsfw }) {
+function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }) {
 
   const [isDownloading, setIsDownloading] = useState(false)
 

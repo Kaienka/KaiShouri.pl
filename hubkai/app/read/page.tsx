@@ -1,15 +1,17 @@
 import fs from "fs";
 import path from "path";
 import ReadWrapper from "@/components/read/ReadWrapper"
+import { Fanfic } from "@/types/types.api";
 
 
-const getSubfolders = (source) => {
+const getSubfolders = (source: string) => {
+  console.log(source)
   return fs.readdirSync(source, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)
 }
 
-const countFiles = (source) => {
+const countFiles = (source: string) => {
   return fs.readdirSync(source, { withFileTypes: true })
     .filter(dirent => dirent.isFile())
     .length
@@ -20,7 +22,7 @@ function ReadPage() {
   const mainFicFolder = path.join(process.cwd(), "fanfictions")
   const fanfics = getSubfolders(mainFicFolder)
 
-  const fanficInfo = []
+  const fanficInfo: Fanfic[] = []
 
   fanfics.forEach(fic => {
     const patchToFanfic = path.join(process.cwd(), "fanfictions", fic, "info.json")
@@ -31,7 +33,6 @@ function ReadPage() {
       description: infoContent.description,
       finished: infoContent.finished,
       titleEscaped: infoContent.titleEscaped,
-      svg: infoContent.svg,
       fandom: infoContent.fandom,
       chapters: chaptersAmount,
       wordCount: infoContent.wordCount,

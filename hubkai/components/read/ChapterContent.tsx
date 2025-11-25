@@ -2,12 +2,11 @@
 import ReadNavigation from "@/components/read/ReadNavigation"
 import FontSizeChanger from "@/components/read/FontSizeChanger"
 import { useTheme } from "next-themes";
-
-
 import { useState, useEffect } from "react";
+import { Chapter } from "@/types/types.api";
 
 
-function getCookie(name) {
+function getCookie(name:string) {
     if (typeof window === 'undefined') return null
     const matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -15,15 +14,14 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : null
 }
 
-function setCookie(name, value, days = 365) {
+function setCookie(name:string, value:string, days = 365) {
     if (typeof window === 'undefined') return
     const expires = new Date()
     expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000)
     document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/`
 }
 
-
-function ChapterContent({ fileContent, index, fic, chapterAmount }) {
+function ChapterContent({ fileContent, index, fic, chapterAmount }:Chapter) {
     const styledContent = `
   <style>
     p { margin:0; padding:0.5rem 0;}

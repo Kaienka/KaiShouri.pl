@@ -3,9 +3,10 @@ import Filters from "@/components/Filters"
 import SortBy from "@/components/SortBy"
 import FanficCard from "@/components/FanficCard";
 import { useState, useMemo } from "react";
+import { Fanfic } from "@/types/types.api";
 
 
-function parseYear(dateStr, newestFirst = false) {
+function parseYear(dateStr: string, newestFirst = false) {
     if (!dateStr) return 0
     if (newestFirst && dateStr.endsWith('-')) {
         return 9999
@@ -14,7 +15,7 @@ function parseYear(dateStr, newestFirst = false) {
     return match ? parseInt(match[0], 10) : 0
 }
 
-function parseWordCount(str) {
+function parseWordCount(str: string) {
     if (!str) return 0
     str = str.replace('+', '')
     const match = str.match(/([\d.]+)k?/i)
@@ -25,7 +26,7 @@ function parseWordCount(str) {
 
 
 
-function ReadWrapper({ fanficInfo }) {
+function ReadWrapper({ fanficInfo }:  {fanficInfo: Fanfic[]}) {
 
     const [filters, setFilters] = useState({
         fandom: 'wszystko',
@@ -39,7 +40,7 @@ function ReadWrapper({ fanficInfo }) {
     const [sort, setSort] = useState('Najnowsze')
 
 
-    function onFilter(value, filterType) {
+    function onFilter(value :string, filterType :string) {
         setFilters(prev => ({
             ...prev,
             [filterType]: value
@@ -113,7 +114,7 @@ function ReadWrapper({ fanficInfo }) {
     }, [filters, fanficInfo])
 
 
-    function onSort(value) {
+    function onSort(value: string) {
         setSort(value)
     }
 
@@ -162,7 +163,6 @@ function ReadWrapper({ fanficInfo }) {
                         description={item.description}
                         finished={item.finished}
                         titleEscaped={item.titleEscaped}
-                        svg={item.svg}
                         fandom={item.fandom}
                         chapters={item.chapters}
                         wordCount={item.wordCount}

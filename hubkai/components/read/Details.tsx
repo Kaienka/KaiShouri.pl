@@ -3,10 +3,11 @@ import WattpadSvg from "@/components/svg/WattpadSvg";
 import FFSvg from "@/components/svg/FFSvg";
 import * as motion from "motion/react-client";
 import Link from "next/link";
+import { FanficDetails } from "@/types/types.api";
+import { whileHoverLinks } from "@/app/utils/motion";
 
-const whileHover = { rotate: 3, transition: { duration: 0.2 } };
 
-async function Details({ fic, chapterTitles }) {
+async function Details({ fic, chapterTitles }: FanficDetails) {
   return (
     <>
       <div className=" flex flex-col items-center w-4/6 text-plume-wine dark:text-linen-cloud">
@@ -16,9 +17,9 @@ async function Details({ fic, chapterTitles }) {
           {fic.links?.ao3 && (
             <a href={fic.links.ao3} target="_blank" className="w-fit">
               <motion.div
-                whileHover={whileHover}
+                whileHover={whileHoverLinks}
                 role="button"
-                tabIndex="0"
+                tabIndex={0}
                 className="flex items-center p-3 rounded-lg text-start leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine"
               >
                 <div className="grid place-items-center">
@@ -30,9 +31,9 @@ async function Details({ fic, chapterTitles }) {
           {fic.links?.ffnet && (
             <a href={fic.links.ffnet} target="_blank" className="w-fit">
               <motion.div
-                whileHover={whileHover}
+                whileHover={whileHoverLinks}
                 role="button"
-                tabIndex="0"
+                tabIndex={0}
                 className="flex items-center p-3 rounded-lg text-start leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine"
               >
                 <div className="grid place-items-center">
@@ -44,9 +45,9 @@ async function Details({ fic, chapterTitles }) {
           {fic.links?.wattpad && (
             <a href={fic.links.wattpad} target="_blank" className="w-fit">
               <motion.div
-                whileHover={whileHover}
+                whileHover={whileHoverLinks}
                 role="button"
-                tabIndex="0"
+                tabIndex={0}
                 className="flex items-center p-3 rounded-lg text-start leading-tight transition-all  hover:bg-violet-200  hover:text-plume-wine focus:text-plume-wine"
               >
                 <div className="grid place-items-center">

@@ -4,7 +4,7 @@ type Props = {
   lastChapterIndex: number;
   currentChapterIndex: number;
   escapedTtitle: string;
-  theme: string
+  theme: string | undefined;
 };
 
 function ReadNavigation({
