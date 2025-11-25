@@ -20,7 +20,6 @@ function getFirstCommitDate(filePath) {
       encoding: 'utf-8',
       cwd: repoRoot
     })
-    console.log(stdout)
     return new Date(stdout.trim())
   } catch (e) {
     console.error('git log error:', e)

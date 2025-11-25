@@ -14,7 +14,6 @@ type Props = {
 function Filters({ onFilter }:Props) {
 
     function onSelect(data:string, filter:string) {
-        console.log(data, filter)
         onFilter(data, filter)
     }
 

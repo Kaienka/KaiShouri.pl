@@ -67,7 +67,6 @@ function ReadWrapper({ fanficInfo }:  {fanficInfo: Fanfic[]}) {
                         ok = ok && f.fandom === 'TRC'
                         break
                     case "Twisted Wonderland":
-                        console.log(f.fandom)
                         ok = ok && f.fandom === 'TW'
                         break
                     case 'światy oryginalne':

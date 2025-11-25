@@ -61,6 +61,17 @@ export type Fanfic = {
     links?: Links;
 }
 
+export type FanficShort = {
+    title: string;
+    description: string;
+    finished: boolean;
+    titleEscaped: string,
+    fandom: string,
+    chapters: number,
+    wordCount: string,
+    nsfw: boolean,
+}
+
 export type Chapter = {
     fileContent: string;
     index: number;

@@ -5,7 +5,6 @@ import { Fanfic } from "@/types/types.api";
 
 
 const getSubfolders = (source: string) => {
-  console.log(source)
   return fs.readdirSync(source, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name)

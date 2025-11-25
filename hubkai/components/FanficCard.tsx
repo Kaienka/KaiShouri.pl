@@ -6,9 +6,9 @@ import NsfwSvg from "./svg/NsfwSvg";
 import axios from "axios"
 import { useState } from 'react'
 import { whileHover } from "@/app/utils/motion";
-import { Fanfic } from "@/types/types.api";
+import { FanficShort } from "@/types/types.api";
 
-function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }:Fanfic) {
+function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }:FanficShort) {
 
   const [isDownloading, setIsDownloading] = useState(false)
 
