@@ -1,5 +1,5 @@
 import SpotifyIFrame from "@/components/music/SpotifyIFrame";
-import Announcement from "@/components/music/Announcement";
+import Info from "@/components/music/Info";
 import MusicSvg from "@/components/svg/MusicSvg";
 
 function MusicPage() {
@@ -21,12 +21,12 @@ function MusicPage() {
         <p className="mb-5  text-base text-plume-wine sm:text-lg dark:text-linen-cloud">
           Moje playlisty stworzone dla fanfików, shipów i postaci.
         </p>
-        <Announcement>
+        <Info>
           Ze względu na ograniczenia Spotify, playlisty embedded pozwalają na
           odtwarzanie tylko 30 sekund pojedynczego utworu. Mam nadzieję, że w
           niedługim czasie uda mi się znaleźć jakąś darmową alternatywę, by
           udostepnić Wam playlisty bez konieczności posiadania tam konta ;)
-        </Announcement>
+        </Info>
         <h1 className="text-2xl uppercase text-plume-wine mt-4  p-4 text-bold text-inter dark:text-linen-cloud">
           Hetalia
         </h1>

@@ -1,13 +1,7 @@
+import { Headcanon } from "@/types/types.api";
 import NsfwSvg from "../svg/NsfwSvg";
 
-type Props = {
-  character: string;
-  content: string;
-  category: string;
-  nsfw: boolean
-};
-
-function Card({ character, content, nsfw }: Props) {
+function Card({ character, content, nsfw }: Headcanon) {
   return (
     <div
       className="bg-plume-wine shadow-plume-wine shadow-sm flex flex-col justify-between

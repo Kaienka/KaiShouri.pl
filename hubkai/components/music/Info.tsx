@@ -1,8 +1,6 @@
-type Props = {
-    children: React.ReactElement | string;
-}
+import { Info as InfoProps } from "@/types/types.api";
 
-function Announcement({children}: Props) {
+function Info({children}: InfoProps) {
     return ( <p
           className="text-sm mx-auto font-inter text-plume-wine border-2
          border-plume-wine rounded-md p-2 w-10/12 sm:w-6/12
@@ -12,4 +10,4 @@ function Announcement({children}: Props) {
         </p> );
 }
 
-export default Announcement;
+export default Info;

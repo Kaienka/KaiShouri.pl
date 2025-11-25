@@ -1,12 +1,9 @@
 "use client"
 
+import { SpotifyIFrame as Spotify } from "@/types/types.api";
 import { useState, useEffect } from "react"
 
-type Props = {
-    src: string;
-}
-
-function SpotifyFrame({ src } : Props) {
+function SpotifyIFrame({ src } : Spotify) {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -32,5 +29,5 @@ function SpotifyFrame({ src } : Props) {
   )
 }
 
-export default SpotifyFrame
+export default SpotifyIFrame
 

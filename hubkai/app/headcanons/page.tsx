@@ -1,4 +1,4 @@
-import HeadcanonProcessor from "@/components/accordition/HeadcanonProcessor";
+import HeadcanonProcessor from "@/components/headcanons/HeadcanonProcessor";
 import IdeaSvg from "@/components/svg/IdeaSvg";
 
 function HeadcanonsPage() {
