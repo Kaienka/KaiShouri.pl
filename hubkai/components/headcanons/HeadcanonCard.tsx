@@ -11,7 +11,7 @@ function Card({ character, content, nsfw }: Headcanon) {
         {nsfw && <div className="bg-plume-wine text-red-300 ml-2">
         <NsfwSvg/>
         </div>}
-        <h1 className="bg-plume-wine text-linen-cloud p-2 rounded-tl-lg w-full font-bold capitalize">
+        <h1 className="bg-plume-wine text-linen-cloud p-2 rounded-tl-lg w-full font-bold first-letter:uppercase">
           {character}
         </h1>
       </div>
