@@ -1,12 +1,12 @@
 'use client'
 import * as motion from "motion/react-client";
 import Link from "next/link";
-import DoneSvg from "./svg/DoneSvg";
-import NsfwSvg from "./svg/NsfwSvg";
 import axios from "axios"
 import { useState } from 'react'
 import { whileHover } from "@/app/utils/motion";
 import { FanficShort } from "@/types/types.api";
+import Nsfw2Svg from "./svg/Nsfw2Vsg";
+import Done2Svg from "./svg/Done2Svg";
 
 function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }:FanficShort) {
 
@@ -55,9 +55,9 @@ function FanficCard({ title, description, finished, titleEscaped, fandom, wordCo
           <h1 className="bg-plume-wine px-2 text-linen-cloud pt-2 pb-2 border-transparent rounded-t-lg flex flex-row justify-center items-center">
 
             {nsfw && <span className="mr-2 text-xs text-red-200">
-              <NsfwSvg aria-label="nsfw" />
+              <Nsfw2Svg aria-label="nsfw" />
             </span>} <span className="wrap">{title}</span> {finished && <span className="ml-2 text-xs text-green-300">
-              <DoneSvg aria-label="zakonczone" />
+              <Done2Svg aria-label="zakonczone" />
             </span>}
           </h1>
         </div>
