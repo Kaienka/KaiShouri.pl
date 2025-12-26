@@ -77,6 +77,7 @@ export type Chapter = {
     index: number;
     fic: string;
     chapterAmount: number;
+    onLoad?: () => void;
 }
 
 export type FanficDetails = {
