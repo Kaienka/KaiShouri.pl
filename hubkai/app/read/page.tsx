@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import ReadWrapper from "@/components/read/ReadWrapper"
 import { Fanfic } from "@/types/types.api";
+import { Suspense } from "react";
 
 
 const getSubfolders = (source: string) => {
@@ -44,7 +45,9 @@ function ReadPage() {
 
 
   return (
-    <ReadWrapper fanficInfo={fanficInfo} />
+        <Suspense fallback={<div>Ładowanie...</div>}>
+          <ReadWrapper fanficInfo={fanficInfo} />
+        </Suspense>
   );
 }
 
