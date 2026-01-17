@@ -2,11 +2,11 @@
 import Filters from "@/components/Filters"
 import SortBy from "@/components/SortBy"
 import FanficCard from "@/components/FanficCard"
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { Fanfic } from "@/types/types.api"
 import { motion, AnimatePresence } from "framer-motion"
 import { variants } from "@/app/utils/motion"
-
+import { useRouter, useSearchParams } from "next/navigation"
 
 function parseYear(dateStr: string, newestFirst = false) {
   if (!dateStr) return 0
@@ -27,11 +27,16 @@ function parseWordCount(str: string) {
 }
 
 function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
+
+  const router = useRouter();
+  const searchParams = useSearchParams()
+  const ship = searchParams.get('ship')
+
   const [filters, setFilters] = useState({
     fandom: 'wszystko',
     nsfw: 'wszystko',
     type: 'wszystko',
-    ship: 'wszystko',
+    ship: ship ? ship : 'wszystko',
     finished: 'wszystko',
     title: ''
   })
@@ -51,6 +56,17 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
       setLoading(false)
     }, 400) 
   }
+
+  useEffect(() => {
+  const params = new URLSearchParams(searchParams.toString())
+  if (filters.ship === 'wszystko') {
+    params.delete('ship')
+  } else {
+    params.set('ship', filters.ship)
+  }
+
+  router.replace(`?${params.toString()}`, { scroll: false })
+}, [router, searchParams, filters.ship])
 
   function onSort(value: string) {
     setLoading(true)
@@ -155,7 +171,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
   return <>
     <div className="w-full h-full p-4 font-mono text-center rounded-lg sm:p-8">
       <div className="flex justify-center items-center p-2 flex-wrap flex-col md:flex-row">
-        <Filters onFilter={onFilter} />
+        <Filters onFilter={onFilter} filters={filters} />
         <SortBy onSort={onSort} />
       </div>
 

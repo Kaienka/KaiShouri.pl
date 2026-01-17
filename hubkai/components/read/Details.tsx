@@ -6,7 +6,6 @@ import Link from "next/link";
 import { FanficDetails } from "@/types/types.api";
 import { whileHoverLinks } from "@/app/utils/motion";
 
-
 async function Details({ fic, chapterTitles }: FanficDetails) {
   return (
     <>
@@ -58,23 +57,32 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
           )}
         </section>
         <section className="flex flex-row mb-5">
-          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm flex items-center ">{fic.finished ? 'zakończone' : 'trwające'}</p>
+          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm flex items-center ">
+            {fic.finished ? "zakończone" : "trwające"}
+          </p>
 
-          <p className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm flex items-center">{fic.ship}</p>
+          <Link
+            href={{
+              pathname: "/read",
+              query: { ship: fic.ship },
+            }}
+            className="p-2 m-2 bg-plume-wine text-linen-cloud rounded-2xl text-sm flex items-center"
+          >
+            {fic.ship}
+          </Link>
         </section>
         <p className="mb-5 text-base sm:text-lg ">{fic.description}</p>
         <section className="mt-5 mb-20 p-4 flex flex-col">
-
-          {chapterTitles && chapterTitles.map((chapter, index) => (
-            <Link
-              href={`/read/${fic.titleEscaped}/${index + 1}`}
-              key={chapter}
-              className="p-2"
-            >
-              {chapter}
-            </Link>
-          ))}
-
+          {chapterTitles &&
+            chapterTitles.map((chapter, index) => (
+              <Link
+                href={`/read/${fic.titleEscaped}/${index + 1}`}
+                key={chapter}
+                className="p-2"
+              >
+                {chapter}
+              </Link>
+            ))}
         </section>
       </div>
     </>

@@ -5,14 +5,16 @@ import clsx from 'clsx'
 type Props = {
     option: string;
     values: string[];
-    onSelect: (value:string) => void
+    onSelect: (value:string) => void,
+    value?: string
 }
 
-function Dropdown({ option, values, onSelect }:Props) {
+function Dropdown({ option, values, value, onSelect }:Props) {
     return <Field className="flex-column justify-center items-center  bg-plume-wine shadow rounded-2xl p-4">
         <Label className="font-mono text-xs font-bold">{option}: </Label>
         <Select name={option} aria-label={option}
             onChange={(e) => onSelect(e.target.value)}
+            value={value}
             className={clsx(
                 ' p-2 appearance-none rounded-lg border-none bg-third-plum py-1.5 text-xs text-linen-cloud',
                 'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',

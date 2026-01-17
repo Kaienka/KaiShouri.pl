@@ -8,10 +8,19 @@ import types from "@/dicts/types"
 import finished from "@/dicts/finished"
 
 type Props = {
-    onFilter: (value :string, filterType :string) => void;
+  filters: {
+    fandom: string
+    nsfw: string
+    type: string
+    ship: string
+    finished: string
+    title: string
+  }
+  onFilter: (value: string, filterType: string) => void
 }
 
-function Filters({ onFilter }:Props) {
+
+function Filters({ filters, onFilter }:Props) {
 
     function onSelect(data:string, filter:string) {
         onFilter(data, filter)
@@ -24,7 +33,7 @@ function Filters({ onFilter }:Props) {
             <Dropdown option="Fandom" values={fandoms} onSelect={(e) => onSelect(e, 'fandom')} />
             <Dropdown option="Nsfw" values={nsfw} onSelect={(e) => onSelect(e, 'nsfw')} />
             <Dropdown option="Typ" values={types} onSelect={(e) => onSelect(e, 'type')} />
-            <Dropdown option="Główny ship" values={ships} onSelect={(e) => onSelect(e, 'ship')} />
+            <Dropdown option="Główny ship" values={ships} onSelect={(e) => onSelect(e, 'ship')} value={filters.ship} />
             <Dropdown option="Zakończone" values={finished} onSelect={(e) => onSelect(e, 'finished')} />
         </section>
     </section>;
