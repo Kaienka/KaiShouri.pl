@@ -4,6 +4,16 @@ export type Headcanon = {
   nsfw: boolean;
 }
 
+export type OC = {
+    name: string;
+    surname?: string;
+    age?: number;
+    description: string;
+    uniwersum?: string;
+    gender?: string;
+    sexuality?: string;
+}
+
 export type SpotifyIFrame = {
     src: string;
 }

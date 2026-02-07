@@ -7,6 +7,7 @@ import PlaySvg from "@/components/svg/PlaySvg";
 import IdeaFilledSvg from "@/components/svg/IdeaFilledSvg";
 import CoffeeSvg from "@/components/svg/CoffeeSvg";
 import MapSvg from "@/components/svg/MapSvg";
+import PersonSvg from "../svg/PersonSvg";
 
 function MainNavbar() {
   return (
@@ -24,6 +25,9 @@ function MainNavbar() {
 
       <NavigationLink href="/headcanons" title="Headcanony">
         <IdeaFilledSvg />
+      </NavigationLink>
+        <NavigationLink href="/oc" title="Postacie własne (OC)">
+        <PersonSvg />
       </NavigationLink>
 
       <NavDivider title="poza stroną" />
