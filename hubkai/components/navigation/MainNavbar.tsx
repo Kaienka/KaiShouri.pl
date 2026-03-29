@@ -7,7 +7,7 @@ import PlaySvg from "@/components/svg/PlaySvg";
 import IdeaFilledSvg from "@/components/svg/IdeaFilledSvg";
 import CoffeeSvg from "@/components/svg/CoffeeSvg";
 import MapSvg from "@/components/svg/MapSvg";
-import PersonSvg from "../svg/PersonSvg";
+// import PersonSvg from "../svg/PersonSvg";
 
 function MainNavbar() {
   return (
