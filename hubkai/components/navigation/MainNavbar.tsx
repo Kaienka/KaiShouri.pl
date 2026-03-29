@@ -26,9 +26,9 @@ function MainNavbar() {
       <NavigationLink href="/headcanons" title="Headcanony">
         <IdeaFilledSvg />
       </NavigationLink>
-        <NavigationLink href="/oc" title="Postacie własne (OC)">
+        {/* <NavigationLink href="/oc" title="Postacie własne (OC)">
         <PersonSvg />
-      </NavigationLink>
+      </NavigationLink> */}
 
       <NavDivider title="poza stroną" />
 
