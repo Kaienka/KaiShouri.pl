@@ -35,7 +35,6 @@ export default function UpdatesList() {
   }
   return (
     <main className="p-4">
-      <h1 className="text-l mb-4">Ostatnie aktualizacje:</h1>
       <ul className="space-y-2">
         {items.map(({ fic, fanficName, updatedAt, finished, chapterNo }) => (
           <li key={fic}>

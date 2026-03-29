@@ -21,9 +21,9 @@ export default function Home() {
           <AboutContent />
           <AboutPage />
         </section>
-        <section>
+        {/* <section>
           <LastUpdate />
-        </section>
+        </section> */}
       </main>
     </div>
   );
