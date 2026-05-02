@@ -35,7 +35,7 @@ export default function UpdatesList() {
   }
   return (
     <main className="p-4">
-      <ul className="space-y-2">
+      <ul className="space-y-2 text-base">
         {items.map(({ fic, fanficName, updatedAt, finished, chapterNo }) => (
           <li key={fic}>
             <Link href={`/read/${fic}/${chapterNo}`}>
