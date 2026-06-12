@@ -10,7 +10,7 @@ type Props = {
 }
 
 function Dropdown({ option, values, value, onSelect }:Props) {
-    return <Field className="flex-column justify-center items-center  bg-plume-wine shadow rounded-2xl p-4">
+    return <Field className="flex-column justify-center items-center p-2">
         <Label className="font-mono text-xs font-bold">{option}: </Label>
         <Select name={option} aria-label={option}
             onChange={(e) => onSelect(e.target.value)}

@@ -1,6 +1,5 @@
 'use client'
 import Filters from "@/components/Filters"
-import SortBy from "@/components/SortBy"
 import FanficCard from "@/components/FanficCard"
 import { useState, useMemo, useEffect } from "react"
 import { Fanfic } from "@/types/types.api"
@@ -171,8 +170,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
   return <>
     <div className="w-full h-full p-4 font-mono text-center rounded-lg sm:p-8">
       <div className="flex justify-center items-center p-2 flex-wrap flex-col md:flex-row">
-        <Filters onFilter={onFilter} filters={filters} />
-        <SortBy onSort={onSort} />
+        <Filters onFilter={onFilter} filters={filters} onSort={onSort} />
       </div>
 
       <AnimatePresence mode="wait">

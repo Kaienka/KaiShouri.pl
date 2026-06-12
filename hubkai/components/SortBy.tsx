@@ -7,10 +7,10 @@ type Props = {
 
 function SortBy({ onSort }:Props) {
 
-    return <section className="p-4 font-mono text-center text-linen-cloud rounded-xl"
+    return <section className="font-mono text-center text-linen-cloud rounded-xl"
     >
         <div className="flex-col">
-            <section className="text-left flex flex-row gap-5 justify-center">
+            <section className="text-left flex flex-row justify-center">
                 <Dropdown option="Sortuj" values={sort} onSelect={onSort} />
             </section>
         </div>

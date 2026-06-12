@@ -6,6 +6,7 @@ import fandoms from "@/dicts/fandoms"
 import nsfw from "@/dicts/nsfw"
 import types from "@/dicts/types"
 import finished from "@/dicts/finished"
+import SortBy from "./SortBy"
 
 type Props = {
   filters: {
@@ -16,11 +17,12 @@ type Props = {
     finished: string
     title: string
   }
-  onFilter: (value: string, filterType: string) => void
+  onFilter: (value: string, filterType: string) => void,
+  onSort: (value:string) => void
 }
 
 
-function Filters({ filters, onFilter }:Props) {
+function Filters({ filters, onFilter, onSort }:Props) {
 
     function onSelect(data:string, filter:string) {
         onFilter(data, filter)
@@ -28,13 +30,14 @@ function Filters({ filters, onFilter }:Props) {
 
     return <section className="p-4 font-mono text-center text-linen-cloud rounded-xl"
     >
-        <section className="text-center md:text-left flex flex-col md:flex-row gap-5 justify-center items-center flex-wrap">
+        <section className="text-center md:text-left flex flex-col md:flex-row justify-center items-center flex-wrap bg-plume-wine rounded-2xl p-2">
             <SearchBar option="Tytuł" onSelect={(e) => onSelect(e, 'title')} />
             <Dropdown option="Fandom" values={fandoms} onSelect={(e) => onSelect(e, 'fandom')} />
             <Dropdown option="Nsfw" values={nsfw} onSelect={(e) => onSelect(e, 'nsfw')} />
             <Dropdown option="Typ" values={types} onSelect={(e) => onSelect(e, 'type')} />
             <Dropdown option="Główny ship" values={ships} onSelect={(e) => onSelect(e, 'ship')} value={filters.ship} />
             <Dropdown option="Zakończone" values={finished} onSelect={(e) => onSelect(e, 'finished')} />
+            <SortBy onSort={onSort} />
         </section>
     </section>;
 }
