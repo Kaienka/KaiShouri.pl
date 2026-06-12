@@ -5,7 +5,7 @@ import Quote from "@/components/mainPage/Quote";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16  font-[family-name:var(--font-geist-sans)] ">
+    <div className="grid items-center justify-items-center min-h-screen p-8  font-[family-name:var(--font-geist-sans)] ">
       <main
         className="flex flex-col gap-[1rem] row-start-2 justify-center items-center w-vw text-center text-xl overflow-clip
       w-12/12 sm:w-8/12 md:w-11/12 lg:w-9/12"
