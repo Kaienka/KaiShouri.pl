@@ -39,7 +39,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     finished: 'wszystko',
     title: ''
   })
-  const [sort, setSort] = useState('Najnowsze')
+  const [sort, setSort] = useState('Najnowsze (data publikacji)')
 
   const [loading, setLoading] = useState(false)
   const [trigger, setTrigger] = useState(0)
