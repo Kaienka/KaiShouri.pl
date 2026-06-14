@@ -38,7 +38,8 @@ function ReadPage() {
       wordCount: infoContent.wordCount,
       nsfw: infoContent.nsfw,
       ship: infoContent.ship,
-      date: infoContent.date
+      date: infoContent.date,
+      abandoned: infoContent.abandoned
     }
     fanficInfo.push(fanfic)
   });

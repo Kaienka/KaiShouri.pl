@@ -7,8 +7,9 @@ import { whileHover } from "@/app/utils/motion";
 import { FanficShort } from "@/types/types.api";
 import Nsfw2Svg from "./svg/Nsfw2Vsg";
 import Done2Svg from "./svg/Done2Svg";
+import NotDoneSvg from "./svg/NotDoneSvg";
 
-function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw }:FanficShort) {
+function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw, abandoned }:FanficShort) {
 
   const [isDownloading, setIsDownloading] = useState(false)
 
@@ -56,8 +57,12 @@ function FanficCard({ title, description, finished, titleEscaped, fandom, wordCo
 
             {nsfw && <span className="mr-2 text-xs text-red-200">
               <Nsfw2Svg aria-label="nsfw" />
-            </span>} <span className="wrap">{title}</span> {finished && <span className="ml-2 text-xs text-green-300">
+            </span>} <span className="wrap">{title}</span> 
+            {finished && <span className="ml-2 text-xs text-green-300">
               <Done2Svg aria-label="zakonczone" />
+            </span>}
+            {abandoned && <span className="ml-2 text-xs text-orange-300">
+              <NotDoneSvg aria-label="porzucone" />
             </span>}
           </h1>
         </div>

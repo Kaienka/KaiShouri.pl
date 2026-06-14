@@ -58,6 +58,7 @@ export type DividerTitle = {
 }
 
 export type Fanfic = {
+    abandoned: any;
     title: string;
     description: string;
     finished: boolean;
@@ -80,6 +81,7 @@ export type FanficShort = {
     chapters: number,
     wordCount: string,
     nsfw: boolean,
+    abandoned?:boolean
 }
 
 export type Chapter = {

@@ -53,19 +53,19 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
       }))
       setTrigger(t => t + 1)
       setLoading(false)
-    }, 400) 
+    }, 400)
   }
 
   useEffect(() => {
-  const params = new URLSearchParams(searchParams.toString())
-  if (filters.ship === 'wszystko') {
-    params.delete('ship')
-  } else {
-    params.set('ship', filters.ship)
-  }
+    const params = new URLSearchParams(searchParams.toString())
+    if (filters.ship === 'wszystko') {
+      params.delete('ship')
+    } else {
+      params.set('ship', filters.ship)
+    }
 
-  router.replace(`?${params.toString()}`, { scroll: false })
-}, [router, searchParams, filters.ship])
+    router.replace(`?${params.toString()}`, { scroll: false })
+  }, [router, searchParams, filters.ship])
 
   function onSort(value: string) {
     setLoading(true)
@@ -124,13 +124,12 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
         ok = ok && f.ship === filters.ship
       }
 
-      if (filters.finished && filters.finished !== 'wszystko') {
-        if (filters.finished === 'trwające') {
-          ok = ok && f.finished === false
-        } 
-        else {
-          ok = ok && f.finished === true
-        }
+      if (filters.finished === 'trwające') {
+        ok = ok && f.finished === false && !f.abandoned
+      } else if (filters.finished === 'zakończone') {
+        ok = ok && f.finished === true && !f.abandoned
+      } else if (filters.finished === 'porzucone') {
+        ok = ok && f.abandoned === true
       }
 
       if (filters.title) {
@@ -196,6 +195,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
                   chapters={item.chapters}
                   wordCount={item.wordCount}
                   nsfw={item.nsfw}
+                  abandoned={item.abandoned}
                 />
               ))
             ) : (
