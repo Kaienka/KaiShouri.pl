@@ -10,7 +10,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 function parseYear(dateStr: string, newestFirst = false) {
   if (!dateStr) return 0
   if (newestFirst && dateStr.endsWith('-')) {
-    return 9999
+    dateStr = dateStr.split('-')[0]
   }
   const match = dateStr.match(/\d{4}/)
   return match ? parseInt(match[0], 10) : 0
@@ -127,7 +127,8 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
       if (filters.finished && filters.finished !== 'wszystko') {
         if (filters.finished === 'trwające') {
           ok = ok && f.finished === false
-        } else {
+        } 
+        else {
           ok = ok && f.finished === true
         }
       }
@@ -147,11 +148,11 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
       let yearA, yearB
 
       switch (sort) {
-        case 'Najstarsze':
-          yearA = parseYear(a.date)
-          yearB = parseYear(b.date)
+        case 'Najstarsze (data publikacji)':
+          yearA = parseYear(a.date, true)
+          yearB = parseYear(b.date, true)
           return yearA - yearB
-        case 'Najnowsze':
+        case 'Najnowsze (data publikacji)':
           yearA = parseYear(a.date, true)
           yearB = parseYear(b.date, true)
           return yearB - yearA
