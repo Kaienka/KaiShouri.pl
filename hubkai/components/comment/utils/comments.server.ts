@@ -13,6 +13,7 @@ export async function loadComments(ficTitle: string, chapterNo: number): Promise
   try {
     comments = await kv.get<Comment[]>(key)
   } catch (error) {
+    console.log("Error loading comments:", error)
     return []
   }
   return comments || []
