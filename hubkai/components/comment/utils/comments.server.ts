@@ -9,7 +9,12 @@ function getKey(ficTitle: string, chapterNo: number) {
 
 export async function loadComments(ficTitle: string, chapterNo: number): Promise<Comment[]> {
   const key = getKey(ficTitle, chapterNo)
-  const comments = await kv.get<Comment[]>(key)
+  let comments = null
+  try {
+    comments = await kv.get<Comment[]>(key)
+  } catch (error) {
+    return []
+  }
   return comments || []
 }
 

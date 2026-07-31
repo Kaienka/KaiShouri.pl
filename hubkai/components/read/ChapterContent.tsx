@@ -4,14 +4,20 @@ import FontSizeChanger from "@/components/read/FontSizeChanger";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import { Chapter } from "@/types/types.api";
+import { useSpeech, useVoices } from "react-text-to-speech";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
+import remarkGfm from "remark-gfm";
+import { useRemark } from "react-remarkify";
+import VoiceControl from "../voice/VoiceControl";
 
 function getCookie(name: string) {
   if (typeof window === "undefined") return null;
   const matches = document.cookie.match(
     new RegExp(
       "(?:^|; )" +
-        name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, "\\$1") +
-        "=([^;]*)"
+      name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, "\\$1") +
+      "=([^;]*)"
     )
   );
   return matches ? decodeURIComponent(matches[1]) : null;
@@ -33,6 +39,24 @@ function ChapterContent({
   chapterAmount,
   onLoad,
 }: Chapter) {
+
+  const { languages, voices } = useVoices();
+
+  const reactContent = useRemark({
+    markdown: fileContent,
+    rehypePlugins: [rehypeRaw, rehypeSanitize],
+    remarkPlugins: [remarkGfm],
+    remarkToRehypeOptions: { allowDangerousHtml: true },
+  });
+
+  const { speechStatus, start, pause, stop } = useSpeech({
+    text: reactContent,
+    stableText: true,
+    lang: languages[0] || "en-US",
+    voiceURI: voices[1]?.voiceURI || "",
+  });
+
+
   const styledContent =
     `
   <style>
@@ -81,6 +105,7 @@ function ChapterContent({
           lastChapterIndex={chapterAmount}
           theme={theme}
         />
+        <VoiceControl speechStatus={speechStatus} start={start} pause={pause} stop={stop} />
         <section className="flex flex-row justify-center w-full">
           <FontSizeChanger
             onDecrease={decreaseSize}
