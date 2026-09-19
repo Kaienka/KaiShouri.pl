@@ -5,6 +5,8 @@ import * as motion from "motion/react-client";
 import Link from "next/link";
 import { FanficDetails } from "@/types/types.api";
 import { whileHoverLinks } from "@/app/utils/motion";
+import HtmlWordCounter from "../addons/swan-hunt-coffee-meter/HtmlWordCounter";
+import UnderlineLink from "../navigation/UderlineLink";
 
 async function Details({ fic, chapterTitles }: FanficDetails) {
   return (
@@ -72,16 +74,36 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
           </Link>
         </section>
         <p className="mb-5 text-base sm:text-lg ">{fic.description}</p>
+
+        {fic.title === "Polowanie na łabędzia" && (
+          <>
+            {/* <HtmlWordCounter
+            folder="fanfictions/polowanienalabedzia/chapters"
+            scope="Polowaniu na łabędzia"
+          /> */}
+            <HtmlWordCounter folder="fanfictions/polowanienalabedzia/chapters"
+              scope="Polowaniu na łabędzia" recursive variant="site" />  {/* paleta strony */}
+          </>
+        )}
+
         <section className="mt-5 mb-20 p-4 flex flex-col">
+          <p className="font-bold text-lg mb-2">Rozdziały: </p>
           {chapterTitles &&
             chapterTitles.map((chapter, index) => (
-              <Link
+              // <Link
+              //   href={`/read/${fic.titleEscaped}/${index + 1}`}
+              //   key={chapter}
+              //   className="p-2"
+              // >
+              //   {chapter}
+              // </Link>
+              <UnderlineLink
                 href={`/read/${fic.titleEscaped}/${index + 1}`}
                 key={chapter}
                 className="p-2"
               >
                 {chapter}
-              </Link>
+              </UnderlineLink>
             ))}
         </section>
       </div>

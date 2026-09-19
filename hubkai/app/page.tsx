@@ -2,6 +2,7 @@ import AboutPage from "@/components/mainPage/AboutPage";
 import AboutContent from "@/components/mainPage/AboutContent";
 import AboutMe from "@/components/mainPage/AboutMe";
 import Quote from "@/components/mainPage/Quote";
+import HtmlWordCounter from "@/components/addons/swan-hunt-coffee-meter/HtmlWordCounter";
 
 export default function Home() {
   return (
