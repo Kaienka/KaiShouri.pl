@@ -1,0 +1,83 @@
+{
+  "universes": [
+    {
+      "universeName": "Polowanie na łabędzia",
+      "characters": [
+        {
+          "name": "Annika",
+          "surname": "Walkenhorst",
+          "birth": 1990,
+          "death": null,
+          "gender": "kobieta",
+          "desc": "todo",
+          "sexuality": "heteroseksualna"
+        },
+        {
+          "name": "Uschi",
+          "surname": "Tausch",
+          "birth": 2007,
+          "death": null,
+          "gender": "kobieta",
+          "desc": "todo",
+          "sexuality": null
+        },
+        {
+          "name": "Simonas",
+          "surname": "Giedraitis",
+          "birth": 1999,
+          "death": null,
+          "gender": "mężczyzna",
+          "desc": "todo",
+          "sexuality": null
+        },
+        {
+          "name": "Aidan",
+          "surname": "Kolzow",
+          "birth": null,
+          "death": null,
+          "gender": "mężczyzna",
+          "desc": "todo",
+          "sexuality": null
+        },
+        {
+          "name": "Anton",
+          "surname": "Lefevre",
+          "birth": null,
+          "death": null,
+          "gender": "mężczyzna",
+          "desc": "todo",
+          "sexuality": null
+        }
+      ]
+    },
+    {
+      "universeName": "Paragraf 175",
+      "characters": [
+        {
+          "name": "Simonas",
+          "surname": null,
+          "birth": 1925,
+          "death": 1945,
+          "gender": "mężczyzna",
+          "desc": "todo"
+        },
+        {
+          "name": null,
+          "surname": "Kolzow",
+          "birth": null,
+          "death": null,
+          "gender": "mężczyzna",
+          "desc": "todo"
+        },
+        {
+          "name": null,
+          "surname": "Meier",
+          "birth": null,
+          "death": null,
+          "gender": "mężczyzna",
+          "desc": "todo"
+        }
+      ]
+    }
+  ]
+}
