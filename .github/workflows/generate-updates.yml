@@ -3,7 +3,7 @@ name: Generate fanfictions updates
 on:
   push:
     paths:
-      - 'hubkai/fanfictions/**'
+      - 'kaishouri/fanfictions/**'
 
 jobs:
   generate-updates:
@@ -21,11 +21,11 @@ jobs:
           node-version: '18'
 
       - name: Run update script
-        working-directory: hubkai/scripts
+        working-directory: kaishouri/scripts
         run: node generate-updates.js
 
       - name: Commit and push updated JSON
-        working-directory: hubkai
+        working-directory: kaishouri
         run: |
           git config user.name "Kaienka"
           git config user.email "wolanin4u@gmail.com"
