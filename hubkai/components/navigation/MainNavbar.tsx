@@ -7,6 +7,7 @@ import PlaySvg from "@/components/svg/PlaySvg";
 import IdeaFilledSvg from "@/components/svg/IdeaFilledSvg";
 import CoffeeSvg from "@/components/svg/CoffeeSvg";
 import MapSvg from "@/components/svg/MapSvg";
+import FamilySvg from "../svg/FamilySvg";
 // import PersonSvg from "../svg/PersonSvg";
 
 function MainNavbar() {
@@ -48,6 +49,15 @@ function MainNavbar() {
         target="_blank"
       >
         <MapSvg />
+      </NavigationA>
+
+            <NavigationA
+        href="https://tree.storylegend.app/?share=30dce0a7-4758-4210-ac4b-d36f818b4897&mode=view"
+        title="Drzewa genealogiczne"
+        desc='Rodzinne historie z "Latawca'
+        target="_blank"
+      >
+        <FamilySvg />
       </NavigationA>
     </nav>
   );
