@@ -16,11 +16,14 @@ function getFirstCommitDate(filePath) {
   try {
     const relativePath = path.relative(repoRoot, filePath)
     console.log('Getting git log for:', relativePath)
-    const stdout = execSync(`git log --diff-filter=A --format=%cI -1 -- "${relativePath}"`, {
-      encoding: 'utf-8',
-      cwd: repoRoot
-    })
-    return new Date(stdout.trim())
+    const stdout = execSync(
+      `git log --follow --format=%aI -- "${relativePath}"`,
+      { encoding: 'utf-8', cwd: repoRoot }
+    )
+    const lines = stdout.trim().split('\n').filter(Boolean)
+    if (lines.length === 0) return null
+    // git log zwraca od najnowszego, więc ostatnia linia = pierwszy commit
+    return new Date(lines[lines.length - 1])
   } catch (e) {
     console.error('git log error:', e)
     return null
