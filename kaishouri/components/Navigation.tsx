@@ -23,7 +23,7 @@ function Navigation() {
   return (
     <>
       {!isOpen && (
-        <header className="sm:hidden fixed top-0 left-0 w-full z-50 bg-plume-wine shadow-md flex items-center justify-between px-4">
+        <header className="sm:hidden fixed top-0 left-0 w-full h-16 z-50 bg-plume-wine shadow-md flex items-center justify-between px-4">
           <div className="flex flex-row items-center">
           <HamburgerBtn onClick={toggleMenu} isOpen={isOpen} />
           <Link href="/">
@@ -31,7 +31,7 @@ function Navigation() {
           </Link>
           </div>
           <ThemeChanger
-            mobile />
+            mobile additionalClass="py-0" />
         </header>
       )}
 

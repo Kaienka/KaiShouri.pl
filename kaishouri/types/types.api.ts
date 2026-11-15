@@ -89,12 +89,13 @@ export type Chapter = {
     index: number;
     fic: string;
     chapterAmount: number;
+    chapterTitles?: (string | null)[];
     onLoad?: () => void;
 }
 
 export type FanficDetails = {
   fic: Fanfic;
-  chapterTitles: string[];
+  chapterTitles: (string | null)[];
 }
 
 export type Links = {
@@ -107,5 +108,6 @@ export type Content = {
     fileContent: string,
     index: number,
     fic: string,
-    chapterAmount: number
+    chapterAmount: number,
+    chapterTitles?: (string | null)[]
 }

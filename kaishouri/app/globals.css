@@ -31,6 +31,7 @@
   --color-third-plum: #795295;
   --color-fourth-plum: #c2acd1;
   --color-dime-blue: #6c83ae;
+  --color-nice-purple: #9b6ac0;
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

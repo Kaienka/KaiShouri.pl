@@ -77,10 +77,6 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
 
         {fic.title === "Polowanie na łabędzia" && (
           <>
-            {/* <HtmlWordCounter
-            folder="fanfictions/polowanienalabedzia/chapters"
-            scope="Polowaniu na łabędzia"
-          /> */}
             <HtmlWordCounter folder="fanfictions/polowanienalabedzia/chapters"
               scope="Polowaniu na łabędzia" recursive variant="site" />  {/* paleta strony */}
           </>
@@ -90,13 +86,6 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
           <p className="font-bold text-lg mb-2">Rozdziały: </p>
           {chapterTitles &&
             chapterTitles.map((chapter, index) => (
-              // <Link
-              //   href={`/read/${fic.titleEscaped}/${index + 1}`}
-              //   key={chapter}
-              //   className="p-2"
-              // >
-              //   {chapter}
-              // </Link>
               <UnderlineLink
                 href={`/read/${fic.titleEscaped}/${index + 1}`}
                 key={chapter}
