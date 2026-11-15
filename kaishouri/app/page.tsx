@@ -14,6 +14,7 @@ export default function Home() {
           Na początku byli Lech, Czech i Rus... oraz ich przyrodni brat,
           Deutschland.
         </h1>
+        {/* <p></p> */}
         <Quote />
         <AboutMe />
         <section className="text-plume-wine flex flex-col lg:flex-row w-full justify-between">
