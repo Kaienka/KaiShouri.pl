@@ -38,7 +38,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     finished: "wszystko",
     title: "",
   });
-  const [sort, setSort] = useState("Najnowsze (data publikacji)");
+  const [sort, setSort] = useState("Najnowsze (rok publikacji)");
 
   const [loading, setLoading] = useState(false);
   const [trigger, setTrigger] = useState(0);
@@ -162,11 +162,11 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
       let yearA, yearB;
 
       switch (sort) {
-        case "Najstarsze (data publikacji)":
+        case "Najstarsze (rok publikacji)":
           yearA = parseYear(a.date, true);
           yearB = parseYear(b.date, true);
           return yearA - yearB;
-        case "Najnowsze (data publikacji)":
+        case "Najnowsze (rok publikacji)":
           yearA = parseYear(a.date, true);
           yearB = parseYear(b.date, true);
           return yearB - yearA;

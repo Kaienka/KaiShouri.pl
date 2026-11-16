@@ -82,7 +82,7 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
           </>
         )}
 
-        <section className="mt-5 mb-20 p-4 flex flex-col">
+        <section className="mt-5 px-4 pt-4 pb-24 flex flex-col">
           <p className="font-bold text-lg mb-2">Rozdziały: </p>
           {chapterTitles &&
             chapterTitles.map((chapter, index) => (
