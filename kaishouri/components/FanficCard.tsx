@@ -1,24 +1,12 @@
 'use client'
-import * as motion from "motion/react-client";
 import Link from "next/link";
 import axios from "axios"
 import { useState } from 'react'
-import { whileHover } from "@/app/utils/motion";
 import { FanficShort } from "@/types/types.api";
-import Nsfw2Svg from "./svg/Nsfw2Vsg";
-import Done2Svg from "./svg/Done2Svg";
-import NotDoneSvg from "./svg/NotDoneSvg";
 
 function FanficCard({ title, description, finished, titleEscaped, fandom, wordCount, chapters, nsfw, abandoned }:FanficShort) {
 
   const [isDownloading, setIsDownloading] = useState(false)
-
-
-  function getFontSize(description:string) {
-    if (description.length < 200) return "text-lg";
-    if (description.length < 300) return "text-base";
-    return "text-sm";
-  }
 
   const onDownload = async () => {
     try {
@@ -45,67 +33,55 @@ function FanficCard({ title, description, finished, titleEscaped, fandom, wordCo
     }
   }
 
-
   const link = '/read/' + titleEscaped
+  const status = abandoned ? "porzucone" : finished ? "zakończone" : "trwające"
+  const chaptersLabel = chapters == 1 ? "rozdział" : chapters < 5 ? 'rozdziały' : "rozdziałów"
 
   return (
-    <div className="overflow-hidden shadow-plume-wine shadow-sm flex flex-col justify-between bg-plume-wine border border-transparent rounded-lg  min-w-[200px] max-w-[350px]">
-      <div>
-        <div>
-
-          <h1 className="bg-plume-wine px-2 text-linen-cloud pt-2 pb-2 border-transparent rounded-t-lg flex flex-row justify-center items-center">
-
-            {nsfw && <span className="mr-2 text-xs text-red-200">
-              <Nsfw2Svg aria-label="nsfw" />
-            </span>} <span className="wrap">{title}</span> 
-            {finished && <span className="ml-2 text-xs text-green-300">
-              <Done2Svg aria-label="zakonczone" />
-            </span>}
-            {abandoned && <span className="ml-2 text-xs text-orange-300">
-              <NotDoneSvg aria-label="porzucone" />
-            </span>}
-          </h1>
-        </div>
-        <div className=" bg-plume-wine text-fourth-plum text-xs font-bold font-mono pb-2 flex flex-row justify-evenly">
-          {fandom &&
-            <p >fandom {fandom}</p>}
-          <p>{wordCount} słów</p>
-          <p>{chapters} {chapters == 1 ? "rozdział" : chapters < 5 ? 'rozdziały' : "rozdziałów"}</p>
-        </div>
+    <article className="flex flex-col gap-3 p-6 rounded-2xl text-left bg-nice-light-purple text-dark-plume dark:bg-dark-plume dark:text-linen-cloud">
+      <div className="flex flex-wrap gap-1.5">
+        <span className="inline-flex items-center h-6 px-2.5 rounded-full text-xs font-semibold font-inter bg-fourth-plum/40 text-plume-wine dark:bg-fourth-plum/20 dark:text-nice-light-purple">
+          {status}
+        </span>
+        {nsfw && (
+          <span className="inline-flex items-center h-6 px-2.5 rounded-full text-xs font-semibold font-inter bg-second-plum text-linen-cloud dark:bg-fourth-plum dark:text-dark-plume">
+            18+
+          </span>
+        )}
       </div>
-      <div className="bg-third-plum flex flex-1 justify-center items-center text-linen-cloud font-inter">
-        <h3 className={`p-4 ${getFontSize(description)}`}>{description}</h3>
-      </div>
-      <section className="p-4 flex flex-row justify-center bg-third-plum">
-        <motion.button
-          whileHover={whileHover}
-          type="button"
-          role="button"
-          aria-label="czytaj"
-          className="cursor-pointer bg-plume-wine transition-colors duration-300 hover:bg-yellow-400 text-linen-cloud hover:text-plume-wine p-2 m-2 text-xs border-transparent rounded shadow"
+
+      <h2 className="font-mono text-xl font-semibold leading-tight">{title}</h2>
+
+      <p className="font-mono text-[13px] text-third-plum dark:text-fourth-plum">
+        {fandom && <> {fandom} · </>}{wordCount} słów · {chapters} {chaptersLabel}
+      </p>
+
+      <p className="font-inter text-[15px] leading-relaxed line-clamp-6">{description}</p>
+
+      <div className="mt-auto pt-2 flex items-center gap-2">
+        <Link
+          href={link}
+          className="inline-flex items-center gap-1.5 h-11 px-5 rounded-xl font-inter text-[15px] font-semibold transition-colors bg-plume-wine text-linen-cloud hover:bg-dark-plume dark:bg-fourth-plum dark:text-dark-plume dark:hover:bg-nice-light-purple"
         >
-          <Link href={link}>czytaj</Link>
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
+          czytaj
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </Link>
+        <button
           type="button"
           onClick={onDownload}
           disabled={isDownloading}
-          className="relative flex items-center justify-center cursor-pointer p-2 m-2 text-plume-wine bg-fourth-plum transition-colors duration-300 hover:bg-yellow-400 text-xs border-transparent rounded shadow"
+          aria-label={isDownloading ? 'pobieranie...' : 'pobierz pdf'}
+          title={isDownloading ? 'pobieranie...' : 'pobierz pdf'}
+          className="w-11 h-11 rounded-xl flex items-center justify-center cursor-pointer transition-colors disabled:cursor-wait bg-fourth-plum/40 text-plume-wine hover:bg-fourth-plum/70 dark:bg-fourth-plum/20 dark:text-nice-light-purple dark:hover:bg-fourth-plum/35"
         >
-          {isDownloading && (
-            <span
-              className="w-4 h-4 mr-2 rounded-full border-2 border-t-2 border-plume-wine animate-spin"
-              style={{ borderColor: '#5e4074 transparent #5e4074 transparent' }}
-            />
+          {isDownloading ? (
+            <span className="w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></svg>
           )}
-          {isDownloading ? 'pobieranie...' : 'pobierz pdf'}
-        </motion.button>
-
-
-      </section>
-
-    </div>
+        </button>
+      </div>
+    </article>
   );
 }
 

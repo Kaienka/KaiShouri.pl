@@ -18,7 +18,7 @@ async function ReadFic({ params }: { params: Params }) {
   const chapterNames = getChapterTitles(fic);
 
   return (
-    <main className="w-full h-full p-4 font-mono text-center sm:p-8 flex justify-center">
+    <main className="w-full">
       <Details fic={fileContent} chapterTitles={chapterNames} />
     </main>
   );

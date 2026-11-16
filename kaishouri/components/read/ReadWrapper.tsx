@@ -182,53 +182,51 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     return listCopy;
   }, [fanficList, sort]);
 
-  return (
-    <>
-      <div className="w-full h-full p-4 font-mono text-center rounded-lg sm:p-8">
-        <div className="flex justify-center items-center p-2 flex-wrap flex-col md:flex-row">
-          <Filters
-            onFilter={onFilter}
-            filters={filters}
-            onSort={onSort}
-            sort={sort}
-            resultCount={sortedList.length}
-            onReset={onReset}
-          />{" "}
-        </div>
+   return (
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 pt-8 pb-24 text-left">
+      <h1 className="font-mono text-3xl font-semibold mb-6 text-dark-plume dark:text-linen-cloud">Czytaj</h1>
 
-        <AnimatePresence mode="wait">
-          {!loading && (
-            <motion.div
-              key={trigger}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={variants}
-              className="gap-6 flex flex-wrap justify-center p-8 sm:flex items-stretch"
-            >
-              {sortedList.length !== 0 ? (
-                sortedList.map((item) => (
-                  <FanficCard
-                    key={item.title}
-                    title={item.title}
-                    description={item.description}
-                    finished={item.finished}
-                    titleEscaped={item.titleEscaped}
-                    fandom={item.fandom}
-                    chapters={item.chapters}
-                    wordCount={item.wordCount}
-                    nsfw={item.nsfw}
-                    abandoned={item.abandoned}
-                  />
-                ))
-              ) : (
-                <p>Nic tu nie ma, spróbuj użyć innych filtrów!</p>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </>
+      <Filters
+        onFilter={onFilter}
+        filters={filters}
+        onSort={onSort}
+        sort={sort}
+        resultCount={sortedList.length}
+        onReset={onReset}
+      />
+
+      <AnimatePresence mode="wait">
+        {!loading && (
+          <motion.div
+            key={trigger}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={variants}
+            className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6 mt-8"
+          >
+            {sortedList.length !== 0 ? (
+              sortedList.map((item) => (
+                <FanficCard
+                  key={item.title}
+                  title={item.title}
+                  description={item.description}
+                  finished={item.finished}
+                  titleEscaped={item.titleEscaped}
+                  fandom={item.fandom}
+                  chapters={item.chapters}
+                  wordCount={item.wordCount}
+                  nsfw={item.nsfw}
+                  abandoned={item.abandoned}
+                />
+              ))
+            ) : (
+              <p className="col-span-full text-center font-mono text-dark-plume dark:text-linen-cloud">Nic tu nie ma, spróbuj użyć innych filtrów!</p>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 

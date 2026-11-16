@@ -47,7 +47,7 @@ type Props = {
    * "coffee" – karmelowy akcent na tle strony (kolor: --kawa-accent),
    * "site"   – kolory strony (śliwkowa paleta z @theme), ramka na własnym jasnym tle.
    */
-  variant?: "coffee" | "site";
+  variant?: "coffee" | "site" | "panel";
   /** Czy przeszukiwać również podfoldery. */
   recursive?: boolean;
   /**
@@ -271,6 +271,41 @@ const CSS = `
 }
 .kawa-card[data-variant="site"] .kawa-title {
   color: var(--color-plume-wine, #5e4074);
+}
+.kawa-card[data-variant="panel"] {
+  --k-icon: var(--color-third-plum, #795295);
+  --k-steam: var(--color-dime-blue, #6c83ae);
+  --k-count: var(--color-plume-wine, #5e4074);
+  max-width: none;
+  padding: 1rem 1.1rem;
+  border: none;
+  border-radius: 14px;
+  background: var(--kawa-panel-bg, var(--color-linen-cloud, #f7f9ec));
+  color: var(--color-dark-plume, #402d4e);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+.kawa-card[data-variant="panel"] .kawa-title {
+  color: var(--color-plume-wine, #5e4074);
+  font-size: 0.9rem;
+}
+.kawa-card[data-variant="panel"] .kawa-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+.kawa-card[data-variant="panel"] .kawa-count {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.dark .kawa-card[data-variant="panel"] {
+  --k-icon: #c2acd1;
+  --k-count: #c2acd1;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7f9ec;
+}
+.dark .kawa-card[data-variant="panel"] .kawa-title {
+  color: #f1ecf9;
 }
 `;
 
