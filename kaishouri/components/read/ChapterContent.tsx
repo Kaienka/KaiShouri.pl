@@ -15,10 +15,22 @@ const MIN_FONT = 0.75;
 const MAX_FONT = 2.5;
 const FONT_STEP = 0.125;
 
+const PRONUNCIATION: [RegExp, string][] = [
+  [/\bAaron/g, "Aron"],
+];
+
+function forSpeech(text: string) {
+  return PRONUNCIATION.reduce((t, [from, to]) => t.replace(from, to), text);
+}
+
 function getCookie(name: string) {
   if (typeof window === "undefined") return null;
   const matches = document.cookie.match(
-    new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)")
+    new RegExp(
+      "(?:^|; )" +
+        name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, "\\$1") +
+        "=([^;]*)",
+    ),
   );
   return matches ? decodeURIComponent(matches[1]) : null;
 }
@@ -30,13 +42,43 @@ function setCookie(name: string, value: string, days = 365) {
   document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
 }
 
-function ChapterContent({ fileContent, index, fic, chapterAmount, chapterTitles, onLoad }: Chapter) {
+function ChapterContent({
+  fileContent,
+  index,
+  fic,
+  chapterAmount,
+  chapterTitles,
+  onLoad,
+}: Chapter) {
   const current = Number(index);
   const last = Number(chapterAmount);
 
-  const { languages, voices } = useVoices();
+  const { voices } = useVoices();
+  const FEMALE = [
+    "zofia",
+    "paulina",
+    "zosia",
+    "agnieszka",
+    "ewa",
+    "maja",
+    "google polski",
+  ];
+  const MALE = ["marek", "adam", "jacek", "krzysztof"];
+  const polishVoices = voices.filter((v) =>
+    v.lang.toLowerCase().startsWith("pl"),
+  );
+  
+  const polishVoice =
+    polishVoices.find((v) =>
+      FEMALE.some((n) => v.name.toLowerCase().includes(n)),
+    ) ??
+    polishVoices.find(
+      (v) => !MALE.some((n) => v.name.toLowerCase().includes(n)),
+    ) ??
+    polishVoices[0];
+
   const reactContent = useRemark({
-    markdown: fileContent,
+    markdown: forSpeech(fileContent),
     rehypePlugins: [rehypeRaw, rehypeSanitize],
     remarkPlugins: [remarkGfm],
     remarkToRehypeOptions: { allowDangerousHtml: true },
@@ -44,14 +86,16 @@ function ChapterContent({ fileContent, index, fic, chapterAmount, chapterTitles,
   const { speechStatus, start, pause, stop } = useSpeech({
     text: reactContent,
     stableText: true,
-    lang: languages[0] || "en-US", // TODO: docelowo "pl-PL"
-    voiceURI: voices[1]?.voiceURI || "",
+    lang: "pl-PL",
+    voiceURI: polishVoice?.voiceURI || "",
   });
   const speech = { speechStatus, start, pause, stop };
 
   const [fontSize, setFontSize] = useState(() => {
     const fromCookie = parseFloat(getCookie("fontSize") ?? "");
-    return Number.isFinite(fromCookie) ? Math.min(MAX_FONT, Math.max(MIN_FONT, fromCookie)) : 1;
+    return Number.isFinite(fromCookie)
+      ? Math.min(MAX_FONT, Math.max(MIN_FONT, fromCookie))
+      : 1;
   });
   useEffect(() => {
     setCookie("fontSize", fontSize.toString());
@@ -97,7 +141,12 @@ function ChapterContent({ fileContent, index, fic, chapterAmount, chapterTitles,
         dangerouslySetInnerHTML={{ __html: styledContent }}
       />
 
-      <ChapterEndNav fic={fic} index={current} lastIndex={last} chapterTitles={chapterTitles} />
+      <ChapterEndNav
+        fic={fic}
+        index={current}
+        lastIndex={last}
+        chapterTitles={chapterTitles}
+      />
     </div>
   );
 }
