@@ -35,7 +35,7 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
       href={firstChapter}
       className="flex items-center justify-center gap-2 h-12 rounded-xl font-inter text-base font-semibold transition-colors bg-plume-wine text-linen-cloud hover:bg-dark-plume dark:bg-fourth-plum dark:text-dark-plume dark:hover:bg-nice-light-purple"
     >
-      Wszystkie teksty
+      czytaj
       <ArrowRight />
     </Link>
   );
@@ -65,7 +65,7 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
           className="self-start inline-flex items-center gap-1.5 h-9 font-inter text-sm font-medium text-plume-wine dark:text-fourth-plum hover:underline underline-offset-4"
         >
           <ArrowLeft />
-          Czytaj
+          Wszystkie teksty
         </Link>
 
         <div className="flex flex-wrap gap-1.5">
