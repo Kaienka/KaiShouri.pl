@@ -36,7 +36,6 @@ function MusicPage() {
           <SpotifyIFrame src="https://open.spotify.com/embed/playlist/4l8ReFpJObN8mv02fC1UR8?utm_source=generator" />
           <SpotifyIFrame src="https://open.spotify.com/embed/playlist/5L4hi9GttZysSDpQW2nmbu?utm_source=generator" />
           <SpotifyIFrame src="https://open.spotify.com/embed/playlist/5FczYxKPdUWZbgS0aLL0Ss?utm_source=generator" />
-          <SpotifyIFrame src="https://open.spotify.com/embed/playlist/3jRX6qugXwMlQ2FrdoGkvO?utm_source=generator" />
         </div>
         <h1 className="text-2xl uppercase text-plume-wine mt-4  p-4 text-bold text-inter dark:text-linen-cloud">
           Inne

@@ -1,20 +1,14 @@
-import Dropdown from "@/components/Dropdown"
-import sort from "@/dicts/sort"
+"use client";
+import sort from "@/dicts/sort";
+import FilterChip from "@/components/filters/FilterChip";
 
 type Props = {
-    onSort: (value:string) => void
-}
+  value: string;
+  onSort: (value: string) => void;
+};
 
-function SortBy({ onSort }:Props) {
-
-    return <section className="font-mono text-center text-linen-cloud rounded-xl"
-    >
-        <div className="flex-col">
-            <section className="text-left flex flex-row justify-center">
-                <Dropdown option="Sortuj" values={sort} onSelect={onSort} />
-            </section>
-        </div>
-    </section>;
+function SortBy({ value, onSort }: Props) {
+  return <FilterChip label="Sortuj" options={sort} value={value} onChange={onSort} neutral variant="field" />;
 }
 
 export default SortBy;
