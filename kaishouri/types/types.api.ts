@@ -58,7 +58,7 @@ export type DividerTitle = {
 }
 
 export type Fanfic = {
-    abandoned: any;
+    abandoned: boolean;
     title: string;
     description: string;
     finished: boolean;
