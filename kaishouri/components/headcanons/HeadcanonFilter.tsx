@@ -15,16 +15,12 @@ function HeadcanonFilter({ onFilter }:Props) {
         onFilter(data, filter)
     }
 
-    return <section className="p-4 font-inter text-left text-dark-plume dark:text-linen-cloud">
-        <div className="flex flex-wrap gap-2 justify-center">
-            <FilterChip
-                label="Headcanony dla"
-                options={headcanons}
-                value={character}
-                onChange={(e) => onSelect(e, 'character')}
-            />
-        </div>
-    </section>;
+    return <FilterChip
+        label="Headcanony dla"
+        options={headcanons}
+        value={character}
+        onChange={(e) => onSelect(e, 'character')}
+    />;
 }
 
 export default HeadcanonFilter;

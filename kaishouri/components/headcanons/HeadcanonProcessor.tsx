@@ -28,9 +28,5 @@ export default async function HeadcanonProcessor() {
     }
   }
 
-  return (
-    <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8">
-        <HeadcanonsWrapper headcanons={headcanons} />
-    </div>
-  );
+  return <HeadcanonsWrapper headcanons={headcanons} />;
 }

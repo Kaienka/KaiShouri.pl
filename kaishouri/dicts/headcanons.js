@@ -1,5 +1,5 @@
 const headcanons = [
-  "Wszystko",
+  "wszystko",
   "Białoruś",
   "Białoruś (nyo)",
   "Lietpol",

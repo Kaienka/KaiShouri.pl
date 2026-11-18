@@ -9,6 +9,14 @@ interface Props {
   headcanons: Headcanon[];
 }
 
+function countLabel(n: number) {
+  const lastTwo = n % 100;
+  const last = n % 10;
+  if (n === 1) return `${n} headcanon`;
+  if (last >= 2 && last <= 4 && (lastTwo < 12 || lastTwo > 14)) return `${n} headcanony`;
+  return `${n} headcanonów`;
+}
+
 function HeadcanonsWrapper({ headcanons }: Props) {
   const [filteredHeadcanons, setFilteredHeadcanons] = useState<Headcanon[]>(headcanons);
   const [loading, setLoading] = useState(false);
@@ -16,7 +24,7 @@ function HeadcanonsWrapper({ headcanons }: Props) {
   function filterHeadcanons(value: string) {
     setLoading(true);
     setTimeout(() => {
-      if (!value || value === "Wszystko") {
+      if (!value || value === "wszystko") {
         setFilteredHeadcanons(headcanons);
       } else {
         setFilteredHeadcanons(
@@ -28,10 +36,15 @@ function HeadcanonsWrapper({ headcanons }: Props) {
   }
 
   return (
-    <>
-      <HeadcanonFilter onFilter={filterHeadcanons} />
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 pb-24 text-left font-inter text-dark-plume dark:text-linen-cloud">
+      <div className="flex flex-wrap items-center gap-3 mt-4">
+        <HeadcanonFilter onFilter={filterHeadcanons} />
+        <span className="text-sm">
+          <span className="font-semibold">{countLabel(filteredHeadcanons.length)}</span>
+        </span>
+      </div>
       <div
-        className={`gap-4 flex flex-wrap justify-center p-8 sm:flex items-stretch transition-opacity duration-400 ${
+        className={`columns-1 sm:columns-2 lg:columns-3 gap-4 mt-6 transition-opacity duration-400 ${
           loading ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
@@ -39,7 +52,7 @@ function HeadcanonsWrapper({ headcanons }: Props) {
           <HeadcanonCard key={h.content} character={h.character} content={h.content} nsfw={h.nsfw} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
