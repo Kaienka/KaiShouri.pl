@@ -1,18 +1,27 @@
+"use client";
 import NavDivider from "@/components/navigation/NavDivider";
 import WattpadSvg from "@/components/svg/WattpadSvg";
 import InstaSvg from "@/components/svg/InstaSvg";
 import Ao3Svg from "@/components/svg/Ao3Svg";
 import FFSvg from "@/components/svg/FFSvg";
+import { useNavCollapsed } from "./NavCollapseContext";
 
-const linkClass =
-  "flex items-center p-3 rounded-lg text-start leading-tight transition-all duration-200 hover:rotate-3 hover:bg-violet-200 hover:text-plume-wine focus:text-plume-wine";
+const linkBase =
+  "flex items-center p-3 rounded-xl text-start leading-tight transition-all duration-200 hover:rotate-3";
 
 function SocialLinks() {
+  const collapsed = useNavCollapsed();
+  const linkClass = `${linkBase} ${
+    collapsed
+      ? "hover:bg-plume-wine/10 focus-visible:bg-plume-wine/10 dark:hover:bg-white/10"
+      : "hover:bg-linen-cloud/15 focus-visible:bg-linen-cloud/15"
+  }`;
+
   return (
     <div>
       <NavDivider title="jestem tutaj" />
 
-      <nav className="flex flex-row gap-1 p-2 font-mono text-base font-normal text-linen-cloud justify-center">
+      <nav className={`flex gap-1 p-2 font-mono text-base font-normal justify-center ${collapsed ? "flex-col items-center text-third-plum dark:text-fourth-plum" : "flex-row text-linen-cloud"}`}>
         <a href="https://www.instagram.com/kai_shouri/" className="w-fit" target="_blank" aria-label="Link do Instagrama">
           <div className={linkClass}>
             <div className="grid place-items-center">

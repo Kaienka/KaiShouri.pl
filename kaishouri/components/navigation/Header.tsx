@@ -1,14 +1,31 @@
+"use client";
 import Link from "next/link";
 import HeaderIconSvg from "@/components/svg/HeaderIconSvg";
+import { useNavCollapsed } from "./NavCollapseContext";
 
 type Props = {
   onClick: () => void;
 };
 
 function Header({ onClick }: Props) {
+  const collapsed = useNavCollapsed();
+
+  if (collapsed) {
+    return (
+      <div
+        className="mb-2 py-4 flex justify-center text-third-plum dark:text-fourth-plum transition-transform duration-200 hover:rotate-3"
+        onClick={onClick}
+      >
+        <Link href="/" aria-label="Kai Shouri" title="Kai Shouri">
+          <HeaderIconSvg />
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div
-      className="mb-2 p-4 transition-transform duration-200 hover:rotate-3"
+      className="mb-2 p-4 text-linen-cloud transition-transform duration-200 hover:rotate-3"
       onClick={onClick}
     >
       <Link href="/">
