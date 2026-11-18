@@ -12,13 +12,13 @@ function SpotifyIFrame({ src } : Spotify) {
   }, [])
 
   return (
-    <div className="relative max-w-xs m-2 w-full h-[22rem] rounded-xl overflow-hidden">
+    <div className="relative w-full h-[152px] rounded-xl overflow-hidden">
       {!loaded && (
-        <div className="absolute inset-0 bg-violet-200 animate-pulse z-10 rounded-xl" />
+        <div className="absolute inset-0 bg-nice-light-purple dark:bg-dark-plume animate-pulse z-10 rounded-xl" />
       )}
       <iframe
         src={src}
-        className={`rounded-xl w-full h-[22rem] transition-opacity duration-500 ${
+        className={`rounded-xl w-full h-[152px] border-0 transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         allowFullScreen={false}
@@ -30,4 +30,3 @@ function SpotifyIFrame({ src } : Spotify) {
 }
 
 export default SpotifyIFrame
-
