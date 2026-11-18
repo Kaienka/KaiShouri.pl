@@ -12,20 +12,42 @@ function TableOfContents({ titles, variant }: Props) {
   const [active, setActive] = useState(slugify(titles[0] ?? ""));
 
   useEffect(() => {
-    const sections = titles
-      .map((t) => document.getElementById(slugify(t)))
-      .filter((el): el is HTMLElement => el !== null);
+    const ids = titles.map((t) => slugify(t));
+    let frame = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length > 0) setActive(visible[0].target.id);
-      },
-      { rootMargin: "0px 0px -70% 0px" }
-    );
+    function update() {
+      frame = 0;
+      const sections = ids
+        .map((id) => document.getElementById(id))
+        .filter((el): el is HTMLElement => el !== null);
+      if (sections.length === 0) return;
 
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+      const last = sections[sections.length - 1];
+      if (last.getBoundingClientRect().bottom <= window.innerHeight + 2) {
+        setActive(last.id);
+        return;
+      }
+
+      const line = window.innerHeight * 0.3;
+      let current = sections[0].id;
+      for (const s of sections) {
+        if (s.getBoundingClientRect().top <= line) current = s.id;
+      }
+      setActive(current);
+    }
+
+    function onScroll() {
+      if (!frame) frame = requestAnimationFrame(update);
+    }
+
+    update();
+    document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      document.removeEventListener("scroll", onScroll, { capture: true });
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [titles]);
 
   if (variant === "pills") {
@@ -55,6 +77,7 @@ function TableOfContents({ titles, variant }: Props) {
           <a
             key={t}
             href={`#${id}`}
+            onClick={() => setActive(id)}
             aria-current={active === id ? "true" : undefined}
             className={clsx(
               "block px-3 py-2 rounded-lg font-inter text-sm transition-colors",
