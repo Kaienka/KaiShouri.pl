@@ -28,25 +28,30 @@ export default function UpdatesList() {
   }, []);
 
   if (items.length === 0) {
-    return <p>Ładowanie aktualizacji...</p>;
+    return (
+      <p className="font-inter text-[15px] text-third-plum dark:text-fourth-plum">
+        Ładowanie aktualizacji...
+      </p>
+    );
   }
   return (
-    <main className="p-4">
-      <ul className="space-y-2 text-base">
-        {items.map(({ fic, fanficName, updatedAt, finished, chapterNo }) => (
-          <li key={fic}>
-            <Link href={`/read/${fic}/${chapterNo}`}>
-              <p className="transition-transform duration-200 hover:scale-110">
-                <strong>{fanficName}</strong>
-                {finished && chapterNo == 1
-                  ? " — one-shot"
-                  : ` — rozdział ${chapterNo} `}
-                — {updatedAt.toLocaleDateString("pl-PL")}
-              </p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <ul className="flex flex-col gap-3 font-mono text-[15px] leading-normal">
+      {items.map(({ fic, fanficName, updatedAt, finished, chapterNo }) => (
+        <li key={fic}>
+          <Link
+            href={`/read/${fic}/${chapterNo}`}
+            className="inline-block origin-left transition-transform duration-200 hover:scale-110 text-third-plum dark:text-fourth-plum"
+          >
+            <span className="font-semibold text-dark-plume dark:text-linen-cloud">
+              {fanficName}
+            </span>
+            {finished && chapterNo == 1
+              ? " — one-shot "
+              : ` — rozdział ${chapterNo} `}
+            — {updatedAt.toLocaleDateString("pl-PL")}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

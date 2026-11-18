@@ -3,23 +3,17 @@ import avatar from "@/public/kai.jpg";
 
 function AboutMe() {
   return (
-    <section className="bg-third-plum p-6 m-2 text-linen-cloud rounded font-mono w-full shadow">
-      <div className="flex justify-center">
-        <h1
-          className="font-mono text-linen-cloud font-bold uppercase text-xl bg-plume-wine p-2 rounded w-3/6 md:w-2/6 mb-2
-    transition-transform duration-200 hover:-rotate-2 hover:scale-110"
-        >
+    <section className="flex flex-col lg:flex-row items-start lg:items-center gap-6 p-6 sm:p-7 rounded-2xl bg-nice-light-purple dark:bg-dark-plume">
+      <Image
+        src={avatar}
+        alt="Kai Shouri - avatar"
+        className="w-24 h-24 shrink-0 rounded-2xl object-cover"
+      />
+      <div className="flex flex-col gap-2.5">
+        <h2 className="self-start inline-block px-3 py-1 rounded-lg font-mono text-xl font-semibold uppercase tracking-wide bg-plume-wine text-linen-cloud dark:bg-fourth-plum dark:text-dark-plume origin-left transition-transform duration-200 hover:-rotate-2 hover:scale-110">
           Kai Shouri
-        </h1>
-      </div>
-      <div className="flex lg:flex-row flex-col items-center justify-center">
-        <Image
-          src={avatar}
-          alt="Kai Shouri - avatar"
-          className="rounded-md"
-          style={{ objectFit: "contain" }}
-        />
-        <p className="text-base font-mono whitespace-pre-line">
+        </h2>
+        <p className="font-mono text-[15px] leading-relaxed text-dark-plume dark:text-linen-cloud">
           Piszę fanfiki, nałogowo. Kawę też piję nałogowo. Non-stop obracam w
           głowie bandę krajów z Hetalii, mam więcej pomysłów na AU niż moje
           palce są w stanie napisać, a w fandomie stać będę aż do upadku

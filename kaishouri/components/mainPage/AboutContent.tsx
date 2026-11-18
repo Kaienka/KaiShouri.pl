@@ -1,17 +1,16 @@
 import ContentSvg from "@/components/svg/ContentSvg";
 import LastUpdate from "./LastUpdate";
 
-
 function AboutContent() {
   return (
-    <div className="bg-violet-200 p-6 lg:mr-2 rounded flex-1 mb-4 shadow">
-      <div className="flex justify-center items-center mb-4">
-        <ContentSvg />
-        <h2 className="lg:ml-2 font-mono text-base font-bold">
-          Ostatnie aktualizacje
-        </h2>
-      </div>
-      <LastUpdate/>
+    <div className="flex flex-col gap-4 p-6 sm:p-7 rounded-2xl bg-lilac dark:bg-dark-lilac">
+      <h2 className="flex items-center gap-2.5 font-mono text-[17px] font-semibold text-dark-plume dark:text-linen-cloud">
+        <span className="shrink-0 text-third-plum dark:text-fourth-plum">
+          <ContentSvg />
+        </span>
+        Ostatnie aktualizacje
+      </h2>
+      <LastUpdate />
     </div>
   );
 }
