@@ -39,7 +39,9 @@ function ReadPage() {
       nsfw: infoContent.nsfw,
       ship: infoContent.ship,
       date: infoContent.date,
-      abandoned: infoContent.abandoned
+      abandoned: infoContent.abandoned,
+      published: infoContent.published,
+      updatedAt: infoContent.updatedAt,
     }
     fanficInfo.push(fanfic)
   });

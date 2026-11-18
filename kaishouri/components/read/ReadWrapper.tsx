@@ -14,13 +14,13 @@ function parseYear(dateStr: string, newestFirst = false) {
   return match ? parseInt(match[0], 10) : 0;
 }
 
-function parseWordCount(str: string) {
-  if (!str) return 0;
-  str = str.replace("+", "");
-  const match = str.match(/([\d.]+)k?/i);
-  if (!match) return 0;
-  const num = parseFloat(match[1]);
-  return str.toLowerCase().includes("k") ? num * 1000 : num;
+function sortKey(f: Fanfic) {
+  if (f.published) {
+    const t = Date.parse(f.published);
+    if (!Number.isNaN(t)) return t;
+  }
+  const year = parseYear(f.date, true);
+  return year ? Date.UTC(year, 0, 1) : 0;
 }
 
 function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
@@ -36,7 +36,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     finished: "wszystko",
     title: "",
   });
-  const [sort, setSort] = useState("Najnowsze (rok publikacji)");
+  const [sort, setSort] = useState("Ostatnio aktualizowane");
 
   const [loading, setLoading] = useState(false);
 
@@ -153,21 +153,18 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     const listCopy = [...fanficList];
 
     listCopy.sort((a, b) => {
-      let yearA, yearB;
 
       switch (sort) {
         case "Najstarsze (rok publikacji)":
-          yearA = parseYear(a.date, true);
-          yearB = parseYear(b.date, true);
-          return yearA - yearB;
+          return sortKey(a) - sortKey(b) || a.title.localeCompare(b.title, "pl");
         case "Najnowsze (rok publikacji)":
-          yearA = parseYear(a.date, true);
-          yearB = parseYear(b.date, true);
-          return yearB - yearA;
+          return sortKey(b) - sortKey(a) || a.title.localeCompare(b.title, "pl");
+        case "Ostatnio aktualizowane":
+          return (Date.parse(b.updatedAt ?? "") || 0) - (Date.parse(a.updatedAt ?? "") || 0);
         case "Najdłuższe":
-          return parseWordCount(b.wordCount) - parseWordCount(a.wordCount);
+          return b.wordCount - a.wordCount;
         case "Najkrótsze":
-          return parseWordCount(a.wordCount) - parseWordCount(b.wordCount);
+          return a.wordCount - b.wordCount;
         default:
           return 0;
       }

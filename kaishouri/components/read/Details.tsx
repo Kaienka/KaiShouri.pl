@@ -148,7 +148,7 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
         <p className="font-mono text-sm text-third-plum dark:text-fourth-plum">
           {fic.date}
           {fic.fandom && <> · fandom {fic.fandom}</>}
-          {fic.wordCount && <> · {fic.wordCount} słów</>}
+          {fic.wordCount > 0 && <> · {fic.wordCount.toLocaleString("pl-PL")} słów</>}
           {chapters > 0 && <> · {chaptersInfo}</>}
         </p>
 

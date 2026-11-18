@@ -65,11 +65,13 @@ export type Fanfic = {
     titleEscaped: string,
     fandom: string,
     chapters: number,
-    wordCount: string,
+    wordCount: number,
     nsfw: boolean,
     ship: string;
     date: string;
     links?: Links;
+    published?: string;
+    updatedAt?: string;
 }
 
 export type FanficShort = {
@@ -79,7 +81,7 @@ export type FanficShort = {
     titleEscaped: string,
     fandom: string,
     chapters: number,
-    wordCount: string,
+    wordCount: number,
     nsfw: boolean,
     abandoned?:boolean
 }

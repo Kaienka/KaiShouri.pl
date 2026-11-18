@@ -72,7 +72,7 @@ function FanficCard({
 
       <p className="font-mono text-[13px] text-third-plum dark:text-fourth-plum">
         {fandom && <> {fandom} · </>}
-        {wordCount} słów · {chaptersInfo}
+        {wordCount.toLocaleString("pl-PL")} słów · {chaptersInfo}
       </p>
 
       <p className="font-inter text-[15px] leading-relaxed line-clamp-6">
