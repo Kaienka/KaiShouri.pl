@@ -47,7 +47,7 @@ function Navigation() {
   return (
     <NavCollapseContext.Provider value={isCollapsed}>
       {!isOpen && (
-        <header className="sm:hidden fixed top-0 left-0 w-full h-16 z-50 bg-plume-wine shadow-md flex items-center justify-between px-4">
+        <header className="sm:hidden fixed top-0 left-0 w-full h-16 z-50 bg-plume-wine shadow-md flex items-center justify-between pl-4 pr-1">
           <div className="flex flex-row items-center">
           <HamburgerBtn onClick={toggleMenu} isOpen={isOpen} />
           <Link href="/">
@@ -55,7 +55,7 @@ function Navigation() {
           </Link>
           </div>
           <ThemeChanger
-            mobile additionalClass="py-0" />
+            mobile additionalClass="py-0 px-0" />
         </header>
       )}
 
@@ -67,7 +67,7 @@ function Navigation() {
     sm:relative sm:translate-x-0 ${isCollapsed ? "sm:w-[72px]" : "sm:w-[250px]"} sm:shrink-0
     ${isOpen ? "translate-x-0" : "-translate-x-full"}
     z-40
-    pt-16 sm:pt-0 h-screen sm:min-h-screen
+    pt-16 sm:pt-0 pb-[env(safe-area-inset-bottom)] sm:pb-0 h-dvh sm:min-h-dvh
   `}
       >
         <div>

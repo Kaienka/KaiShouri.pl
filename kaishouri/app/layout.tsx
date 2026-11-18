@@ -40,9 +40,9 @@ export default function RootLayout({
       >
         <ThemeProvider enableSystem={false}
         >
-          <div className="flex h-screen w-full">
+          <div className="flex h-dvh w-full">
             <Navigation />
-            <main className="flex-1 overflow-auto mt-16 sm:mt-0">
+            <main className="flex-1 overflow-auto mt-16 sm:mt-0 pb-[env(safe-area-inset-bottom)]">
               <section className="sm:flex flex-row justify-end hidden">
               <ThemeChanger additionalClass="fixed" mobile={false} />
               </section>
