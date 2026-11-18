@@ -2,10 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import * as motion from "motion/react-client";
-import { whileHover } from "@/app/utils/motion";
 import { FanficUpdate, LastUpdate } from "@/types/types.api";
-
 
 export default function UpdatesList() {
   const [items, setItems] = useState<LastUpdate[]>([]);
@@ -39,13 +36,13 @@ export default function UpdatesList() {
         {items.map(({ fic, fanficName, updatedAt, finished, chapterNo }) => (
           <li key={fic}>
             <Link href={`/read/${fic}/${chapterNo}`}>
-              <motion.p whileHover={whileHover}>
+              <p className="transition-transform duration-200 hover:scale-110">
                 <strong>{fanficName}</strong>
                 {finished && chapterNo == 1
                   ? " — one-shot"
                   : ` — rozdział ${chapterNo} `}
-                 — {updatedAt.toLocaleDateString("pl-PL")}
-              </motion.p>
+                — {updatedAt.toLocaleDateString("pl-PL")}
+              </p>
             </Link>
           </li>
         ))}

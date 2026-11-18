@@ -10,33 +10,24 @@
         "kaishouri/sentry.server.config.ts": true,
         "kaishouri/sentry.edge.config.ts": true,
         "kaishouri/postcss.config.mjs": true,
-        "kaishouri/package.json": true,
         "kaishouri/package-lock.json": true,
-        "kaishouri/next.config.ts": true,
-        "kaishouri/next-env.d.ts": true,
-        "kaishouri/instrumentation.ts": true,
-        "kaishouri/instrumentation-client.ts": true,
         "kaishouri/eslint.config.mjs": true,
         "kaishouri/.gitignore": true,
         "kaishouri/.env.sentry-build-plugin": true,
-        "kaishouri/node_modules": true,
-        "kaishouri/.next": true
+        "kaishouri/node_modules": true
+    },
+    "files.associations": {
+    "*.css": "tailwindcss"
     },
     "hide-files.files": [
         "kaishouri/tsconfig.json",
         "kaishouri/sentry.server.config.ts",
         "kaishouri/sentry.edge.config.ts",
         "kaishouri/postcss.config.mjs",
-        "kaishouri/package.json",
         "kaishouri/package-lock.json",
-        "kaishouri/next.config.ts",
-        "kaishouri/next-env.d.ts",
-        "kaishouri/instrumentation.ts",
-        "kaishouri/instrumentation-client.ts",
         "kaishouri/eslint.config.mjs",
         "kaishouri/.gitignore",
         "kaishouri/.env.sentry-build-plugin",
-        "kaishouri/node_modules",
-        "kaishouri/.next"
+        "kaishouri/node_modules"
     ]
 }

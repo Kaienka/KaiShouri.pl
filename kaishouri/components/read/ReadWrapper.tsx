@@ -3,8 +3,6 @@ import Filters from "@/components/Filters";
 import FanficCard from "@/components/FanficCard";
 import { useState, useMemo, useEffect } from "react";
 import { Fanfic } from "@/types/types.api";
-import { motion, AnimatePresence } from "framer-motion";
-import { variants } from "@/app/utils/motion";
 import { useRouter, useSearchParams } from "next/navigation";
 
 function parseYear(dateStr: string, newestFirst = false) {
@@ -41,7 +39,6 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
   const [sort, setSort] = useState("Najnowsze (rok publikacji)");
 
   const [loading, setLoading] = useState(false);
-  const [trigger, setTrigger] = useState(0);
 
   function onFilter(value: string, filterType: string) {
     setLoading(true);
@@ -50,7 +47,6 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
         ...prev,
         [filterType]: value,
       }));
-      setTrigger((t) => t + 1);
       setLoading(false);
     }, 400);
   }
@@ -70,7 +66,6 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     setLoading(true);
     setTimeout(() => {
       setSort(value);
-      setTrigger((t) => t + 1);
       setLoading(false);
     }, 400);
   }
@@ -86,7 +81,6 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
         finished: "wszystko",
         title: "",
       });
-      setTrigger((t) => t + 1);
       setLoading(false);
     }, 400);
   }
@@ -182,9 +176,11 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     return listCopy;
   }, [fanficList, sort]);
 
-   return (
+  return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 pt-8 pb-24 text-left">
-      <h1 className="font-mono text-3xl font-semibold mb-6 text-dark-plume dark:text-linen-cloud">Czytaj</h1>
+      <h1 className="font-mono text-3xl font-semibold mb-6 text-dark-plume dark:text-linen-cloud">
+        Czytaj
+      </h1>
 
       <Filters
         onFilter={onFilter}
@@ -195,37 +191,32 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
         onReset={onReset}
       />
 
-      <AnimatePresence mode="wait">
-        {!loading && (
-          <motion.div
-            key={trigger}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={variants}
-            className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6 mt-8"
-          >
-            {sortedList.length !== 0 ? (
-              sortedList.map((item) => (
-                <FanficCard
-                  key={item.title}
-                  title={item.title}
-                  description={item.description}
-                  finished={item.finished}
-                  titleEscaped={item.titleEscaped}
-                  fandom={item.fandom}
-                  chapters={item.chapters}
-                  wordCount={item.wordCount}
-                  nsfw={item.nsfw}
-                  abandoned={item.abandoned}
-                />
-              ))
-            ) : (
-              <p className="col-span-full text-center font-mono text-dark-plume dark:text-linen-cloud">Nic tu nie ma, spróbuj użyć innych filtrów!</p>
-            )}
-          </motion.div>
+      <div
+        className={`grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-6 mt-8 transition-opacity duration-400 ${
+          loading ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
+        {sortedList.length !== 0 ? (
+          sortedList.map((item) => (
+            <FanficCard
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              finished={item.finished}
+              titleEscaped={item.titleEscaped}
+              fandom={item.fandom}
+              chapters={item.chapters}
+              wordCount={item.wordCount}
+              nsfw={item.nsfw}
+              abandoned={item.abandoned}
+            />
+          ))
+        ) : (
+          <p className="col-span-full text-center font-mono text-dark-plume dark:text-linen-cloud">
+            Nic tu nie ma, spróbuj użyć innych filtrów!
+          </p>
         )}
-      </AnimatePresence>
+      </div>
     </div>
   );
 }

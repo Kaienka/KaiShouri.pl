@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { useId, type ReactNode } from "react";
 
 const LINE_WIDTH = 660; // szerszy niż najdłuższy tytuł; nadmiar jest ucinany
@@ -51,9 +50,6 @@ const TEXTURES = {
 const SOFT_ENDS =
   "linear-gradient(90deg, transparent 0, #000 5px, #000 calc(100% - 16px), transparent 100%)";
 
-// Musi być utworzone poza komponentem, żeby nie tworzyć nowego typu przy każdym renderze.
-const MotionLink = motion.create(Link);
-
 type Props = {
   href: string;
   className?: string;
@@ -72,31 +68,24 @@ export default function UnderlineLink({
   texture = "crayon",
   children,
 }: Props) {
-  const reduceMotion = useReducedMotion();
   // Unikalne id filtra dla każdego linku (useId zawiera dwukropki, które usuwamy).
   const filterId = `pencil-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const t = TEXTURES[texture];
 
   return (
-    <MotionLink
-      href={href}
-      className={className}
-      initial="rest"
-      whileHover="hover"
-      whileFocus="hover"
-    >
+    <Link href={href} className={`group ${className ?? ""}`}>
       <span className="relative inline-block">
         {children}
         {/* Okno o szerokości tekstu; kreska jest odsłaniana od lewej, a nie rozciągana. */}
-        <motion.span
+        <span
           aria-hidden="true"
-          className="absolute inset-x-0 -bottom-2 h-3 overflow-hidden"
+          className="absolute inset-x-0 -bottom-2 h-3 overflow-hidden
+            [clip-path:inset(0_100%_0_0)]
+            group-hover:[clip-path:inset(0_0_0_0)]
+            group-focus-visible:[clip-path:inset(0_0_0_0)]
+            transition-[clip-path] duration-350 ease-out
+            motion-reduce:transition-none"
           style={{ maskImage: SOFT_ENDS, WebkitMaskImage: SOFT_ENDS }}
-          variants={{
-            rest: { clipPath: "inset(0 100% 0 0)" },
-            hover: { clipPath: "inset(0 0% 0 0)" },
-          }}
-          transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
         >
           <svg
             width={LINE_WIDTH}
@@ -152,8 +141,8 @@ export default function UnderlineLink({
               <path d={STROKE_SECOND} strokeWidth={t.widths[1]} opacity={t.opacity[1]} />
             </g>
           </svg>
-        </motion.span>
+        </span>
       </span>
-    </MotionLink>
+    </Link>
   );
 }

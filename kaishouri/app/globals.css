@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@source not "../fanfictions";
+@source not "../headcanons";
+@source not "../oc";
+@source not "../dicts";
 
 :root {
   --background: #f7f9ec;

@@ -1,20 +1,16 @@
-import * as motion from "motion/react-client";
 import Image from "next/image";
 import avatar from "@/public/kai.jpg";
-import { whileHoverAuthor } from "@/app/utils/motion";
-
 
 function AboutMe() {
   return (
     <section className="bg-third-plum p-6 m-2 text-linen-cloud rounded font-mono w-full shadow">
       <div className="flex justify-center">
-        <motion.h1
-          whileHover={whileHoverAuthor}
-          className="font-mono text-linen-cloud font-bold 
-              uppercase text-xl bg-plume-wine p-2 rounded w-3/6 md:w-2/6 mb-2"
+        <h1
+          className="font-mono text-linen-cloud font-bold uppercase text-xl bg-plume-wine p-2 rounded w-3/6 md:w-2/6 mb-2
+    transition-transform duration-200 hover:-rotate-2 hover:scale-110"
         >
           Kai Shouri
-        </motion.h1>
+        </h1>
       </div>
       <div className="flex lg:flex-row flex-col items-center justify-center">
         <Image
