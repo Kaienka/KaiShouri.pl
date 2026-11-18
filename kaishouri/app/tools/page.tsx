@@ -1,28 +1,41 @@
 import ToolSvg from "@/components/svg/ToolSvg";
 import TextCard from "@/components/tools/TextCard";
+import TableOfContents from "@/components/tools/TableOfContents";
+
+const TITLES = [
+  "tak ogólnie",
+  "Quoll Writer",
+  "Calmly Writer",
+  "Microsoft Word",
+  "Cold Turkey Writer",
+  "Workflowy",
+  "Google Keep",
+  "Cold Turkey Blocker",
+  "Raindrop",
+];
 
 function ToolsPage() {
-  return <div
-    className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8 flex flex-col items-center">
+  return <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12 pb-24 text-left grid lg:grid-cols-[200px_minmax(0,1fr)] gap-x-14 items-start">
 
-    <header className="mt-4 flex flex-row justify-center mb-2 items-center">
-      <div className="mr-2 text-plume-wine dark:text-linen-cloud">
-        <ToolSvg />
-      </div>
-      <h5 className=" text-3xl font-bold text-plume-wine dark:text-linen-cloud">
-        Programy i narzędzia
-      </h5>
-      <div className="ml-2 text-plume-wine dark:text-linen-cloud">
-        <ToolSvg />
-      </div>
-    </header>
+    <aside className="hidden lg:block sticky top-6 mt-[220px]">
+      <TableOfContents titles={TITLES} variant="sidebar" />
+    </aside>
 
-    <main
-      className="flex flex-col justify-center items-center w-vw text-center text-base overflow-clip
-      w-12/12 sm:w-8/12 md:w-11/12 lg:w-7/12">
-      <p className="mb-5  text-base text-plume-wine sm:text-lg dark:text-linen-cloud">
+    <main className="min-w-0 max-w-[68ch] flex flex-col">
+      <header className="flex flex-row items-center gap-3 text-third-plum dark:text-fourth-plum">
+        <ToolSvg />
+        <h1 className="font-mono text-3xl sm:text-4xl font-semibold text-dark-plume dark:text-linen-cloud">
+          Programy i narzędzia
+        </h1>
+      </header>
+
+      <p className="mt-4 mb-6 font-inter text-[17px] sm:text-lg leading-relaxed text-plume-wine dark:text-fourth-plum">
         Jakiś czas temu na moim Instagramie zapytałam obserwujących, czy są zainteresowani małym wpisem na temat programów i narzędzi, których używam. Poniżej znajduje się zaktualizowana wersja tamtego wpisu (2025)
       </p>
+
+      <div className="mb-8">
+        <TableOfContents titles={TITLES} variant="pills" />
+      </div>
 
       <TextCard title="tak ogólnie">
         <div>
