@@ -3,7 +3,29 @@ import Filters from "@/components/Filters";
 import FanficCard from "@/components/FanficCard";
 import { useState, useMemo, useEffect } from "react";
 import { Fanfic } from "@/types/types.api";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FANDOMS, ORIGINAL_PARAM } from "@/dicts/fandoms";
+
+const STATUSES = ["trwające", "zakończone", "porzucone"];
+
+const ALL = "wszystko";
+
+function fandomFromParam(param: string | null) {
+  if (!param) return ALL;
+  if (param === ORIGINAL_PARAM) return "światy oryginalne";
+  const entry = FANDOMS.find((f) => f.code === param || f.label === param);
+  return entry ? entry.label : ALL;
+}
+
+function fandomToParam(label: string) {
+  const entry = FANDOMS.find((f) => f.label === label);
+  if (!entry) return null;
+  return entry.code || ORIGINAL_PARAM;
+}
+
+function statusFromParam(param: string | null) {
+  return param && STATUSES.includes(param) ? param : ALL;
+}
 
 function parseYear(dateStr: string, newestFirst = false) {
   if (!dateStr) return 0;
@@ -23,19 +45,26 @@ function sortKey(f: Fanfic) {
   return year ? Date.UTC(year, 0, 1) : 0;
 }
 
+const emptyFilters = {
+  fandom: ALL,
+  nsfw: ALL,
+  type: ALL,
+  ship: ALL,
+  finished: ALL,
+  title: "",
+};
+
 function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
   const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
-  const ship = searchParams.get("ship");
 
-  const [filters, setFilters] = useState({
-    fandom: "wszystko",
-    nsfw: "wszystko",
-    type: "wszystko",
-    ship: ship ? ship : "wszystko",
-    finished: "wszystko",
-    title: "",
-  });
+  const [filters, setFilters] = useState(() => ({
+    ...emptyFilters,
+    ship: searchParams.get("ship") || ALL,
+    fandom: fandomFromParam(searchParams.get("fandom")),
+    finished: statusFromParam(searchParams.get("status")),
+  }));
   const [sort, setSort] = useState("Ostatnio aktualizowane");
 
   const [loading, setLoading] = useState(false);
@@ -53,14 +82,20 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
-    if (filters.ship === "wszystko") {
-      params.delete("ship");
-    } else {
-      params.set("ship", filters.ship);
-    }
+    const setParam = (key: string, value: string | null) =>
+      value ? params.set(key, value) : params.delete(key);
 
-    router.replace(`?${params.toString()}`, { scroll: false });
-  }, [router, searchParams, filters.ship]);
+    setParam("ship", filters.ship !== ALL ? filters.ship : null);
+    setParam("fandom", fandomToParam(filters.fandom));
+    setParam("status", filters.finished !== ALL ? filters.finished : null);
+
+    const next = params.toString();
+    if (next !== searchParams.toString()) {
+      router.replace(next ? `${pathname}?${next}` : pathname, {
+        scroll: false,
+      });
+    }
+  }, [router, pathname, searchParams, filters.ship, filters.fandom, filters.finished]);
 
   function onSort(value: string) {
     setLoading(true);
@@ -73,46 +108,22 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
   function onReset() {
     setLoading(true);
     setTimeout(() => {
-      setFilters({
-        fandom: "wszystko",
-        nsfw: "wszystko",
-        type: "wszystko",
-        ship: "wszystko",
-        finished: "wszystko",
-        title: "",
-      });
+      setFilters(emptyFilters);
       setLoading(false);
     }, 400);
   }
 
   const fanficList = useMemo(() => {
+    const fandom = FANDOMS.find((f) => f.label === filters.fandom);
+
     return fanficInfo.filter((f) => {
       let ok = true;
 
-      if (filters.fandom && filters.fandom !== "wszystko") {
-        switch (filters.fandom) {
-          case "Genshin Impact":
-            ok = ok && f.fandom === "GI";
-            break;
-          case "Hetalia":
-            ok = ok && f.fandom === "APH";
-            break;
-          case "Voltron Legendary Defender":
-            ok = ok && f.fandom === "VLD";
-            break;
-          case "Tsubasa Reservoir Chronicle":
-            ok = ok && f.fandom === "TRC";
-            break;
-          case "Twisted Wonderland":
-            ok = ok && f.fandom === "TW";
-            break;
-          case "światy oryginalne":
-            ok = ok && f.fandom === "";
-            break;
-        }
+      if (fandom) {
+        ok = ok && f.fandom === fandom.code;
       }
 
-      if (filters.nsfw && filters.nsfw !== "wszystko") {
+      if (filters.nsfw && filters.nsfw !== ALL) {
         if (filters.nsfw === "tak") {
           ok = ok && f.nsfw === true;
         }
@@ -121,7 +132,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
         }
       }
 
-      if (filters.type && filters.type !== "wszystko") {
+      if (filters.type && filters.type !== ALL) {
         if (filters.type === "one-shot") {
           ok = ok && f.chapters === 1 && f.finished === true;
         } else if (filters.type === "wielorozdziałowiec") {
@@ -129,7 +140,7 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
         }
       }
 
-      if (filters.ship && filters.ship !== "wszystko") {
+      if (filters.ship && filters.ship !== ALL) {
         ok = ok && f.ship === filters.ship;
       }
 
@@ -153,7 +164,6 @@ function ReadWrapper({ fanficInfo }: { fanficInfo: Fanfic[] }) {
     const listCopy = [...fanficList];
 
     listCopy.sort((a, b) => {
-
       switch (sort) {
         case "Najstarsze (rok publikacji)":
           return sortKey(a) - sortKey(b) || a.title.localeCompare(b.title, "pl");

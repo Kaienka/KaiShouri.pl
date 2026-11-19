@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FanficDetails } from "@/types/types.api";
 import HtmlWordCounter from "../addons/swan-hunt-coffee-meter/HtmlWordCounter";
 import PdfDownloadButton from "@/components/PdfDownloadButton";
+import { fandomName } from "@/dicts/fandoms";
 
 const ArrowRight = () => (
   <svg
@@ -54,6 +55,10 @@ const ArrowLeft = () => (
   </svg>
 );
 
+const tagBase =
+  "inline-flex items-center h-7 px-3 rounded-full font-inter text-[13px] font-semibold";
+const tagSoft = `${tagBase} transition-colors bg-fourth-plum/40 text-plume-wine hover:bg-fourth-plum/70 dark:bg-fourth-plum/20 dark:text-nice-light-purple dark:hover:bg-fourth-plum/35`;
+
 async function Details({ fic, chapterTitles }: FanficDetails) {
   const status = fic.abandoned
     ? "porzucone"
@@ -91,6 +96,16 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
     </Link>
   );
 
+  const meta = [
+    `zaktualizowano ${new Date(fic.updatedAt!).toLocaleDateString("pl-PL", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })}`,
+    fic.wordCount > 0 && `${fic.wordCount.toLocaleString("pl-PL")} słów`,
+    chapters > 0 && chaptersInfo,
+  ].filter(Boolean);
+
   const platformLinks = (pillBg: string) =>
     platforms.length > 0 && (
       <div className="flex flex-wrap gap-2">
@@ -123,19 +138,32 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
         </Link>
 
         <div className="flex flex-wrap gap-1.5">
-          <span className="inline-flex items-center h-7 px-3 rounded-full font-inter text-[13px] font-semibold bg-fourth-plum/40 text-plume-wine dark:bg-fourth-plum/20 dark:text-nice-light-purple">
+          <Link
+            href={{ pathname: "/read", query: { status } }}
+            className={tagSoft}
+          >
             {status}
-          </span>
+          </Link>
+          {fic.fandom && (
+            <Link
+              href={{ pathname: "/read", query: { fandom: fic.fandom } }}
+              className={tagSoft}
+            >
+              {fandomName(fic.fandom)}
+            </Link>
+          )}
           {fic.ship && (
             <Link
               href={{ pathname: "/read", query: { ship: fic.ship } }}
-              className="inline-flex items-center h-7 px-3 rounded-full font-inter text-[13px] font-semibold bg-plume-wine text-linen-cloud hover:bg-dark-plume dark:bg-fourth-plum dark:text-dark-plume"
+              className={`${tagBase} transition-colors bg-plume-wine text-linen-cloud hover:bg-dark-plume dark:bg-fourth-plum dark:text-dark-plume`}
             >
               {fic.ship}
             </Link>
           )}
           {fic.nsfw && (
-            <span className="inline-flex items-center h-7 px-3 rounded-full font-inter text-[13px] font-semibold bg-second-plum text-linen-cloud dark:bg-fourth-plum dark:text-dark-plume">
+            <span
+              className={`${tagBase} bg-second-plum text-linen-cloud dark:bg-fourth-plum dark:text-dark-plume`}
+            >
               18+
             </span>
           )}
@@ -145,12 +173,18 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
           {fic.title}
         </h1>
 
-        <p className="font-mono text-sm text-third-plum dark:text-fourth-plum">
-          {fic.date}
-          {fic.fandom && <> · fandom {fic.fandom}</>}
-          {fic.wordCount > 0 && <> · {fic.wordCount.toLocaleString("pl-PL")} słów</>}
-          {chapters > 0 && <> · {chaptersInfo}</>}
-        </p>
+        <div className="overflow-hidden">
+          <p className="-ml-4 flex flex-wrap font-mono text-sm text-third-plum dark:text-fourth-plum">
+            {meta.map((item, i) => (
+              <span
+                key={i}
+                className="whitespace-nowrap before:inline-block before:w-4 before:text-center before:content-['·']"
+              >
+                {item}
+              </span>
+            ))}
+          </p>
+        </div>
 
         <div className="flex gap-2 mt-2 lg:hidden">
           <div className="flex-1">{readButton}</div>
