@@ -26,6 +26,9 @@ echo Przekopiowano plik info.json
 mkdir "%~dp0%ficName%\chapters"
 echo Utworzono folder chapters
 
+mkdir "%~dp0%ficName%\notes"
+echo Utworzono folder notes
+
 for /L %%i in (1,1,%numFiles%) do (
     type nul > "%~dp0%ficName%\chapters\%%i.html"
     echo Utworzono plik: %%i.html

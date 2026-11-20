@@ -111,5 +111,6 @@ export type Content = {
     index: number,
     fic: string,
     chapterAmount: number,
-    chapterTitles?: (string | null)[]
+    chapterTitles?: (string | null)[],
+    notes?: string | null,
 }
