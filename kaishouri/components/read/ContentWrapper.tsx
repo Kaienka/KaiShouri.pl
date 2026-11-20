@@ -25,7 +25,7 @@ function ContentWrapper({ fileContent, index, fic, chapterAmount, chapterTitles 
       />
     </div>
 
-    {commentsVisible && <section className='mt-4'>
+    {commentsVisible && <section className='mt-4 w-full'>
       <CommentSection ficTitle={fic} chapterNo={index} />
     </section>}
   </>

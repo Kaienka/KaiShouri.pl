@@ -8,7 +8,7 @@ export default function CommentThread({
    chapterNo
 }: CommentThreadProps) {
   return (
-    <div className="flex flex-col gap-5 grow overflow-y-auto w-full pr-2">
+    <div className="flex flex-col gap-2 w-full">
       {allComments.length > 0 &&
         allComments.map((comment: Comment) => (
           <CommentBlock

@@ -8,6 +8,11 @@ import {
 
 import Icons from "./Icons";
 
+const fieldClass =
+  "rounded-xl outline-none bg-nice-light-purple dark:bg-white/10 placeholder:text-third-plum dark:placeholder:text-fourth-plum focus:ring-2 focus:ring-plume-wine/30 dark:focus:ring-fourth-plum/40";
+const ghostBtn =
+  "flex items-center gap-1 h-9 px-3 rounded-full text-sm font-medium cursor-pointer text-third-plum hover:bg-nice-light-purple dark:text-fourth-plum dark:hover:bg-white/10";
+
 export default function CommentBlock({
   allComments,
   comment,
@@ -22,89 +27,84 @@ export default function CommentBlock({
   const [userName, setUserName] = useState("");
 
   return (
-    <div className=" mt-3 text-plume-wine dark:text-linen-cloud ">
-      <div className="flex flex-col justify-between gap-4 bg-[rgba(178,178,238,0.09)] border py-4 px-4 rounded-lg">
-        <div className="flex gap-3 justify-start items-start">
-          <div className="flex flex-col gap-0">
-            <div className="flex gap-2 items-center">
-              <p className="text-lg">{comment.user}</p>
-              <small className="font-medium">
-                {convertToLocaleDate(comment.createdAt)}
-              </small>
-            </div>
-            <div>{comment.text}</div>
-          </div>
+    <div className="py-2">
+      <div className="flex flex-col gap-1.5">
+        <div className="flex gap-2 items-baseline">
+          <p className="font-mono font-semibold">{comment.user}</p>
+          <small className="font-mono text-xs text-third-plum dark:text-fourth-plum">
+            {convertToLocaleDate(comment.createdAt)}
+          </small>
         </div>
-        <div className="flex flex-col gap-4 grow">
-          <div className="flex gap-3  items-center">
-            {replyCount > 0 && (
-              <div
-                className="flex items-center gap-1 p-2 hover:bg-[rgba(178,178,238,0.1)] cursor-pointer rounded-2xl"
-                onClick={() => setShowReplies(!showReplies)}
-              >
-                {showReplies ? <Icons.CaretUp /> : <Icons.CaretDown />}
-                {`${replyCount} ${replyCount > 1 ? "odpowiedzi" : "odpowiedź"}`}
-              </div>
-            )}
-
+        <div className="leading-relaxed whitespace-pre-line">{comment.text}</div>
+        <div className="flex gap-1 items-center -ml-3">
+          {replyCount > 0 && (
             <button
-              className="cursor-pointer p-2 bg-[rgba(178,178,238,0.03)] rounded-2xl hover:bg-[rgba(178,178,238,0.2)] "
-              onClick={() => setShowReplyBox(!showReplyBox)}
+              type="button"
+              className={ghostBtn}
+              onClick={() => setShowReplies(!showReplies)}
+              aria-expanded={showReplies}
             >
-              odpowiedz
+              {showReplies ? <Icons.CaretUp /> : <Icons.CaretDown />}
+              {`${replyCount} ${replyCount > 1 ? "odpowiedzi" : "odpowiedź"}`}
             </button>
-          </div>
+          )}
+
+          <button
+            type="button"
+            className={ghostBtn}
+            onClick={() => setShowReplyBox(!showReplyBox)}
+          >
+            odpowiedz
+          </button>
         </div>
       </div>
 
       {showReplyBox && (
-        <>
-          <div className="ml-5 mt-4 flex flex-col items-end gap-2 text-plume-wine dark:text-linen-cloud ">
-            <textarea
-              className="bg-[rgba(178,178,238,0.05)]  p-4 outline-0 border ring-0 resize-none rounded-md w-full"
-              placeholder={`replying to ${comment.user}`}
-              name=""
-              id=""
-              rows={5}
-              value={commentReplyText}
-              onChange={(e) => setCommentReplyText(e.target.value)}
-            ></textarea>
+        <div className="ml-5 mt-2 flex flex-col items-end gap-2">
+          <textarea
+            className={`${fieldClass} p-4 resize-none w-full`}
+            placeholder={`replying to ${comment.user}`}
+            name=""
+            id=""
+            rows={5}
+            value={commentReplyText}
+            onChange={(e) => setCommentReplyText(e.target.value)}
+          ></textarea>
+          <div className="flex gap-2 items-center">
             <input
               type="text"
               value={userName}
-              className="bg-[rgba(178,178,238,0.05)]  p-2 outline-0 border ring-0 resize-none rounded-md w-1/3"
+              className={`${fieldClass} w-44 h-11 px-3.5`}
               onChange={(e) => setUserName(e.target.value)}
               placeholder="nick"
             />
-            <div className="flex gap-2">
-              <button
-                className="font-medium p-3 rounded border"
-                onClick={() => {
-                  addComment(
-                    allComments,
-                    setAllComments,
-                    commentReplyText,
-                    userName,
-                    comment.id,
-                    ficTitle,
-                    chapterNo
-                  );
-                  setCommentReplyText("");
-                  setShowReplyBox(false);
-                  setShowReplies(true);
-                }}
-              >
-                Odpowiedz
-              </button>
-            </div>
+            <button
+              className="h-11 px-5 rounded-xl font-semibold cursor-pointer bg-plume-wine text-linen-cloud hover:bg-dark-plume dark:bg-fourth-plum dark:text-dark-plume"
+              onClick={() => {
+                addComment(
+                  allComments,
+                  setAllComments,
+                  commentReplyText,
+                  userName,
+                  comment.id,
+                  ficTitle,
+                  chapterNo
+                );
+                setCommentReplyText("");
+                setShowReplyBox(false);
+                setShowReplies(true);
+              }}
+            >
+              Odpowiedz
+            </button>
           </div>
-        </>
+        </div>
       )}
 
       {/* REPLIES */}
 
       {showReplies && (
-        <div className="ml-5">
+        <div className="ml-5 pl-4">
           {comment?.replies.length > 0 &&
             comment?.replies.map((reply: Comment) => (
               <CommentBlock
