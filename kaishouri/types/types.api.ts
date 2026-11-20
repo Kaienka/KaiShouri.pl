@@ -5,13 +5,16 @@ export type Headcanon = {
 }
 
 export type OC = {
+    id: string;
     name: string;
     surname?: string;
-    age?: number;
+    age?: number | string;
     description: string;
     uniwersum?: string;
     gender?: string;
     sexuality?: string;
+    birth?: number | string;
+    death?: number | string;
 }
 
 export type SpotifyIFrame = {

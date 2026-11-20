@@ -1,32 +1,23 @@
 import OCProcessor from "@/components/oc/OCProcessor";
-import IdeaSvg from "@/components/svg/IdeaSvg";
+import PersonSvg from "@/components/svg/PersonSvg";
 
 function OcPage() {
   return (
-    <>
-      <div className="w-full h-full p-4 font-mono text-center  rounded-lg sm:p-8 ">
-        <header className="flex flex-row justify-center mb-2 items-center">
-          <div className="mr-2">
-            <IdeaSvg />
-          </div>
-          <h5 className=" text-3xl font-bold text-plume-wine dark:text-linen-cloud">
+    <div className="w-full">
+      <header className="w-full max-w-6xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12 text-left text-dark-plume dark:text-linen-cloud">
+        <div className="flex flex-row items-center gap-3 text-third-plum dark:text-fourth-plum">
+          <PersonSvg />
+          <h1 className="font-mono text-3xl sm:text-4xl font-semibold text-dark-plume dark:text-linen-cloud">
             Postacie własne
-          </h5>
-          <div className="ml-2 text-plume-wine dark:text-linen-cloud">
-            <IdeaSvg />
-          </div>
-        </header>
+          </h1>
+        </div>
 
-        <div className="flex items-center justify-center mb-2">
-          <p className="mb-5 text-base w-4/6 lg:w-3/6 text-plume-wine sm:text-lg dark:text-linen-cloud">
-           ...czyli OC wszelkiej maści
-          </p>
-        </div>
-        <div className="items-center justify-center space-y-4 p-8 sm:flex sm:flex-wrap sm:space-x-4 rtl:space-x-reverse">
-          <OCProcessor />
-        </div>
-      </div>
-    </>
+        <p className="mt-4 font-inter text-base sm:text-[17px] leading-relaxed max-w-[65ch]">
+          ...czyli OC wszelkiej maści
+        </p>
+      </header>
+      <OCProcessor />
+    </div>
   );
 }
 
