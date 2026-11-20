@@ -2,7 +2,7 @@ import { Comment } from "./types"
 import { saveComments } from "./comments.server"
 import { sendEmail } from "./email.server"
 
-export function newComment(
+function newComment(
   commentText: string,
   currentUser: string,
   ficTitle: string,

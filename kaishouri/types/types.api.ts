@@ -100,7 +100,7 @@ export type FanficDetails = {
   chapterTitles: (string | null)[];
 }
 
-export type Links = {
+type Links = {
     ao3: string;
     ffnet: string;
     wattpad: string;

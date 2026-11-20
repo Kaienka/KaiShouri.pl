@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { XIcon } from "./icons";
 import { formatOption, textsCount } from "./labels";
 
-export type FilterKey = "fandom" | "nsfw" | "type" | "ship" | "finished";
+type FilterKey = "fandom" | "nsfw" | "type" | "ship" | "finished";
 export type FilterGroup = { key: FilterKey; label: string; options: string[] };
 
 type Props = {

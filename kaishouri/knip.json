@@ -1,0 +1,5 @@
+{
+  "entry": ["scripts/*.js"],
+  "ignore": ["components/svg/PersonSvg.tsx"],
+  "ignoreDependencies": ["eslint", "eslint-config-next"]
+}
