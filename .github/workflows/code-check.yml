@@ -26,8 +26,8 @@ jobs:
       - name: Knip
         run: npx knip
 
-      - name: Next types
-        run: npx next typegen
+      - name: Build
+        run: npx next build
 
       - name: TypeScript
         run: npx tsc --noEmit
