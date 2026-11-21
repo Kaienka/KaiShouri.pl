@@ -9,6 +9,7 @@ import CoffeeSvg from "@/components/svg/CoffeeSvg";
 import MapSvg from "@/components/svg/MapSvg";
 import FamilySvg from "../svg/FamilySvg";
 import PersonSvg from "../svg/PersonSvg";
+import FaqSvg from "../svg/FaqSvg";
 
 function MainNavbar() {
   return (
@@ -27,8 +28,13 @@ function MainNavbar() {
       <NavigationLink href="/headcanons" title="Headcanony">
         <IdeaFilledSvg />
       </NavigationLink>
-        <NavigationLink href="/oc" title="Postacie">
+
+      <NavigationLink href="/oc" title="Postacie">
         <PersonSvg />
+      </NavigationLink>
+
+      <NavigationLink href="/faq" title="FAQ">
+        <FaqSvg />
       </NavigationLink>
 
       <NavDivider title="poza stroną" />
@@ -51,7 +57,7 @@ function MainNavbar() {
         <MapSvg />
       </NavigationA>
 
-            <NavigationA
+      <NavigationA
         href="https://tree.storylegend.app/?share=30dce0a7-4758-4210-ac4b-d36f818b4897&mode=view"
         title="Drzewa genealogiczne"
         desc='Rodzinne historie z "Latawca'
