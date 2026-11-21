@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import ContentWrapper from "@/components/read/ContentWrapper";
+import { notFound } from "next/navigation";
 import { getChapterTitles } from "@/app/utils/getChapterTitles";
 
 type Params = Promise<{ fic: string; index: string }>;
@@ -18,6 +19,7 @@ async function Read({ params }: { params: Params }) {
   const filesDir = path.join(process.cwd(), `fanfictions/${fic}/chapters/`);
 
   const filePath = path.join(filesDir, `${index}.html`);
+  if (!/^\d+$/.test(index) || !fs.existsSync(filePath)) notFound();
   const fileContent = fs.readFileSync(filePath, "utf-8");
 
   const chapterTitles = getChapterTitles(fic);

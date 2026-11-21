@@ -5,7 +5,6 @@ import Navigation from "@/components/Navigation";
 import { ThemeProvider } from "next-themes";
 import ThemeChanger from "@/components/read/ThemeChanger";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,6 +25,7 @@ export const metadata: Metadata = {
   title: "Kai Shouri",
   description:
     "Kai Shouri - strona domowa. Piję kawę i piszę fiki. Czasami w odwrotnej kolejności",
+  metadataBase: new URL("https://kaishouri.pl"),
 };
 
 export default function RootLayout({
@@ -38,13 +38,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <ThemeProvider enableSystem={false}
-        >
+        <ThemeProvider enableSystem={false}>
           <div className="flex h-dvh w-full">
             <Navigation />
             <main className="flex-1 overflow-auto mt-16 sm:mt-0 pb-[env(safe-area-inset-bottom)]">
               <section className="sm:flex flex-row justify-end hidden">
-              <ThemeChanger additionalClass="fixed" mobile={false} />
+                <ThemeChanger additionalClass="fixed" mobile={false} />
               </section>
               {children}
             </main>
