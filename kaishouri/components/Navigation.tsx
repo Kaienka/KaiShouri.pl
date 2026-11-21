@@ -61,21 +61,23 @@ function Navigation() {
 
       <div
         className={`
-    fixed top-0 left-0 w-[250px] flex flex-col justify-between
+    fixed top-0 left-0 w-[250px] flex flex-col
     transform transition-[transform,width,background-color] duration-300 ease-in-out
     ${isCollapsed ? "bg-nice-light-purple dark:bg-dark-plume" : "bg-plume-wine shadow-xl"}
     sm:relative sm:translate-x-0 ${isCollapsed ? "sm:w-[72px]" : "sm:w-[250px]"} sm:shrink-0
     ${isOpen ? "translate-x-0" : "-translate-x-full"}
     z-40
-    pt-16 sm:pt-0 pb-[env(safe-area-inset-bottom)] sm:pb-0 h-dvh sm:min-h-dvh
+    pt-16 sm:pt-0 h-dvh sm:min-h-dvh
   `}
       >
-        <div>
-          <Header
-           onClick={toggleMenu} />
-          <MainNavbar />
+        <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain flex flex-col justify-between">
+          <div>
+            <Header
+             onClick={toggleMenu} />
+            <MainNavbar />
+          </div>
+          <SocialLinks />
         </div>
-        <SocialLinks />
         <button
           type="button"
           onClick={toggleCollapsed}
