@@ -23,4 +23,4 @@ export const OG_COLORS = {
   light: "#f7f9ec",
 };
 
-export const SITE_DOMAIN = "kaishouri.pl";
+export const SITE_DOMAIN = "www.kaishouri.pl";

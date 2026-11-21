@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   title: "Kai Shouri",
   description:
     "Kai Shouri - strona domowa. Piję kawę i piszę fiki. Czasami w odwrotnej kolejności",
-  metadataBase: new URL("https://kaishouri.pl"),
+  metadataBase: new URL("https://www.kaishouri.pl"),
 };
 
 export default function RootLayout({

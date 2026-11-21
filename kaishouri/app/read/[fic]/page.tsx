@@ -6,6 +6,13 @@ import { getChapterTitles } from "@/app/utils/getChapterTitles";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+export function generateStaticParams() {
+  return fs
+    .readdirSync(path.join(process.cwd(), "fanfictions"), { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => ({ fic: d.name }));
+}
+
 type Params = Promise<{ fic: string }>;
 
 function readInfo(fic: string) {
