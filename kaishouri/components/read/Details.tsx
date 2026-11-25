@@ -202,7 +202,7 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
         {fic.title === "Polowanie na łabędzia" && (
           <div className="mt-4 lg:hidden [--kawa-panel-bg:var(--color-nice-light-purple)]">
             <HtmlWordCounter
-              folder="fanfictions/polowanienalabedzia/chapters"
+              folder="polowanienalabedzia/chapters"
               scope="Polowaniu na łabędzia"
               recursive
               variant="panel"
@@ -245,7 +245,7 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
         {fic.title === "Polowanie na łabędzia" && (
           <div className="mt-4">
             <HtmlWordCounter
-              folder="fanfictions/polowanienalabedzia/chapters"
+              folder="polowanienalabedzia/chapters"
               scope="Polowaniu na łabędzia"
               recursive
               variant="panel"

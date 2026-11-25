@@ -165,7 +165,7 @@ async function countInFolder(
   recursive: boolean,
   mode: MatchMode,
 ): Promise<Result> {
-  const dir = path.resolve(process.cwd(), folder);
+  const dir = path.join(process.cwd(), "fanfictions", folder);
   const names = await readdir(dir, { recursive });
   const regex = buildRegex(words, mode);
 
@@ -338,7 +338,7 @@ function CupIcon() {
 /* ---------------------------------- komponent ---------------------------------- */
 
 export default async function HtmlWordCounter({
-  folder = "fanfictions",
+  folder = "",
   words = DEFAULT_WORDS,
   label = "kawa",
   scope = "Y", // placeholder – podmień na własną nazwę
