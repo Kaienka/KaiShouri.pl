@@ -200,12 +200,11 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
         </p>
 
         {fic.title === "Polowanie na łabędzia" && (
-          <div className="mt-4 lg:hidden [--kawa-panel-bg:var(--color-nice-light-purple)]">
+          <div className="mt-4 lg:hidden ">
             <HtmlWordCounter
               folder="polowanienalabedzia/chapters"
               scope="Polowaniu na łabędzia"
               recursive
-              variant="panel"
             />
           </div>
         )}
@@ -248,7 +247,6 @@ async function Details({ fic, chapterTitles }: FanficDetails) {
               folder="polowanienalabedzia/chapters"
               scope="Polowaniu na łabędzia"
               recursive
-              variant="panel"
             />
           </div>
         )}
