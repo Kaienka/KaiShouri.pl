@@ -136,7 +136,7 @@ function ChapterContent({
 
       <article
         ref={articleRef}
-        className="m-4 p-4 w-10/12 sm:w-8/12 max-w-3xl font-inter flex flex-col items-center text-dark-plume dark:text-linen-cloud wrap-normal leading-relaxed"
+        className="m-4 p-4 w-10/12 sm:w-8/12 max-w-3xl font-inter flex flex-col items-center text-dark-plume dark:text-linen-cloud wrap-normal leading-relaxed [&_h2:first-of-type]:sr-only"
         style={{ fontSize: `${fontSize}rem` }}
         dangerouslySetInnerHTML={{ __html: styledContent }}
       />
