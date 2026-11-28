@@ -34,7 +34,7 @@ Z każdą kolejną porażką Feliks utwierdza się w przekonaniu, że matczyne �
           url="https://www.youtube.com/playlist?list=PLGOQRSmYAK1Y"
           title="Polowanie na łabędzia"
           description="Historia alternatywna, rok 2019. Rzesza wygrała. Personifikacje podbitych narodów wyczekują już śmierci, rozsiane po imperium pracują, by wypełnić jakoś swoje dni i mieć na chleb. Litwa pracuje jako nauczyciel muzyki, nosi żałobę i zastanawia się, kiedy nadejdzie koniec. Tymczasem w ogólnoniemieckiej sieci, Netzwerku, znikąd pojawia się niejaki Schwäne i zaczyna wysyłać wiadomości, a Litwa nabiera podejrzeń co do jego prawdziwej tożsamości..."
-          trackCount={57}
+          trackCount={58}
           thumbnail="/playlists/polowanie.png"
           spotifyUrl="https://open.spotify.com/embed/playlist/3pGnhAVWFWXLtgHetWBqnq"
         />
