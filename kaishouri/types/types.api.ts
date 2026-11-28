@@ -17,14 +17,6 @@ export type OC = {
     death?: number | string;
 }
 
-export type SpotifyIFrame = {
-    src: string;
-}
-
-export type Info = {
-    children: React.ReactElement | string;
-}
-
 export type Text = {
     title: string,
     children: React.ReactNode,
